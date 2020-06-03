@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89361B5124875E1A00FBED9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5024875E1A00FBED9B /* AppDelegate.swift */; };
+		89361B5324875E1A00FBED9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5224875E1A00FBED9B /* SceneDelegate.swift */; };
+		89361B5524875E1A00FBED9B /* PaymentConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */; };
+		89361B5824875E1A00FBED9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89361B5624875E1A00FBED9B /* Main.storyboard */; };
+		89361B5A24875E1B00FBED9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89361B5924875E1B00FBED9B /* Assets.xcassets */; };
+		89361B5D24875E1B00FBED9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89361B5B24875E1B00FBED9B /* LaunchScreen.storyboard */; };
+		89361B6824875E1B00FBED9B /* VillageWalletClientSDKReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B6724875E1B00FBED9B /* VillageWalletClientSDKReferenceTests.swift */; };
+		89361B7324875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B7224875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		89361B6424875E1B00FBED9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89361B4524875E1A00FBED9B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89361B4C24875E1A00FBED9B;
+			remoteInfo = VillageWalletClientSDKReference;
+		};
+		89361B6F24875E1B00FBED9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89361B4524875E1A00FBED9B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89361B4C24875E1A00FBED9B;
+			remoteInfo = VillageWalletClientSDKReference;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		89361B4D24875E1A00FBED9B /* VillageWalletClientSDKReference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VillageWalletClientSDKReference.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89361B5024875E1A00FBED9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89361B5224875E1A00FBED9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmViewController.swift; sourceTree = "<group>"; };
+		89361B5724875E1A00FBED9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89361B5924875E1B00FBED9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89361B5C24875E1B00FBED9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89361B5E24875E1B00FBED9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89361B6324875E1B00FBED9B /* VillageWalletClientSDKReferenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VillageWalletClientSDKReferenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89361B6724875E1B00FBED9B /* VillageWalletClientSDKReferenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillageWalletClientSDKReferenceTests.swift; sourceTree = "<group>"; };
+		89361B6924875E1B00FBED9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89361B6E24875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VillageWalletClientSDKReferenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89361B7224875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillageWalletClientSDKReferenceUITests.swift; sourceTree = "<group>"; };
+		89361B7424875E1B00FBED9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89361B4A24875E1A00FBED9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89361B6024875E1B00FBED9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89361B6B24875E1B00FBED9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89361B4424875E1A00FBED9B = {
+			isa = PBXGroup;
+			children = (
+				89361B4F24875E1A00FBED9B /* VillageWalletClientSDKReference */,
+				89361B6624875E1B00FBED9B /* VillageWalletClientSDKReferenceTests */,
+				89361B7124875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests */,
+				89361B4E24875E1A00FBED9B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89361B4E24875E1A00FBED9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89361B4D24875E1A00FBED9B /* VillageWalletClientSDKReference.app */,
+				89361B6324875E1B00FBED9B /* VillageWalletClientSDKReferenceTests.xctest */,
+				89361B6E24875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89361B4F24875E1A00FBED9B /* VillageWalletClientSDKReference */ = {
+			isa = PBXGroup;
+			children = (
+				89361B5024875E1A00FBED9B /* AppDelegate.swift */,
+				89361B5224875E1A00FBED9B /* SceneDelegate.swift */,
+				89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */,
+				89361B5624875E1A00FBED9B /* Main.storyboard */,
+				89361B5924875E1B00FBED9B /* Assets.xcassets */,
+				89361B5B24875E1B00FBED9B /* LaunchScreen.storyboard */,
+				89361B5E24875E1B00FBED9B /* Info.plist */,
+			);
+			path = VillageWalletClientSDKReference;
+			sourceTree = "<group>";
+		};
+		89361B6624875E1B00FBED9B /* VillageWalletClientSDKReferenceTests */ = {
+			isa = PBXGroup;
+			children = (
+				89361B6724875E1B00FBED9B /* VillageWalletClientSDKReferenceTests.swift */,
+				89361B6924875E1B00FBED9B /* Info.plist */,
+			);
+			path = VillageWalletClientSDKReferenceTests;
+			sourceTree = "<group>";
+		};
+		89361B7124875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				89361B7224875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.swift */,
+				89361B7424875E1B00FBED9B /* Info.plist */,
+			);
+			path = VillageWalletClientSDKReferenceUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89361B4C24875E1A00FBED9B /* VillageWalletClientSDKReference */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89361B7724875E1B00FBED9B /* Build configuration list for PBXNativeTarget "VillageWalletClientSDKReference" */;
+			buildPhases = (
+				89361B4924875E1A00FBED9B /* Sources */,
+				89361B4A24875E1A00FBED9B /* Frameworks */,
+				89361B4B24875E1A00FBED9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VillageWalletClientSDKReference;
+			productName = VillageWalletClientSDKReference;
+			productReference = 89361B4D24875E1A00FBED9B /* VillageWalletClientSDKReference.app */;
+			productType = "com.apple.product-type.application";
+		};
+		89361B6224875E1B00FBED9B /* VillageWalletClientSDKReferenceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89361B7A24875E1B00FBED9B /* Build configuration list for PBXNativeTarget "VillageWalletClientSDKReferenceTests" */;
+			buildPhases = (
+				89361B5F24875E1B00FBED9B /* Sources */,
+				89361B6024875E1B00FBED9B /* Frameworks */,
+				89361B6124875E1B00FBED9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89361B6524875E1B00FBED9B /* PBXTargetDependency */,
+			);
+			name = VillageWalletClientSDKReferenceTests;
+			productName = VillageWalletClientSDKReferenceTests;
+			productReference = 89361B6324875E1B00FBED9B /* VillageWalletClientSDKReferenceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		89361B6D24875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89361B7D24875E1B00FBED9B /* Build configuration list for PBXNativeTarget "VillageWalletClientSDKReferenceUITests" */;
+			buildPhases = (
+				89361B6A24875E1B00FBED9B /* Sources */,
+				89361B6B24875E1B00FBED9B /* Frameworks */,
+				89361B6C24875E1B00FBED9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89361B7024875E1B00FBED9B /* PBXTargetDependency */,
+			);
+			name = VillageWalletClientSDKReferenceUITests;
+			productName = VillageWalletClientSDKReferenceUITests;
+			productReference = 89361B6E24875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89361B4524875E1A00FBED9B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Kieran Simpson";
+				TargetAttributes = {
+					89361B4C24875E1A00FBED9B = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					89361B6224875E1B00FBED9B = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 89361B4C24875E1A00FBED9B;
+					};
+					89361B6D24875E1B00FBED9B = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 89361B4C24875E1A00FBED9B;
+					};
+				};
+			};
+			buildConfigurationList = 89361B4824875E1A00FBED9B /* Build configuration list for PBXProject "VillageWalletClientSDKReference" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 89361B4424875E1A00FBED9B;
+			productRefGroup = 89361B4E24875E1A00FBED9B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89361B4C24875E1A00FBED9B /* VillageWalletClientSDKReference */,
+				89361B6224875E1B00FBED9B /* VillageWalletClientSDKReferenceTests */,
+				89361B6D24875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89361B4B24875E1A00FBED9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89361B5D24875E1B00FBED9B /* LaunchScreen.storyboard in Resources */,
+				89361B5A24875E1B00FBED9B /* Assets.xcassets in Resources */,
+				89361B5824875E1A00FBED9B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89361B6124875E1B00FBED9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89361B6C24875E1B00FBED9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89361B4924875E1A00FBED9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89361B5524875E1A00FBED9B /* PaymentConfirmViewController.swift in Sources */,
+				89361B5124875E1A00FBED9B /* AppDelegate.swift in Sources */,
+				89361B5324875E1A00FBED9B /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89361B5F24875E1B00FBED9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89361B6824875E1B00FBED9B /* VillageWalletClientSDKReferenceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89361B6A24875E1B00FBED9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89361B7324875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89361B6524875E1B00FBED9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89361B4C24875E1A00FBED9B /* VillageWalletClientSDKReference */;
+			targetProxy = 89361B6424875E1B00FBED9B /* PBXContainerItemProxy */;
+		};
+		89361B7024875E1B00FBED9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89361B4C24875E1A00FBED9B /* VillageWalletClientSDKReference */;
+			targetProxy = 89361B6F24875E1B00FBED9B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		89361B5624875E1A00FBED9B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89361B5724875E1A00FBED9B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89361B5B24875E1B00FBED9B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89361B5C24875E1B00FBED9B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89361B7524875E1B00FBED9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		89361B7624875E1B00FBED9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89361B7824875E1B00FBED9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7XWK8GFQC7;
+				INFOPLIST_FILE = VillageWalletClientSDKReference/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.woolworths.village.app.VillageWalletClientSDKReference;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89361B7924875E1B00FBED9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7XWK8GFQC7;
+				INFOPLIST_FILE = VillageWalletClientSDKReference/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.woolworths.village.app.VillageWalletClientSDKReference;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		89361B7B24875E1B00FBED9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7XWK8GFQC7;
+				INFOPLIST_FILE = VillageWalletClientSDKReferenceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.woolworths.village.app.VillageWalletClientSDKReferenceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VillageWalletClientSDKReference.app/VillageWalletClientSDKReference";
+			};
+			name = Debug;
+		};
+		89361B7C24875E1B00FBED9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7XWK8GFQC7;
+				INFOPLIST_FILE = VillageWalletClientSDKReferenceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.woolworths.village.app.VillageWalletClientSDKReferenceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VillageWalletClientSDKReference.app/VillageWalletClientSDKReference";
+			};
+			name = Release;
+		};
+		89361B7E24875E1B00FBED9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7XWK8GFQC7;
+				INFOPLIST_FILE = VillageWalletClientSDKReferenceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.woolworths.village.app.VillageWalletClientSDKReferenceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VillageWalletClientSDKReference;
+			};
+			name = Debug;
+		};
+		89361B7F24875E1B00FBED9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7XWK8GFQC7;
+				INFOPLIST_FILE = VillageWalletClientSDKReferenceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.woolworths.village.app.VillageWalletClientSDKReferenceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VillageWalletClientSDKReference;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89361B4824875E1A00FBED9B /* Build configuration list for PBXProject "VillageWalletClientSDKReference" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89361B7524875E1B00FBED9B /* Debug */,
+				89361B7624875E1B00FBED9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89361B7724875E1B00FBED9B /* Build configuration list for PBXNativeTarget "VillageWalletClientSDKReference" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89361B7824875E1B00FBED9B /* Debug */,
+				89361B7924875E1B00FBED9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89361B7A24875E1B00FBED9B /* Build configuration list for PBXNativeTarget "VillageWalletClientSDKReferenceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89361B7B24875E1B00FBED9B /* Debug */,
+				89361B7C24875E1B00FBED9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89361B7D24875E1B00FBED9B /* Build configuration list for PBXNativeTarget "VillageWalletClientSDKReferenceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89361B7E24875E1B00FBED9B /* Debug */,
+				89361B7F24875E1B00FBED9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 89361B4524875E1A00FBED9B /* Project object */;
+}
