@@ -17,6 +17,8 @@
 		89361B7324875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B7224875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.swift */; };
 		89361B81248767DD00FBED9B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B80248767DD00FBED9B /* GradientView.swift */; };
 		89361B832487A11000FBED9B /* PaymentReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B822487A11000FBED9B /* PaymentReceiptViewController.swift */; };
+		893BD925248F3834006EA746 /* BasketItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */; };
+		893BD927248F3B9F006EA746 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893BD926248F3B9F006EA746 /* Basket.swift */; };
 		898F80EA24889D2000402105 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80E924889D2000402105 /* BottomSheet.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		89361B7424875E1B00FBED9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89361B80248767DD00FBED9B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		89361B822487A11000FBED9B /* PaymentReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentReceiptViewController.swift; sourceTree = "<group>"; };
+		893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItemTableViewCell.swift; sourceTree = "<group>"; };
+		893BD926248F3B9F006EA746 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		898F80E924889D2000402105 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +119,8 @@
 				89361B5924875E1B00FBED9B /* Assets.xcassets */,
 				89361B5B24875E1B00FBED9B /* LaunchScreen.storyboard */,
 				89361B5E24875E1B00FBED9B /* Info.plist */,
+				893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */,
+				893BD926248F3B9F006EA746 /* Basket.swift */,
 			);
 			path = VillageWalletClientSDKReference;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				893BD925248F3834006EA746 /* BasketItemTableViewCell.swift in Sources */,
+				893BD927248F3B9F006EA746 /* Basket.swift in Sources */,
 				89361B5524875E1A00FBED9B /* PaymentConfirmViewController.swift in Sources */,
 				89361B5124875E1A00FBED9B /* AppDelegate.swift in Sources */,
 				89361B81248767DD00FBED9B /* GradientView.swift in Sources */,
