@@ -19,6 +19,8 @@
 		89361B832487A11000FBED9B /* PaymentReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B822487A11000FBED9B /* PaymentReceiptViewController.swift */; };
 		893BD925248F3834006EA746 /* BasketItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */; };
 		893BD927248F3B9F006EA746 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893BD926248F3B9F006EA746 /* Basket.swift */; };
+		894458202490864E003233FB /* SlideToPayBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944581F2490864E003233FB /* SlideToPayBackground.swift */; };
+		894458222490AFC0003233FB /* SlideToPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894458212490AFC0003233FB /* SlideToPay.swift */; };
 		898F80EA24889D2000402105 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80E924889D2000402105 /* BottomSheet.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		89361B822487A11000FBED9B /* PaymentReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentReceiptViewController.swift; sourceTree = "<group>"; };
 		893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItemTableViewCell.swift; sourceTree = "<group>"; };
 		893BD926248F3B9F006EA746 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
+		8944581F2490864E003233FB /* SlideToPayBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPayBackground.swift; sourceTree = "<group>"; };
+		894458212490AFC0003233FB /* SlideToPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPay.swift; sourceTree = "<group>"; };
 		898F80E924889D2000402105 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,18 +113,20 @@
 		89361B4F24875E1A00FBED9B /* VillageWalletClientSDKReference */ = {
 			isa = PBXGroup;
 			children = (
+				89361B5024875E1A00FBED9B /* AppDelegate.swift */,
+				89361B5924875E1B00FBED9B /* Assets.xcassets */,
+				893BD926248F3B9F006EA746 /* Basket.swift */,
+				893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */,
 				898F80E924889D2000402105 /* BottomSheet.swift */,
 				89361B80248767DD00FBED9B /* GradientView.swift */,
-				89361B5024875E1A00FBED9B /* AppDelegate.swift */,
-				89361B5224875E1A00FBED9B /* SceneDelegate.swift */,
-				89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */,
-				89361B5624875E1A00FBED9B /* Main.storyboard */,
-				89361B822487A11000FBED9B /* PaymentReceiptViewController.swift */,
-				89361B5924875E1B00FBED9B /* Assets.xcassets */,
-				89361B5B24875E1B00FBED9B /* LaunchScreen.storyboard */,
 				89361B5E24875E1B00FBED9B /* Info.plist */,
-				893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */,
-				893BD926248F3B9F006EA746 /* Basket.swift */,
+				89361B5B24875E1B00FBED9B /* LaunchScreen.storyboard */,
+				89361B5624875E1A00FBED9B /* Main.storyboard */,
+				89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */,
+				89361B822487A11000FBED9B /* PaymentReceiptViewController.swift */,
+				89361B5224875E1A00FBED9B /* SceneDelegate.swift */,
+				894458212490AFC0003233FB /* SlideToPay.swift */,
+				8944581F2490864E003233FB /* SlideToPayBackground.swift */,
 			);
 			path = VillageWalletClientSDKReference;
 			sourceTree = "<group>";
@@ -279,7 +285,9 @@
 				89361B5524875E1A00FBED9B /* PaymentConfirmViewController.swift in Sources */,
 				89361B5124875E1A00FBED9B /* AppDelegate.swift in Sources */,
 				89361B81248767DD00FBED9B /* GradientView.swift in Sources */,
+				894458222490AFC0003233FB /* SlideToPay.swift in Sources */,
 				89361B5324875E1A00FBED9B /* SceneDelegate.swift in Sources */,
+				894458202490864E003233FB /* SlideToPayBackground.swift in Sources */,
 				898F80EA24889D2000402105 /* BottomSheet.swift in Sources */,
 				89361B832487A11000FBED9B /* PaymentReceiptViewController.swift in Sources */,
 			);

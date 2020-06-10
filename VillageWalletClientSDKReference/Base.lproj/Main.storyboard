@@ -22,7 +22,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$26.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnL-aI-AYg">
-                                <rect key="frame" x="91" y="176.5" width="113" height="39"/>
+                                <rect key="frame" x="91" y="177" width="113" height="38.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -30,18 +30,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcZ-Ir-JDM" userLabel="BottomSheet" customClass="BottomSheet" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="740" width="414" height="156"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QF-Pz-hiX">
-                                        <rect key="frame" x="157" y="63" width="101" height="30"/>
-                                        <state key="normal" title="Pretend to Pay"/>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZO-1A-3BB">
+                                        <rect key="frame" x="16" y="16" width="382" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="Kdg-mc-oMq"/>
+                                        </constraints>
                                         <connections>
-                                            <action selector="makePayment:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a4g-jY-k5x"/>
+                                            <segue destination="rK9-zf-t0m" kind="embed" id="IhW-4n-YVk"/>
                                         </connections>
-                                    </button>
+                                    </containerView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="7QF-Pz-hiX" firstAttribute="centerX" secondItem="jcZ-Ir-JDM" secondAttribute="centerX" id="jto-eE-ssH"/>
-                                    <constraint firstItem="7QF-Pz-hiX" firstAttribute="centerY" secondItem="jcZ-Ir-JDM" secondAttribute="centerY" id="z30-mf-1nK"/>
+                                    <constraint firstAttribute="trailing" secondItem="OZO-1A-3BB" secondAttribute="trailing" constant="16" id="2tm-e8-bRo"/>
+                                    <constraint firstItem="OZO-1A-3BB" firstAttribute="top" secondItem="jcZ-Ir-JDM" secondAttribute="top" constant="16" id="3La-d5-3iE"/>
+                                    <constraint firstItem="OZO-1A-3BB" firstAttribute="leading" secondItem="jcZ-Ir-JDM" secondAttribute="leading" constant="16" id="PCz-ld-i7q"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="peekHeight">
@@ -59,10 +62,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="POH-gy-JgB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="6bM-EN-EBf"/>
+                            <constraint firstAttribute="bottom" secondItem="jcZ-Ir-JDM" secondAttribute="bottom" id="Cnh-e1-Tc7"/>
                             <constraint firstItem="bnL-aI-AYg" firstAttribute="baseline" secondItem="POH-gy-JgB" secondAttribute="firstBaseline" id="Fv1-63-ACY"/>
                             <constraint firstItem="jcZ-Ir-JDM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RMq-J4-BWn"/>
                             <constraint firstItem="POH-gy-JgB" firstAttribute="baseline" secondItem="bnL-aI-AYg" secondAttribute="baseline" id="ThI-LB-qXR"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="jcZ-Ir-JDM" secondAttribute="bottom" constant="-34" id="U0y-Me-PaC"/>
                             <constraint firstItem="POH-gy-JgB" firstAttribute="centerY" secondItem="bnL-aI-AYg" secondAttribute="centerY" id="VKM-2h-V4d"/>
                             <constraint firstItem="bnL-aI-AYg" firstAttribute="leading" secondItem="POH-gy-JgB" secondAttribute="trailing" constant="4" id="YeX-q6-mP3"/>
                             <constraint firstItem="POH-gy-JgB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="133" id="dmd-20-6CI"/>
@@ -243,6 +246,7 @@ Soup WW Creamy Pumpkin Soup</string>
                             <constraint firstItem="jYg-hV-3Yr" firstAttribute="leading" secondItem="A99-g2-dJc" secondAttribute="trailing" constant="8" id="NrD-ZJ-cMi"/>
                             <constraint firstItem="Rrq-pi-XAf" firstAttribute="leading" secondItem="kWQ-jx-QVe" secondAttribute="leading" id="Q8h-vh-aWJ"/>
                             <constraint firstItem="A99-g2-dJc" firstAttribute="top" secondItem="MEb-5W-pvb" secondAttribute="bottom" constant="28" id="aYZ-yr-hPE"/>
+                            <constraint firstAttribute="bottom" secondItem="Rrq-pi-XAf" secondAttribute="bottom" id="fhj-aI-k9Q"/>
                             <constraint firstItem="MEb-5W-pvb" firstAttribute="baseline" secondItem="F16-lV-3uj" secondAttribute="baseline" id="hPZ-O3-CFn"/>
                             <constraint firstItem="MEb-5W-pvb" firstAttribute="leading" secondItem="A99-g2-dJc" secondAttribute="leading" id="oJ7-74-LVi"/>
                             <constraint firstAttribute="bottom" secondItem="Rrq-pi-XAf" secondAttribute="bottom" id="otT-Le-GLe"/>
@@ -281,6 +285,44 @@ Soup WW Creamy Pumpkin Soup</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8F5-eb-hUx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1092.753623188406" y="138.61607142857142"/>
+        </scene>
+        <!--Slide To Pay Controller-->
+        <scene sceneID="TYB-0k-L0v">
+            <objects>
+                <viewController id="rK9-zf-t0m" userLabel="Slide To Pay Controller" customClass="SlideToPay" customModule="VillageWalletClientSDKReference" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pUg-8n-9F1" customClass="SlideToPayBackground" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="382" height="70"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mastercard" translatesAutoresizingMaskIntoConstraints="NO" id="c8q-bi-3Er" userLabel="Button">
+                                <rect key="frame" x="5" y="5" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="05D-3j-ya6"/>
+                                    <constraint firstAttribute="height" constant="60" id="43z-tI-cs7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="c8q-bi-3Er" firstAttribute="top" secondItem="pUg-8n-9F1" secondAttribute="top" constant="5" id="4aq-2r-eTW"/>
+                            <constraint firstAttribute="bottom" secondItem="c8q-bi-3Er" secondAttribute="bottom" constant="5" id="e2j-vt-eTp"/>
+                            <constraint firstItem="c8q-bi-3Er" firstAttribute="leading" secondItem="pUg-8n-9F1" secondAttribute="leading" constant="5" id="mEQ-55-pT0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yQh-mX-0NO"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="corners">
+                                <real key="value" value="35"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="c8q-bi-3Er" id="VRQ-Ta-0es"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3EL-P3-Y3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-317.39130434782612" y="610.71428571428567"/>
         </scene>
     </scenes>
     <resources>
