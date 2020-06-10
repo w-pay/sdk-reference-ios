@@ -56,6 +56,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="marginTop">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="active" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -322,7 +323,7 @@ Soup WW Creamy Pumpkin Soup</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3EL-P3-Y3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-317.39130434782612" y="610.71428571428567"/>
+            <point key="canvasLocation" x="-242" y="589"/>
         </scene>
     </scenes>
     <resources>

@@ -9,7 +9,9 @@ enum BottomSheetViewState {
 class BottomSheet: UIView {
 	private let viewState : BottomSheetViewState = .normal
 
-	@IBInspectable var marginTop : CGFloat = 0
+	@IBInspectable var active: Bool = true
+
+	@IBInspectable var marginTop: CGFloat = 0
 
 	@IBInspectable var peekHeight: CGFloat = 0 {
 		didSet {
@@ -44,8 +46,6 @@ class BottomSheet: UIView {
 		addPanGesture()
 	}
 
-
-	// TODO: This should be added automatically
 	func addPanGesture() {
 		// add pan gesture recognizer to the view controller's view (the whole screen)
 		let viewPan = UIPanGestureRecognizer(target: self, action: #selector(viewPanned(_:)))
@@ -61,44 +61,46 @@ class BottomSheet: UIView {
 	}
 
 	@IBAction func viewPanned(_ panRecognizer: UIPanGestureRecognizer) {
-		// how much distance has user dragged the card view?
-		// positive number means user dragged downward
-		// negative number means user dragged upward
-		let translation = panRecognizer.translation(in: self)
+		if (active) {
+			// how much distance has user dragged the sheet?
+			// positive number means user dragged downward
+			// negative number means user dragged upward
+			let translation = panRecognizer.translation(in: self)
 
-		guard let maxSheetHeight = self.maxSheetHeight else {
-			guard
-				let safeAreaHeight = UIApplication.shared.keyWindow?.safeAreaLayoutGuide.layoutFrame.size.height,
-				let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom
-				else {
-					fatalError("Can't calculate max height")
-				}
+			guard let maxSheetHeight = self.maxSheetHeight else {
+				guard
+					let safeAreaHeight = UIApplication.shared.keyWindow?.safeAreaLayoutGuide.layoutFrame.size.height,
+					let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom
+					else {
+						fatalError("Can't calculate max height")
+					}
 
-			self.maxSheetHeight = (safeAreaHeight + bottomPadding) - marginTop
+				self.maxSheetHeight = (safeAreaHeight + bottomPadding) - marginTop
 
-			// since we can't fall through with a guard, use recursion
-			return viewPanned(panRecognizer)
-		}
+				// since we can't fall through with a guard, use recursion
+				return viewPanned(panRecognizer)
+			}
 
-		switch panRecognizer.state {
-			case .began:
-				startingHeight = sheetHeight?.constant ?? 0
+			switch panRecognizer.state {
+				case .began:
+					startingHeight = sheetHeight?.constant ?? 0
 
-			case .changed:
-				let newHeight: CGFloat = startingHeight! - translation.y
+				case .changed:
+					let newHeight: CGFloat = startingHeight! - translation.y
 
-				if (newHeight < peekHeight) {
-					return
-				}
+					if (newHeight < peekHeight) {
+						return
+					}
 
-				if (newHeight > maxSheetHeight) {
-					return
-				}
+					if (newHeight > maxSheetHeight) {
+						return
+					}
 
-				updateHeight(height: newHeight)
+					updateHeight(height: newHeight)
 
-			default:
-				break
+				default:
+					break
+			}
 		}
 	}
 
