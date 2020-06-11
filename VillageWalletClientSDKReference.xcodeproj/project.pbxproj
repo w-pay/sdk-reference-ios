@@ -24,6 +24,7 @@
 		894458202490864E003233FB /* SlideToPayBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944581F2490864E003233FB /* SlideToPayBackground.swift */; };
 		894458222490AFC0003233FB /* SlideToPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894458212490AFC0003233FB /* SlideToPay.swift */; };
 		898F80EA24889D2000402105 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80E924889D2000402105 /* BottomSheet.swift */; };
+		BC8DC51AEB822327BE1DF7D7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC85DF804656C03DBBC89 /* README.md */; };
 		BF5F68DB64DA1919033D4A70 /* Pods_VillageWalletClientSDKReferenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02737F1D4A13D74C79668527 /* Pods_VillageWalletClientSDKReferenceTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		8944581F2490864E003233FB /* SlideToPayBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPayBackground.swift; sourceTree = "<group>"; };
 		894458212490AFC0003233FB /* SlideToPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPay.swift; sourceTree = "<group>"; };
 		898F80E924889D2000402105 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		BC8DC85DF804656C03DBBC89 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A3DAA88D24E469D4DC7243 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C3130BE38596A2EA5576C20F /* Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReferenceTests/Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */,
 				3A18D6D7609E05DDC2CE75D6 /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceUITests.framework */,
 				02737F1D4A13D74C79668527 /* Pods_VillageWalletClientSDKReferenceTests.framework */,
+				BC8DC85DF804656C03DBBC89 /* README.md */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				894458202490864E003233FB /* SlideToPayBackground.swift in Sources */,
 				898F80EA24889D2000402105 /* BottomSheet.swift in Sources */,
 				89361B832487A11000FBED9B /* PaymentReceiptViewController.swift in Sources */,
+				BC8DC51AEB822327BE1DF7D7 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
