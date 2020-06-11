@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0C66376A43AEB780F35E5D /* Pods_VillageWalletClientSDKReference.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */; };
+		297427E79E272D43ED4E7AE9 /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18D6D7609E05DDC2CE75D6 /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceUITests.framework */; };
 		89361B5124875E1A00FBED9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5024875E1A00FBED9B /* AppDelegate.swift */; };
 		89361B5324875E1A00FBED9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5224875E1A00FBED9B /* SceneDelegate.swift */; };
 		89361B5524875E1A00FBED9B /* PaymentConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */; };
@@ -22,6 +24,7 @@
 		894458202490864E003233FB /* SlideToPayBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944581F2490864E003233FB /* SlideToPayBackground.swift */; };
 		894458222490AFC0003233FB /* SlideToPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894458212490AFC0003233FB /* SlideToPay.swift */; };
 		898F80EA24889D2000402105 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80E924889D2000402105 /* BottomSheet.swift */; };
+		BF5F68DB64DA1919033D4A70 /* Pods_VillageWalletClientSDKReferenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02737F1D4A13D74C79668527 /* Pods_VillageWalletClientSDKReferenceTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02737F1D4A13D74C79668527 /* Pods_VillageWalletClientSDKReferenceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReferenceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11D62C72243C26F694DFEBB5 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.debug.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3A18D6D7609E05DDC2CE75D6 /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		431ED4BC7154984CB5395D99 /* Pods-VillageWalletClientSDKReferenceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReferenceTests.release.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReferenceTests/Pods-VillageWalletClientSDKReferenceTests.release.xcconfig"; sourceTree = "<group>"; };
+		7927F195CA95644BBBEB00B6 /* Pods-VillageWalletClientSDKReference.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReference.release.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReference/Pods-VillageWalletClientSDKReference.release.xcconfig"; sourceTree = "<group>"; };
 		89361B4D24875E1A00FBED9B /* VillageWalletClientSDKReference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VillageWalletClientSDKReference.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89361B5024875E1A00FBED9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89361B5224875E1A00FBED9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +71,10 @@
 		8944581F2490864E003233FB /* SlideToPayBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPayBackground.swift; sourceTree = "<group>"; };
 		894458212490AFC0003233FB /* SlideToPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPay.swift; sourceTree = "<group>"; };
 		898F80E924889D2000402105 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A3DAA88D24E469D4DC7243 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C3130BE38596A2EA5576C20F /* Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReferenceTests/Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D5E5363D2B732621FCBDAB0E /* Pods-VillageWalletClientSDKReference.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReference.debug.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReference/Pods-VillageWalletClientSDKReference.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D0C66376A43AEB780F35E5D /* Pods_VillageWalletClientSDKReference.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5F68DB64DA1919033D4A70 /* Pods_VillageWalletClientSDKReferenceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,12 +98,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				297427E79E272D43ED4E7AE9 /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EF3764A56028CD16E7FEBEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */,
+				3A18D6D7609E05DDC2CE75D6 /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceUITests.framework */,
+				02737F1D4A13D74C79668527 /* Pods_VillageWalletClientSDKReferenceTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		89361B4424875E1A00FBED9B = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +122,8 @@
 				89361B6624875E1B00FBED9B /* VillageWalletClientSDKReferenceTests */,
 				89361B7124875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests */,
 				89361B4E24875E1A00FBED9B /* Products */,
+				D8568702C6D8E515D700072A /* Pods */,
+				0EF3764A56028CD16E7FEBEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +176,20 @@
 			path = VillageWalletClientSDKReferenceUITests;
 			sourceTree = "<group>";
 		};
+		D8568702C6D8E515D700072A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5E5363D2B732621FCBDAB0E /* Pods-VillageWalletClientSDKReference.debug.xcconfig */,
+				7927F195CA95644BBBEB00B6 /* Pods-VillageWalletClientSDKReference.release.xcconfig */,
+				11D62C72243C26F694DFEBB5 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.debug.xcconfig */,
+				C2A3DAA88D24E469D4DC7243 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig */,
+				C3130BE38596A2EA5576C20F /* Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig */,
+				431ED4BC7154984CB5395D99 /* Pods-VillageWalletClientSDKReferenceTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,9 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89361B7724875E1B00FBED9B /* Build configuration list for PBXNativeTarget "VillageWalletClientSDKReference" */;
 			buildPhases = (
+				F8D4D93915D2A51A02D3DF9E /* [CP] Check Pods Manifest.lock */,
 				89361B4924875E1A00FBED9B /* Sources */,
 				89361B4A24875E1A00FBED9B /* Frameworks */,
 				89361B4B24875E1A00FBED9B /* Resources */,
+				AE730EB4E5CFF9DD82213DC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89361B7A24875E1B00FBED9B /* Build configuration list for PBXNativeTarget "VillageWalletClientSDKReferenceTests" */;
 			buildPhases = (
+				0CD00DEDBFA93CEBD86744CE /* [CP] Check Pods Manifest.lock */,
 				89361B5F24875E1B00FBED9B /* Sources */,
 				89361B6024875E1B00FBED9B /* Frameworks */,
 				89361B6124875E1B00FBED9B /* Resources */,
@@ -191,9 +235,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89361B7D24875E1B00FBED9B /* Build configuration list for PBXNativeTarget "VillageWalletClientSDKReferenceUITests" */;
 			buildPhases = (
+				FB26120F4CFC303BA61059B9 /* [CP] Check Pods Manifest.lock */,
 				89361B6A24875E1B00FBED9B /* Sources */,
 				89361B6B24875E1B00FBED9B /* Frameworks */,
 				89361B6C24875E1B00FBED9B /* Resources */,
+				3C8D1FFB604FBC9B49F1AA47 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,6 +320,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CD00DEDBFA93CEBD86744CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VillageWalletClientSDKReferenceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C8D1FFB604FBC9B49F1AA47 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE730EB4E5CFF9DD82213DC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VillageWalletClientSDKReference/Pods-VillageWalletClientSDKReference-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VillageWalletClientSDKReference/Pods-VillageWalletClientSDKReference-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VillageWalletClientSDKReference/Pods-VillageWalletClientSDKReference-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8D4D93915D2A51A02D3DF9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VillageWalletClientSDKReference-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB26120F4CFC303BA61059B9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		89361B4924875E1A00FBED9B /* Sources */ = {
@@ -460,6 +609,7 @@
 		};
 		89361B7824875E1B00FBED9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5E5363D2B732621FCBDAB0E /* Pods-VillageWalletClientSDKReference.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -478,6 +628,7 @@
 		};
 		89361B7924875E1B00FBED9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7927F195CA95644BBBEB00B6 /* Pods-VillageWalletClientSDKReference.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -496,6 +647,7 @@
 		};
 		89361B7B24875E1B00FBED9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3130BE38596A2EA5576C20F /* Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -518,6 +670,7 @@
 		};
 		89361B7C24875E1B00FBED9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 431ED4BC7154984CB5395D99 /* Pods-VillageWalletClientSDKReferenceTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -540,6 +693,7 @@
 		};
 		89361B7E24875E1B00FBED9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11D62C72243C26F694DFEBB5 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -560,6 +714,7 @@
 		};
 		89361B7F24875E1B00FBED9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2A3DAA88D24E469D4DC7243 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
