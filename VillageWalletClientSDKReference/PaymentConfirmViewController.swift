@@ -2,7 +2,8 @@ import UIKit
 
 class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	@IBOutlet weak var action: UILabel!
-
+	@IBOutlet weak var bottomSheet: BottomSheet!
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
@@ -38,7 +39,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 		}
 	}
 
-	@IBAction func makePayment(_ sender: UIButton) {
+	func makePayment() {
 		action.text = "Paying"
 
 		setTimeout(2) {
@@ -47,7 +48,14 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	}
 
 	func onSwiped() {
-		print("Swiped")	
+		UIView.animate(withDuration: 0.2, animations: {
+			/*
+	     * If we fade the view, the contents also disappears. So fade the background instead
+	     */
+			self.bottomSheet.backgroundColor = self.bottomSheet.backgroundColor?.withAlphaComponent(0)
+		})
+
+		makePayment()
 	}
 
 	private func setTimeout(_ delay: TimeInterval, block: @escaping () -> Void) -> Timer {

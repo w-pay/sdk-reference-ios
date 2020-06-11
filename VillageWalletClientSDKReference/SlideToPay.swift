@@ -91,16 +91,25 @@ class SlideToPay: UIViewController {
 
 		if (newConstraintConstant > maxConstant) {
 			if (!locked) {
-				locked = true
-
-				leadingEdgeConstraint.constant = maxConstant
-				delegate?.onSwiped()
+				lock()
 			}
 
 			return
 		}
 
 		leadingEdgeConstraint.constant = newConstraintConstant
+	}
+
+	private func lock() {
+		locked = true
+
+		leadingEdgeConstraint.constant = maxContraintConstant!
+
+		UIView.animate(withDuration: 0.2, animations: {
+			self.background.alpha = 0
+		})
+
+		delegate?.onSwiped()
 	}
 
 	private func adjustTextAlpha() {

@@ -86,6 +86,7 @@
                     </view>
                     <connections>
                         <outlet property="action" destination="POH-gy-JgB" id="JaQ-JJ-KWg"/>
+                        <outlet property="bottomSheet" destination="jcZ-Ir-JDM" id="DBe-8H-mVh"/>
                         <segue destination="cAO-i7-TCd" kind="presentation" identifier="ShowReceipt" modalPresentationStyle="fullScreen" id="fO4-S3-e4S"/>
                     </connections>
                 </viewController>
@@ -291,10 +292,19 @@ Soup WW Creamy Pumpkin Soup</string>
         <scene sceneID="TYB-0k-L0v">
             <objects>
                 <viewController id="rK9-zf-t0m" userLabel="Slide To Pay Controller" customClass="SlideToPay" customModule="VillageWalletClientSDKReference" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pUg-8n-9F1" customClass="SlideToPayBackground" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="pUg-8n-9F1" userLabel="View">
                         <rect key="frame" x="0.0" y="0.0" width="382" height="70"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWt-Zg-fq9" userLabel="Background" customClass="SlideToPayBackground" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="382" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="corners">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mastercard" translatesAutoresizingMaskIntoConstraints="NO" id="c8q-bi-3Er" userLabel="Button">
                                 <rect key="frame" x="5" y="5" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -310,13 +320,17 @@ Soup WW Creamy Pumpkin Soup</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ze3-Ar-icg" firstAttribute="centerY" secondItem="pUg-8n-9F1" secondAttribute="centerY" id="039-LA-p5Z"/>
                             <constraint firstItem="c8q-bi-3Er" firstAttribute="top" secondItem="pUg-8n-9F1" secondAttribute="top" constant="5" id="4aq-2r-eTW"/>
+                            <constraint firstAttribute="bottom" secondItem="rWt-Zg-fq9" secondAttribute="bottom" id="9Wq-Sd-qos"/>
+                            <constraint firstItem="rWt-Zg-fq9" firstAttribute="top" secondItem="pUg-8n-9F1" secondAttribute="top" id="JCD-76-YAC"/>
                             <constraint firstItem="ze3-Ar-icg" firstAttribute="centerX" secondItem="pUg-8n-9F1" secondAttribute="centerX" id="OCG-7v-wNC"/>
+                            <constraint firstItem="rWt-Zg-fq9" firstAttribute="leading" secondItem="pUg-8n-9F1" secondAttribute="leading" id="QmH-x3-IDV"/>
                             <constraint firstAttribute="bottom" secondItem="c8q-bi-3Er" secondAttribute="bottom" constant="5" id="e2j-vt-eTp"/>
                             <constraint firstItem="c8q-bi-3Er" firstAttribute="leading" secondItem="pUg-8n-9F1" secondAttribute="leading" constant="5" id="mEQ-55-pT0"/>
+                            <constraint firstAttribute="trailing" secondItem="rWt-Zg-fq9" secondAttribute="trailing" id="oQT-tm-uo1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yQh-mX-0NO"/>
                         <userDefinedRuntimeAttributes>
@@ -326,7 +340,7 @@ Soup WW Creamy Pumpkin Soup</string>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
-                        <outlet property="background" destination="pUg-8n-9F1" id="50F-1G-bql"/>
+                        <outlet property="background" destination="rWt-Zg-fq9" id="LhW-iR-wal"/>
                         <outlet property="button" destination="c8q-bi-3Er" id="VRQ-Ta-0es"/>
                         <outlet property="leadingEdgeConstraint" destination="mEQ-55-pT0" id="FaP-3d-9hv"/>
                         <outlet property="text" destination="ze3-Ar-icg" id="QTh-ec-IUF"/>
