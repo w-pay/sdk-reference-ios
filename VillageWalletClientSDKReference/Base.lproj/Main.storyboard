@@ -36,7 +36,7 @@
                                             <constraint firstAttribute="height" constant="70" id="Kdg-mc-oMq"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="rK9-zf-t0m" kind="embed" id="IhW-4n-YVk"/>
+                                            <segue destination="rK9-zf-t0m" kind="embed" identifier="AddSlideToPay" id="IhW-4n-YVk"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
@@ -303,10 +303,18 @@ Soup WW Creamy Pumpkin Soup</string>
                                     <constraint firstAttribute="height" constant="60" id="43z-tI-cs7"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide To Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze3-Ar-icg">
+                                <rect key="frame" x="142" y="24.5" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="ze3-Ar-icg" firstAttribute="centerY" secondItem="pUg-8n-9F1" secondAttribute="centerY" id="039-LA-p5Z"/>
                             <constraint firstItem="c8q-bi-3Er" firstAttribute="top" secondItem="pUg-8n-9F1" secondAttribute="top" constant="5" id="4aq-2r-eTW"/>
+                            <constraint firstItem="ze3-Ar-icg" firstAttribute="centerX" secondItem="pUg-8n-9F1" secondAttribute="centerX" id="OCG-7v-wNC"/>
                             <constraint firstAttribute="bottom" secondItem="c8q-bi-3Er" secondAttribute="bottom" constant="5" id="e2j-vt-eTp"/>
                             <constraint firstItem="c8q-bi-3Er" firstAttribute="leading" secondItem="pUg-8n-9F1" secondAttribute="leading" constant="5" id="mEQ-55-pT0"/>
                         </constraints>
@@ -318,12 +326,15 @@ Soup WW Creamy Pumpkin Soup</string>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="background" destination="pUg-8n-9F1" id="50F-1G-bql"/>
                         <outlet property="button" destination="c8q-bi-3Er" id="VRQ-Ta-0es"/>
+                        <outlet property="leadingEdgeConstraint" destination="mEQ-55-pT0" id="FaP-3d-9hv"/>
+                        <outlet property="text" destination="ze3-Ar-icg" id="QTh-ec-IUF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3EL-P3-Y3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-242" y="589"/>
+            <point key="canvasLocation" x="-212" y="589"/>
         </scene>
     </scenes>
     <resources>

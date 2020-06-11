@@ -1,22 +1,22 @@
 import UIKit
 
-class PaymentConfirmViewController: UIViewController {
+class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	@IBOutlet weak var action: UILabel!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
 
-	@IBAction func makePayment(_ sender: UIButton) {
-		action.text = "Paying"
-
-		setTimeout(2) {
-			self.performSegue(withIdentifier: "ShowReceipt", sender: self)
-		}
-	}
-
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		super.prepare(for: segue, sender: sender)
+
+		if (segue.identifier == "AddSlideToPay") {
+			guard let slideToPay = segue.destination as? SlideToPay else {
+				fatalError("Destination is not SlideToPay")
+			}
+
+			slideToPay.delegate = self
+		}
 
 		if (segue.identifier == "ShowReceipt") {
 			let basket = Basket()
@@ -36,6 +36,18 @@ class PaymentConfirmViewController: UIViewController {
 
 			paymentReceiptController.basket = basket
 		}
+	}
+
+	@IBAction func makePayment(_ sender: UIButton) {
+		action.text = "Paying"
+
+		setTimeout(2) {
+			self.performSegue(withIdentifier: "ShowReceipt", sender: self)
+		}
+	}
+
+	func onSwiped() {
+		print("Swiped")	
 	}
 
 	private func setTimeout(_ delay: TimeInterval, block: @escaping () -> Void) -> Timer {
