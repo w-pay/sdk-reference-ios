@@ -1,4 +1,5 @@
 import UIKit
+import MaterialComponents.MaterialActivityIndicator
 
 protocol SlideToPayDelegate {
 	func onSwiped();
@@ -6,8 +7,9 @@ protocol SlideToPayDelegate {
 
 class SlideToPay: UIViewController {
 	@IBOutlet weak var background: SlideToPayBackground!
-	@IBOutlet weak var button: UIImageView!
+	@IBOutlet weak var button: UIView!
 	@IBOutlet weak var text: UILabel!
+	@IBOutlet weak var progress: MDCActivityIndicator!
 	@IBOutlet weak var leadingEdgeConstraint: NSLayoutConstraint!
 
 	var delegate: SlideToPayDelegate?
@@ -15,6 +17,7 @@ class SlideToPay: UIViewController {
 	private var margin: CGFloat?
 	private var maxContraintConstant: CGFloat?
 	private var previousTranslation: CGPoint?
+	private var initialAlpha: CGFloat = 1
 
 	/** Whether or not we can move the button */
 	private var locked: Bool = false
@@ -22,7 +25,10 @@ class SlideToPay: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		initialAlpha = text.alpha
+
 		makeButtonCircular()
+		setupProgressIndicator()
 		addPanGesture()
 	}
 
@@ -39,8 +45,6 @@ class SlideToPay: UIViewController {
 			let margin = margin,
 			let maxConstant = maxContraintConstant
 			else {
-				print("background: \(background.bounds.width)")
-				print("button: \(button.bounds.width)")
 				self.margin = leadingEdgeConstraint.constant
 				self.maxContraintConstant = background.frame.width - button.frame.width - self.margin!
 
@@ -65,7 +69,7 @@ class SlideToPay: UIViewController {
 			case .ended:
 				if (leadingEdgeConstraint.constant < maxConstant) {
 					leadingEdgeConstraint.constant = margin
-					text.alpha = 1
+					text.alpha = initialAlpha
 				}
 
 			default:
@@ -109,6 +113,8 @@ class SlideToPay: UIViewController {
 			self.background.alpha = 0
 		})
 
+		progress.startAnimating()
+
 		delegate?.onSwiped()
 	}
 
@@ -132,5 +138,10 @@ class SlideToPay: UIViewController {
 
 	private func makeButtonCircular() {
 		button.layer.cornerRadius = button.frame.height / 2
+	}
+
+	private func setupProgressIndicator() {
+		progress.radius = 25
+		progress.cycleColors = [ .white ]
 	}
 }

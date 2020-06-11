@@ -305,32 +305,49 @@ Soup WW Creamy Pumpkin Soup</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mastercard" translatesAutoresizingMaskIntoConstraints="NO" id="c8q-bi-3Er" userLabel="Button">
-                                <rect key="frame" x="5" y="5" width="60" height="60"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="05D-3j-ya6"/>
-                                    <constraint firstAttribute="height" constant="60" id="43z-tI-cs7"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide To Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze3-Ar-icg">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide To Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze3-Ar-icg">
                                 <rect key="frame" x="142" y="24.5" width="98" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wwn-4h-NnG" userLabel="Button">
+                                <rect key="frame" x="5" y="5" width="60" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFN-HQ-mkC" customClass="MDCActivityIndicator">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mastercard" translatesAutoresizingMaskIntoConstraints="NO" id="c8q-bi-3Er" userLabel="Logo">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="c8q-bi-3Er" firstAttribute="leading" secondItem="Wwn-4h-NnG" secondAttribute="leading" id="2nJ-vf-bIa"/>
+                                    <constraint firstAttribute="bottom" secondItem="JFN-HQ-mkC" secondAttribute="bottom" id="6rW-no-i6i"/>
+                                    <constraint firstAttribute="width" constant="60" id="PRN-d0-4IX"/>
+                                    <constraint firstItem="c8q-bi-3Er" firstAttribute="top" secondItem="Wwn-4h-NnG" secondAttribute="top" id="Rbm-ha-yDj"/>
+                                    <constraint firstItem="JFN-HQ-mkC" firstAttribute="leading" secondItem="Wwn-4h-NnG" secondAttribute="leading" id="SRW-Xt-dJl"/>
+                                    <constraint firstAttribute="bottom" secondItem="c8q-bi-3Er" secondAttribute="bottom" id="XQJ-NC-f2O"/>
+                                    <constraint firstAttribute="trailing" secondItem="c8q-bi-3Er" secondAttribute="trailing" id="gX2-1k-c5B"/>
+                                    <constraint firstAttribute="trailing" secondItem="JFN-HQ-mkC" secondAttribute="trailing" id="hQb-h0-oNA"/>
+                                    <constraint firstItem="JFN-HQ-mkC" firstAttribute="top" secondItem="Wwn-4h-NnG" secondAttribute="top" id="hVt-Np-AYP"/>
+                                    <constraint firstAttribute="height" constant="60" id="j61-Un-tkc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ze3-Ar-icg" firstAttribute="centerY" secondItem="pUg-8n-9F1" secondAttribute="centerY" id="039-LA-p5Z"/>
-                            <constraint firstItem="c8q-bi-3Er" firstAttribute="top" secondItem="pUg-8n-9F1" secondAttribute="top" constant="5" id="4aq-2r-eTW"/>
                             <constraint firstAttribute="bottom" secondItem="rWt-Zg-fq9" secondAttribute="bottom" id="9Wq-Sd-qos"/>
                             <constraint firstItem="rWt-Zg-fq9" firstAttribute="top" secondItem="pUg-8n-9F1" secondAttribute="top" id="JCD-76-YAC"/>
                             <constraint firstItem="ze3-Ar-icg" firstAttribute="centerX" secondItem="pUg-8n-9F1" secondAttribute="centerX" id="OCG-7v-wNC"/>
                             <constraint firstItem="rWt-Zg-fq9" firstAttribute="leading" secondItem="pUg-8n-9F1" secondAttribute="leading" id="QmH-x3-IDV"/>
-                            <constraint firstAttribute="bottom" secondItem="c8q-bi-3Er" secondAttribute="bottom" constant="5" id="e2j-vt-eTp"/>
-                            <constraint firstItem="c8q-bi-3Er" firstAttribute="leading" secondItem="pUg-8n-9F1" secondAttribute="leading" constant="5" id="mEQ-55-pT0"/>
+                            <constraint firstItem="yQh-mX-0NO" firstAttribute="bottom" secondItem="Wwn-4h-NnG" secondAttribute="bottom" constant="5" id="jcl-Ip-epi"/>
+                            <constraint firstItem="Wwn-4h-NnG" firstAttribute="leading" secondItem="yQh-mX-0NO" secondAttribute="leading" constant="5" id="mG2-kT-dyp"/>
                             <constraint firstAttribute="trailing" secondItem="rWt-Zg-fq9" secondAttribute="trailing" id="oQT-tm-uo1"/>
+                            <constraint firstItem="Wwn-4h-NnG" firstAttribute="top" secondItem="pUg-8n-9F1" secondAttribute="top" constant="5" id="xUx-Pz-Ttq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yQh-mX-0NO"/>
                         <userDefinedRuntimeAttributes>
@@ -341,14 +358,15 @@ Soup WW Creamy Pumpkin Soup</string>
                     </view>
                     <connections>
                         <outlet property="background" destination="rWt-Zg-fq9" id="LhW-iR-wal"/>
-                        <outlet property="button" destination="c8q-bi-3Er" id="VRQ-Ta-0es"/>
-                        <outlet property="leadingEdgeConstraint" destination="mEQ-55-pT0" id="FaP-3d-9hv"/>
+                        <outlet property="button" destination="Wwn-4h-NnG" id="K7d-h1-Hb7"/>
+                        <outlet property="leadingEdgeConstraint" destination="mG2-kT-dyp" id="THd-i1-C5n"/>
+                        <outlet property="progress" destination="JFN-HQ-mkC" id="lzm-gX-Amt"/>
                         <outlet property="text" destination="ze3-Ar-icg" id="QTh-ec-IUF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3EL-P3-Y3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-212" y="589"/>
+            <point key="canvasLocation" x="-213.04347826086959" y="588.61607142857144"/>
         </scene>
     </scenes>
     <resources>
