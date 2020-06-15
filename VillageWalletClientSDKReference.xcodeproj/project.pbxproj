@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D0C66376A43AEB780F35E5D /* Pods_VillageWalletClientSDKReference.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */; };
 		297427E79E272D43ED4E7AE9 /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18D6D7609E05DDC2CE75D6 /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceUITests.framework */; };
+		890304D024970DD00083F31C /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890304CF24970DD00083F31C /* PaymentService.swift */; };
 		89361B5124875E1A00FBED9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5024875E1A00FBED9B /* AppDelegate.swift */; };
 		89361B5324875E1A00FBED9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5224875E1A00FBED9B /* SceneDelegate.swift */; };
 		89361B5524875E1A00FBED9B /* PaymentConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */; };
@@ -52,6 +53,7 @@
 		431ED4BC7154984CB5395D99 /* Pods-VillageWalletClientSDKReferenceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReferenceTests.release.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReferenceTests/Pods-VillageWalletClientSDKReferenceTests.release.xcconfig"; sourceTree = "<group>"; };
 		7927F195CA95644BBBEB00B6 /* Pods-VillageWalletClientSDKReference.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReference.release.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReference/Pods-VillageWalletClientSDKReference.release.xcconfig"; sourceTree = "<group>"; };
 		890304CE2496F6670083F31C /* VillageWalletClientSDKReference-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VillageWalletClientSDKReference-Swift.h"; sourceTree = "<group>"; };
+		890304CF24970DD00083F31C /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 		89361B4D24875E1A00FBED9B /* VillageWalletClientSDKReference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VillageWalletClientSDKReference.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89361B5024875E1A00FBED9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89361B5224875E1A00FBED9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				89361B5624875E1A00FBED9B /* Main.storyboard */,
 				89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */,
 				89361B822487A11000FBED9B /* PaymentReceiptViewController.swift */,
+				890304CF24970DD00083F31C /* PaymentService.swift */,
 				89361B5224875E1A00FBED9B /* SceneDelegate.swift */,
 				894458212490AFC0003233FB /* SlideToPay.swift */,
 				8944581F2490864E003233FB /* SlideToPayBackground.swift */,
@@ -443,6 +446,7 @@
 				894458202490864E003233FB /* SlideToPayBackground.swift in Sources */,
 				898F80EA24889D2000402105 /* BottomSheet.swift in Sources */,
 				89361B832487A11000FBED9B /* PaymentReceiptViewController.swift in Sources */,
+				890304D024970DD00083F31C /* PaymentService.swift in Sources */,
 				BC8DC51AEB822327BE1DF7D7 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
