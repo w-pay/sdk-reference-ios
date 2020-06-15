@@ -18,7 +18,7 @@ class PaymentService {
 	}
 
 	func retrievePaymentRequestDetails(qrCodeId: String, callback: @escaping (OAICustomerPaymentDetail?, HTTPURLResponse?) -> Void) {
-		api.getCustomerPaymentDetailsByQRCodeId(withQrId: qrCodeId, completionHandler: { result, error in
+		api.getCustomerPaymentDetailsByQRCodeId(withQrId: qrCodeId, completionHandler: { results, error in
 			guard error == nil else {
 				let resp = self.extractHttpResponse(error: error! as NSError)
 
@@ -27,8 +27,22 @@ class PaymentService {
 				return
 			}
 
-			callback(result!.data, nil)
+			callback(results!.data, nil)
 		})
+	}
+
+	func retrievePaymentInstruments(callback: @escaping (OAIGetCustomerPaymentInstrumentsResultsData?, HTTPURLResponse?) -> Void) {
+		api.getCustomerPaymentInstruments { results, error in
+			guard error == nil else {
+				let resp = self.extractHttpResponse(error: error! as NSError)
+
+				callback(nil, resp)
+
+				return
+			}
+
+			callback(results!.data, nil)
+		}
 	}
 
 	private func extractHttpResponse(error: NSError) -> HTTPURLResponse {
