@@ -19,9 +19,12 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 		super.viewDidLoad()
 
 		// FIXME: Get from actual code.
-		let qrCode = "c57cec0c-0345-4a8b-a402-54b4dc8070b5"
+		let qrCode = "010f03a6-84a8-4a7a-a546-533df843ccbe"
 		retrievePaymentDetails(qrCodeId: qrCode)
 		retrievePaymentInstruments()
+
+		// we lock the slide to pay until we get the data
+		slideToPay!.disable()
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -128,6 +131,8 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 
 			self.paymentRequestDetails = data
 			self.amountToPay.text = formatCurrency(value: data?.grossAmount ?? 0) ?? "???"
+
+			self.safeToPay()
 		})
 	}
 
@@ -138,6 +143,8 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 			}
 
 			self.selectedPaymentInstrument = (data?.creditCards.first as! OAIGetCustomerPaymentInstrumentsResultsDataCreditCards)
+
+			self.safeToPay()
 		}
 	}
 
@@ -145,6 +152,14 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 		print("Error Response: \(resp)")
 
 		showMissingDetailsError(message: message)
+	}
+
+	private func safeToPay() {
+		guard paymentRequestDetails != nil, selectedPaymentInstrument != nil else {
+			return
+		}
+
+		slideToPay?.enable()
 	}
 }
 

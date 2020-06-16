@@ -22,6 +22,8 @@ class SlideToPay: UIViewController {
 	/** Whether or not we can move the button */
 	private var locked: Bool = false
 
+	private var enabled: Bool = true;
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -53,7 +55,7 @@ class SlideToPay: UIViewController {
 				// negative number means user dragged rightward
 				let translation = panRecognizer.translation(in: button)
 
-				if (!locked) {
+				if (enabled && !locked) {
 					moveButton(translation: translation)
 					adjustTextAlpha()
 				}
@@ -70,7 +72,11 @@ class SlideToPay: UIViewController {
 	}
 
 	func disable() {
-		locked = true
+		enabled = false
+	}
+
+	func enable() {
+		enabled = true
 	}
 
 	private func moveButton(translation: CGPoint) {
