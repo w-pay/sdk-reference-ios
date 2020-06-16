@@ -13,21 +13,13 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	private var paymentRequestDetails: OAICustomerPaymentDetail?
 	private var selectedPaymentInstrument: OAIGetCustomerPaymentInstrumentsResultsDataCreditCards?
 
-	private var currencyFormat: NumberFormatter = {
-		let currencyFormat = NumberFormatter()
-		currencyFormat.numberStyle = .currency
-		currencyFormat.currencyCode = "USD"
-
-		return currencyFormat
-	}()
-
 	private var slideToPay: SlideToPay?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		// FIXME: Get from actual code.
-		let qrCode = "081cf50f-c636-49c5-8eb3-4e0835511078"
+		let qrCode = "9a21b561-c636-4ee3-862e-610c930e98c3"
 		retrievePaymentDetails(qrCodeId: qrCode)
 		retrievePaymentInstruments()
 	}
@@ -45,13 +37,6 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 		}
 
 		if (segue.identifier == "ShowReceipt") {
-			let basket = Basket()
-			basket.items.append(BasketItem(amount: "$3.00", description: "WW Creamy Pumpkin Soup 300g"))
-			basket.items.append(BasketItem(amount: "$2.33", description: "Cheese and Chive Triangle Single"))
-			basket.items.append(BasketItem(amount: "$4.60", description: "Dairy Farmers Daily 2L"))
-			basket.items.append(BasketItem(amount: "$7.85", description: "Primo TSMK Bacon 200g"))
-			basket.items.append(BasketItem(amount: "$0.69", description: "Gourmet Tomatoes per kg 0.100 kg NET @ $6.90/kg"))
-
 			guard let navigationController = segue.destination as? UINavigationController else {
 				fatalError("Destination is not a UINavigationController")
 			}
@@ -60,7 +45,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 				fatalError("Can't get the Payment Receipt Controller")
 			}
 
-			paymentReceiptController.basket = basket
+			paymentReceiptController.basket = paymentRequestDetails?.basket
 		}
 	}
 
@@ -141,7 +126,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 			}
 
 			self.paymentRequestDetails = data
-			self.amountToPay.text = self.currencyFormat.string(from: data?.grossAmount ?? 0) ?? "???"
+			self.amountToPay.text = formatCurrency(value: data?.grossAmount ?? 0) ?? "???"
 		})
 	}
 

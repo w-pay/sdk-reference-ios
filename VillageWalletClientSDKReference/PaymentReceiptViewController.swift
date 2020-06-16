@@ -1,4 +1,5 @@
 import UIKit
+import OpenAPIClient
 
 class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var amountPaid: UILabel!
@@ -7,7 +8,7 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var basketTotal: UILabel!
     @IBOutlet weak var tax: UILabel!
     
-	var basket: Basket?
+	var basket: OAIBasket?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -17,14 +18,6 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 
 		basketItems.heightAnchor.constraint(equalTo: receipt.heightAnchor, multiplier: 0.7).isActive = true
 	}
-
-	/*
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-			// Get the new view controller using segue.destination.
-			// Pass the selected object to the new view controller.
-	}
-	*/
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		basket?.items.count ?? 0
@@ -37,9 +30,9 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 				fatalError("The dequeued cell is not an instance of BasketItemTableViewCell.")
 		}
 
-		let item = basket?.items[indexPath.row]
-		cell.basketItemDescription.text = item!.description
-		cell.baketItemAmount.text = item!.amount
+		let item: OAIBasketItems? = basket?.items[indexPath.row] as? OAIBasketItems
+		cell.basketItemDescription.text = item!.label
+		cell.baketItemAmount.text = formatCurrency(value: item!.totalPrice)
 
 		return cell
 	}
