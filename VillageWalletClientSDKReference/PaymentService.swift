@@ -20,11 +20,7 @@ class PaymentService {
 	func retrievePaymentRequestDetails(qrCodeId: String, callback: @escaping (OAICustomerPaymentDetail?, HTTPURLResponse?) -> Void) {
 		api.getCustomerPaymentDetailsByQRCodeId(withQrId: qrCodeId, completionHandler: { results, error in
 			guard error == nil else {
-				let resp = self.extractHttpResponse(error: error! as NSError)
-
-				callback(nil, resp)
-
-				return
+				return callback(nil, self.extractHttpResponse(error: error! as NSError))
 			}
 
 			callback(results!.data, nil)
@@ -34,15 +30,34 @@ class PaymentService {
 	func retrievePaymentInstruments(callback: @escaping (OAIGetCustomerPaymentInstrumentsResultsData?, HTTPURLResponse?) -> Void) {
 		api.getCustomerPaymentInstruments { results, error in
 			guard error == nil else {
-				let resp = self.extractHttpResponse(error: error! as NSError)
-
-				callback(nil, resp)
-
-				return
+				return callback(nil, self.extractHttpResponse(error: error! as NSError))
 			}
 
 			callback(results!.data, nil)
 		}
+	}
+
+	func makePayment(
+		paymentRequest: OAICustomerPaymentDetail,
+		instrument: OAIGetCustomerPaymentInstrumentsResultsDataCreditCards,
+		callback: @escaping (OAICustomerTransactionSummary?, HTTPURLResponse?) -> Void
+	) {
+		let body = OAICustomerPaymentDetails()
+		body.data = OAICustomerPaymentsPaymentRequestIdData()
+		body.data.primaryInstrumentId = instrument.paymentInstrumentId
+		body.data.secondaryInstruments = []
+		body.meta = [:]
+
+		api.makeCustomerPayment(
+			withPaymentRequestId: paymentRequest.paymentRequestId,
+			customerPaymentDetails: body,
+			completionHandler: { results, error in
+				guard error == nil else {
+					return callback(nil, self.extractHttpResponse(error: error! as NSError))
+				}
+
+				callback(results!.data, nil)
+			})
 	}
 
 	private func extractHttpResponse(error: NSError) -> HTTPURLResponse {
