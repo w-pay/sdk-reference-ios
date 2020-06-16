@@ -3,12 +3,15 @@ import OpenAPIClient
 
 class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var amountPaid: UILabel!
+	@IBOutlet weak var paymentInstrument: UILabel!
 	@IBOutlet weak var basketItems: UITableView!
 	@IBOutlet weak var receipt: UIStackView!
-    @IBOutlet weak var basketTotal: UILabel!
-    @IBOutlet weak var tax: UILabel!
+	@IBOutlet weak var basketTotal: UILabel!
+	@IBOutlet weak var basketCount: UILabel!
+	@IBOutlet weak var tax: UILabel!
     
-	var basket: OAIBasket?
+	var paymentDetails: OAICustomerPaymentDetail?
+	var usedPaymentInstrument: OAIGetCustomerPaymentInstrumentsResultsDataCreditCards?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -17,10 +20,16 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 		basketItems.delegate = self
 
 		basketItems.heightAnchor.constraint(equalTo: receipt.heightAnchor, multiplier: 0.7).isActive = true
+
+		amountPaid.text = formatCurrency(value: paymentDetails?.grossAmount ?? 0)
+		paymentInstrument.text = "Credit Card **** \(usedPaymentInstrument?.cardSuffix ?? "")"
+		basketCount.text = "\(paymentDetails?.basket?.items.count ?? 0) Items"
+		basketTotal.text = amountPaid.text
+		tax.text = formatCurrency(value: calculateGST(total: paymentDetails?.grossAmount ?? 0))
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		basket?.items.count ?? 0
+		paymentDetails?.basket?.items.count ?? 0
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,10 +39,14 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 				fatalError("The dequeued cell is not an instance of BasketItemTableViewCell.")
 		}
 
-		let item: OAIBasketItems? = basket?.items[indexPath.row] as? OAIBasketItems
-		cell.basketItemDescription.text = item!.label
-		cell.baketItemAmount.text = formatCurrency(value: item!.totalPrice)
+		let item: OAIBasketItems! = (paymentDetails?.basket?.items[indexPath.row] as! OAIBasketItems)
+		cell.basketItemDescription.text = item.label
+		cell.baketItemAmount.text = formatCurrency(value: item.totalPrice)
 
 		return cell
+	}
+
+	private func calculateGST(total: NSNumber) -> NSNumber {
+		total.doubleValue / 11.0 as NSNumber
 	}
 }

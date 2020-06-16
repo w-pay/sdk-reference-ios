@@ -19,7 +19,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 		super.viewDidLoad()
 
 		// FIXME: Get from actual code.
-		let qrCode = "9a21b561-c636-4ee3-862e-610c930e98c3"
+		let qrCode = "c57cec0c-0345-4a8b-a402-54b4dc8070b5"
 		retrievePaymentDetails(qrCodeId: qrCode)
 		retrievePaymentInstruments()
 	}
@@ -45,7 +45,8 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 				fatalError("Can't get the Payment Receipt Controller")
 			}
 
-			paymentReceiptController.basket = paymentRequestDetails?.basket
+			paymentReceiptController.paymentDetails = paymentRequestDetails
+			paymentReceiptController.usedPaymentInstrument = selectedPaymentInstrument
 		}
 	}
 

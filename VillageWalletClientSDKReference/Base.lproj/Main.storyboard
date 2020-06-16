@@ -27,7 +27,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcZ-Ir-JDM" userLabel="BottomSheet" customClass="BottomSheet" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jcZ-Ir-JDM" userLabel="BottomSheet" customClass="BottomSheet" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="740" width="414" height="156"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZO-1A-3BB">
@@ -261,8 +261,10 @@ Soup WW Creamy Pumpkin Soup</string>
                     <navigationItem key="navigationItem" id="uoJ-SG-czV"/>
                     <connections>
                         <outlet property="amountPaid" destination="MEb-5W-pvb" id="h3l-0Q-Rc1"/>
+                        <outlet property="basketCount" destination="PLd-8l-kRK" id="a9z-fj-xSo"/>
                         <outlet property="basketItems" destination="McI-Ka-apD" id="2YT-nW-EDR"/>
                         <outlet property="basketTotal" destination="VK6-bt-IoC" id="diD-VS-Vt6"/>
+                        <outlet property="paymentInstrument" destination="jYg-hV-3Yr" id="AN0-P0-Fld"/>
                         <outlet property="receipt" destination="ckq-P1-qTd" id="b6X-J0-ugV"/>
                         <outlet property="tax" destination="SJY-3t-GUa" id="YjK-Qs-Rap"/>
                     </connections>
