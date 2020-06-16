@@ -1,16 +1,20 @@
 import UIKit
 import OpenAPIClient
 
+// TODO: This should be in a project property
+let API_CONTEXT_ROOT = "/wow/v1/dpwallet"
+
 class PaymentService {
 	let apiClient: OAIApiClient
 	let api: OAICustomerApi
 
 	init() {
 		let config = OAIDefaultConfiguration()
+		config.setDefaultHeaderValue("haTdoUWVhnXm5n75u6d0VG67vCCvKjQC", forKey: "x-api-key")
 		config.accessToken = "ODA4NTYyNDktNjg0Ny00OWY4LWFmMDItOTU1MWEwMzliMjg5OlZJTExBR0VfQ1VTVE9NRVI="
 
 		apiClient = OAIApiClient(
-			baseURL: URL(string: "https://woolies-village.appspot.com"),
+			baseURL: URL(string: "https://dev.mobile-api.woolworths.com.au\(API_CONTEXT_ROOT)"),
 			configuration: config
 		)
 
