@@ -1,11 +1,35 @@
 import UIKit
+import OpenAPIClient
 
 class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	@IBOutlet weak var action: UILabel!
+	@IBOutlet weak var amountToPay: UILabel!
 	@IBOutlet weak var bottomSheet: BottomSheet!
-    
+
+	private let paymentService: PaymentService = PaymentService()
+
+	private var alertController: UIAlertController?
+
+	private var paymentRequestDetails: OAICustomerPaymentDetail?
+	private var selectedPaymentInstrument: OAIGetCustomerPaymentInstrumentsResultsDataCreditCards?
+
+	private var currencyFormat: NumberFormatter = {
+		let currencyFormat = NumberFormatter()
+		currencyFormat.numberStyle = .currency
+		currencyFormat.currencyCode = "USD"
+
+		return currencyFormat
+	}()
+
+	private var slideToPay: SlideToPay?
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		// FIXME: Get from actual code.
+		let qrCode = "081cf50f-c636-49c5-8eb3-4e0835511078"
+		retrievePaymentDetails(qrCodeId: qrCode)
+		retrievePaymentInstruments()
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -16,6 +40,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 				fatalError("Destination is not SlideToPay")
 			}
 
+			self.slideToPay = slideToPay
 			slideToPay.delegate = self
 		}
 
@@ -42,9 +67,29 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	func makePayment() {
 		action.text = "Paying"
 
-		setTimeout(2) {
+		var completed = 0;
+		let onComplete = {
+			completed += 1
+
+			guard completed == 2 else {
+				return
+			}
+
 			self.performSegue(withIdentifier: "ShowReceipt", sender: self)
 		}
+
+		let _ = setTimeout(2, block: onComplete)
+
+		paymentService.makePayment(
+			paymentRequest: paymentRequestDetails!,
+			instrument: selectedPaymentInstrument!,
+		  callback: { data, resp in
+			  guard resp == nil else {
+				  return self.showErrorAlert(message: "Oops! Something went wrong.")
+			  }
+
+			  onComplete()
+		  })
 	}
 
 	func onSwiped() {
@@ -59,7 +104,61 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	}
 
 	private func setTimeout(_ delay: TimeInterval, block: @escaping () -> Void) -> Timer {
-		return Timer.scheduledTimer(timeInterval: delay, target: BlockOperation(block: block), selector: #selector(Operation.main), userInfo: nil, repeats: false)
+		Timer.scheduledTimer(timeInterval: delay, target: BlockOperation(block: block), selector: #selector(Operation.main), userInfo: nil, repeats: false)
+	}
+
+	private func showMissingDetailsError(message: String) {
+		amountToPay.text = "???"
+		slideToPay?.disable()
+
+		showErrorAlert(message: message)
+	}
+
+	private func showErrorAlert(message: String) {
+		guard let controller = alertController else {
+			alertController = UIAlertController(title: "Payment Missing", message: message, preferredStyle: .alert)
+
+			let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
+			alertController!.addAction(defaultAction)
+
+			return showErrorAlert(message: message)
+		}
+
+		if (!controller.isBeingPresented) {
+			controller.message = message
+
+			present(controller, animated: true, completion: nil)
+		}
+		else {
+			print("Error alert already being presented; ignoring request")
+		}
+	}
+
+	private func retrievePaymentDetails(qrCodeId: String) {
+		paymentService.retrievePaymentRequestDetails(qrCodeId: qrCodeId, callback: { (data, resp) in
+			guard resp == nil else {
+				return self.handleErrorResponse(resp: resp!, message: "Oops! Can't get payment details.")
+			}
+
+			self.paymentRequestDetails = data
+			self.amountToPay.text = self.currencyFormat.string(from: data?.grossAmount ?? 0) ?? "???"
+		})
+	}
+
+	private func retrievePaymentInstruments() {
+		paymentService.retrievePaymentInstruments { data, resp in
+			guard resp == nil else {
+				return self.handleErrorResponse(resp: resp!, message: "Oops! Can't retrieve payment instruments.")
+			}
+
+			self.selectedPaymentInstrument = (data?.creditCards.first as! OAIGetCustomerPaymentInstrumentsResultsDataCreditCards)
+		}
+	}
+
+	private func handleErrorResponse(resp: HTTPURLResponse, message: String) {
+		print("Error Response: \(resp)")
+
+		showMissingDetailsError(message: message)
 	}
 }
 
