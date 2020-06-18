@@ -73,6 +73,7 @@
 		893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItemTableViewCell.swift; sourceTree = "<group>"; };
 		8944581F2490864E003233FB /* SlideToPayBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPayBackground.swift; sourceTree = "<group>"; };
 		894458212490AFC0003233FB /* SlideToPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPay.swift; sourceTree = "<group>"; };
+		8953364B249B259600A50118 /* VillageWalletClientSDKReferenceRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VillageWalletClientSDKReferenceRelease.entitlements; sourceTree = "<group>"; };
 		898F80E924889D2000402105 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		BC8DC85DF804656C03DBBC89 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		89361B4F24875E1A00FBED9B /* VillageWalletClientSDKReference */ = {
 			isa = PBXGroup;
 			children = (
+				8953364B249B259600A50118 /* VillageWalletClientSDKReferenceRelease.entitlements */,
 				89361B5024875E1A00FBED9B /* AppDelegate.swift */,
 				89361B5924875E1B00FBED9B /* Assets.xcassets */,
 				893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */,
@@ -640,6 +642,7 @@
 			baseConfigurationReference = 7927F195CA95644BBBEB00B6 /* Pods-VillageWalletClientSDKReference.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VillageWalletClientSDKReference/VillageWalletClientSDKReferenceRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7XWK8GFQC7;
 				INFOPLIST_FILE = VillageWalletClientSDKReference/Info.plist;
