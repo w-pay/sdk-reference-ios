@@ -4,7 +4,8 @@ let currencyFormat: NumberFormatter = {
 	let currencyFormat = NumberFormatter()
 	currencyFormat.numberStyle = .currency
 	currencyFormat.roundingMode = NumberFormatter.RoundingMode.halfUp
-	currencyFormat.currencyCode = "USD"
+	currencyFormat.locale = Locale(identifier: "en_AU")
+	currencyFormat.currencyCode = "AUD"
 
 	return currencyFormat
 }()
