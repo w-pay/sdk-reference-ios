@@ -48,6 +48,7 @@
 		BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */; };
 		BC8DC4047073E2F1489D9C7E /* CustomerLoginApiAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC17CF8FC06826C7F8B01 /* CustomerLoginApiAuthenticator.swift */; };
 		BC8DC51AEB822327BE1DF7D7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC85DF804656C03DBBC89 /* README.md */; };
+		BC8DC76A3AE46FDFCDA8DDCA /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCDE61D0D54984F12CC31 /* Configurable.swift */; };
 		BC8DC7F0E79AE11F5BE8432C /* Village.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC350586B8F4AEB8D7859 /* Village.swift */; };
 		BF5F68DB64DA1919033D4A70 /* Pods_VillageWalletClientSDKReferenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02737F1D4A13D74C79668527 /* Pods_VillageWalletClientSDKReferenceTests.framework */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,7 @@
 		BC8DCB861395BFE95C5B22DC /* VillageApiRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillageApiRepository.swift; sourceTree = "<group>"; };
 		BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BC8DCC3BC706680502B46F49 /* OpenApiVillageApiRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiVillageApiRepository.swift; sourceTree = "<group>"; };
+		BC8DCDE61D0D54984F12CC31 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A3DAA88D24E469D4DC7243 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C3130BE38596A2EA5576C20F /* Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReferenceTests/Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				BC8DCB861395BFE95C5B22DC /* VillageApiRepository.swift */,
 				BC8DC41506E61319E753F534 /* openapi */,
 				BC8DC350586B8F4AEB8D7859 /* Village.swift */,
+				BC8DCDE61D0D54984F12CC31 /* Configurable.swift */,
 			);
 			path = sdk;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				BC8DC1521AC67AD57653C7C5 /* VillageApiRepository.swift in Sources */,
 				BC8DC1160C35D77030055888 /* OpenApiVillageApiRepository.swift in Sources */,
 				BC8DC7F0E79AE11F5BE8432C /* Village.swift in Sources */,
+				BC8DC76A3AE46FDFCDA8DDCA /* Configurable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

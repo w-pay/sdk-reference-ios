@@ -4,7 +4,7 @@ import UIKit
  * Entry point into the SDK. It is responsible for managing the relationship between app
  * concerns, and calling the API.
  */
-class Village {
+class Village: Configurable {
 	private let api: VillageApiRepository
 
 	init(api: VillageApiRepository) {
@@ -25,5 +25,9 @@ class Village {
 		callback: @escaping ApiResult<PaymentResult>
 	) {
 		api.makePayment(paymentDetails: paymentDetails, instrument: instrument, callback: callback)
+	}
+
+	func setHost(host: String) {
+		api.setHost(host: host)
 	}
 }

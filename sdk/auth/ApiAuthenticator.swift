@@ -1,6 +1,6 @@
 import UIKit
 
-protocol ApiAuthenticator {
+protocol ApiAuthenticator: Configurable {
 	associatedtype T
 
 	func authenticate(callback: @escaping ApiResult<T>) -> Void
@@ -12,6 +12,10 @@ protocol ApiAuthenticator {
  */
 class AnyApiAuthenticator<T>: ApiAuthenticator {
 	func authenticate(callback: @escaping ApiResult<T>) {
+		fatalError("Must implement")
+	}
+
+	func setHost(host: String) {
 		fatalError("Must implement")
 	}
 }

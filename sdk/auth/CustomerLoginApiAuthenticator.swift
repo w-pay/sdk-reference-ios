@@ -1,16 +1,14 @@
 import UIKit
 
 class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
-	var origin: String?
-
 	private let requestHeaders: RequestHeadersFactory
+	private let path: String
 
-	// TODO: Make configurable
-	private let path: String = "/wow/v1/idm/servers/token"
+	private var origin: String?
 
-	init(requestHeaders: RequestHeadersFactory, origin: String?) {
+	init(requestHeaders: RequestHeadersFactory, path: String) {
 		self.requestHeaders = requestHeaders
-		self.origin = origin
+		self.path = path
 	}
 
 	override func authenticate(callback: @escaping ApiResult<IdmTokenDetails>) {
@@ -58,5 +56,9 @@ class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
 			callback(nil, response)
 		}
 		.resume()
+	}
+
+	override func setHost(host: String) {
+		origin = host
 	}
 }

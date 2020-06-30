@@ -3,12 +3,13 @@ import OpenAPIClient
 
 class OpenApiVillageApiRepository: VillageApiRepository {
 	private let requestHeadersFactory: RequestHeadersFactory
+	private let contextRoot: String
 
-	var host: String = "localhost:3000"
-	var contextRoot: String = ""
+	private var host: String = "localhost:3000"
 
-	init(requestHeadersFactory: RequestHeadersFactory) {
+	init(requestHeadersFactory: RequestHeadersFactory, contextRoot: String) {
 		self.requestHeadersFactory = requestHeadersFactory
+		self.contextRoot = contextRoot
 	}
 
 	func retrievePaymentRequestDetails(qrCodeId: String, callback: @escaping ApiResult<CustomerPaymentDetails>) {
@@ -84,5 +85,9 @@ class OpenApiVillageApiRepository: VillageApiRepository {
 		}
 
 		return data!
+	}
+
+	func setHost(host: String) {
+		self.host = host
 	}
 }

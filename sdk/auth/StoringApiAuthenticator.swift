@@ -18,4 +18,8 @@ class StoringApiAuthenticator<T>: AnyApiAuthenticator<T> {
 			callback(results, error)
 		})
 	}
+
+	override func setHost(host: String) {
+		delegate.setHost(host: host)
+	}
 }
