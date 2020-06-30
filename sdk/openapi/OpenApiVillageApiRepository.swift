@@ -70,10 +70,25 @@ class OpenApiVillageApiRepository: VillageApiRepository {
 		)
 
 		requestHeadersFactory.createHeaders().forEach { name, value in
-			config.setDefaultHeaderValue(value, forKey: name)
+			guard let token = authorisationHeader(name: name, value: value) else {
+				config.setDefaultHeaderValue(value, forKey: name)
+				return
+			}
+
+			config.accessToken = token
 		}
 
 		return OAICustomerApi(apiClient: apiClient)
+	}
+
+	private func authorisationHeader(name: String, value: String) -> String? {
+		if (name == "Authorization") {
+			let token = value.split(separator: " ")[1]
+
+			return String(token)
+		}
+
+		return nil
 	}
 
 	private func extractHttpResponse(error: NSError) -> HTTPURLResponse {
