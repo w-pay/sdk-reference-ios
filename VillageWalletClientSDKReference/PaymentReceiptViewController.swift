@@ -1,5 +1,4 @@
 import UIKit
-import OpenAPIClient
 
 class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var amountPaid: UILabel!
@@ -10,8 +9,8 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 	@IBOutlet weak var basketCount: UILabel!
 	@IBOutlet weak var tax: UILabel!
     
-	var paymentDetails: OAICustomerPaymentDetail?
-	var usedPaymentInstrument: OAIGetCustomerPaymentInstrumentsResultsDataCreditCards?
+	var paymentDetails: CustomerPaymentDetails?
+	var usedPaymentInstrument: PaymentInstrument?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -21,15 +20,15 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 
 		basketItems.heightAnchor.constraint(equalTo: receipt.heightAnchor, multiplier: 0.7).isActive = true
 
-		amountPaid.text = formatCurrency(value: paymentDetails?.grossAmount ?? 0)
-		paymentInstrument.text = "Credit Card **** \(usedPaymentInstrument?.cardSuffix ?? "")"
-		basketCount.text = "\(paymentDetails?.basket?.items.count ?? 0) Items"
+		amountPaid.text = formatCurrency(value: paymentDetails?.grossAmount() ?? 0)
+		paymentInstrument.text = "Credit Card **** \(usedPaymentInstrument?.cardSuffix() ?? "")"
+		basketCount.text = "\(paymentDetails?.basket()?.items().count ?? 0) Items"
 		basketTotal.text = amountPaid.text
-		tax.text = formatCurrency(value: calculateGST(total: paymentDetails?.grossAmount ?? 0))
+		tax.text = formatCurrency(value: calculateGST(total: paymentDetails?.grossAmount() ?? 0))
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		paymentDetails?.basket?.items.count ?? 0
+		paymentDetails?.basket()?.items().count ?? 0
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,9 +38,9 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 				fatalError("The dequeued cell is not an instance of BasketItemTableViewCell.")
 		}
 
-		let item: OAIBasketItems! = (paymentDetails?.basket?.items[indexPath.row] as! OAIBasketItems)
-		cell.basketItemDescription.text = item.label
-		cell.baketItemAmount.text = formatCurrency(value: item.totalPrice)
+		let item: BasketItem! = (paymentDetails?.basket()?.items()[indexPath.row] as! BasketItem)
+		cell.basketItemDescription.text = item.label()
+		cell.baketItemAmount.text = formatCurrency(value: item.totalPrice() ?? 0)
 
 		return cell
 	}

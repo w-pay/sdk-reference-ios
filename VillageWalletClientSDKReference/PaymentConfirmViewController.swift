@@ -1,27 +1,23 @@
 import UIKit
-import OpenAPIClient
 
 class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	@IBOutlet weak var action: UILabel!
 	@IBOutlet weak var amountToPay: UILabel!
 	@IBOutlet weak var bottomSheet: BottomSheet!
 
-	private let paymentService: PaymentService = PaymentService()
+	private let village = createVillage()
 
 	private var alertController: UIAlertController?
 
-	private var paymentRequestDetails: OAICustomerPaymentDetail?
-	private var selectedPaymentInstrument: OAIGetCustomerPaymentInstrumentsResultsDataCreditCards?
+	private var paymentRequestDetails: CustomerPaymentDetails?
+	private var selectedPaymentInstrument: PaymentInstrument?
 
 	private var slideToPay: SlideToPay?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// FIXME: Get from actual code.
-		let qrCode = "010f03a6-84a8-4a7a-a546-533df843ccbe"
-		retrievePaymentDetails(qrCodeId: qrCode)
-		retrievePaymentInstruments()
+		authenticateCustomer()
 
 		// we lock the slide to pay until we get the data
 		slideToPay!.disable()
@@ -69,8 +65,8 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 
 		let _ = setTimeout(2, block: onComplete)
 
-		paymentService.makePayment(
-			paymentRequest: paymentRequestDetails!,
+		village.makePayment(
+			paymentDetails: paymentRequestDetails!,
 			instrument: selectedPaymentInstrument!,
 		  callback: { data, resp in
 			  guard resp == nil else {
@@ -123,26 +119,40 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 		}
 	}
 
+	private func authenticateCustomer() {
+		// FIXME: Get from actual code.
+		let qrCode = "55c1142f-d8c8-4b75-bc00-b8ce09c0fd88"
+
+		village.authenticate { details, resp in
+			guard resp == nil else {
+				return self.handleErrorResponse(resp: resp!, message: "Oops! Authentication failed!")
+			}
+
+			self.retrievePaymentDetails(qrCodeId: qrCode)
+			self.retrievePaymentInstruments()
+		}
+	}
+
 	private func retrievePaymentDetails(qrCodeId: String) {
-		paymentService.retrievePaymentRequestDetails(qrCodeId: qrCodeId, callback: { (data, resp) in
+		village.retrievePaymentDetails(qrCode: qrCodeId, callback: { (data, resp) in
 			guard resp == nil else {
 				return self.handleErrorResponse(resp: resp!, message: "Oops! Can't get payment details.")
 			}
 
 			self.paymentRequestDetails = data
-			self.amountToPay.text = formatCurrency(value: data?.grossAmount ?? 0) ?? "???"
+			self.amountToPay.text = formatCurrency(value: data?.grossAmount() ?? 0) ?? "???"
 
 			self.safeToPay()
 		})
 	}
 
 	private func retrievePaymentInstruments() {
-		paymentService.retrievePaymentInstruments { data, resp in
+		village.retrievePaymentInstruments { data, resp in
 			guard resp == nil else {
 				return self.handleErrorResponse(resp: resp!, message: "Oops! Can't retrieve payment instruments.")
 			}
 
-			self.selectedPaymentInstrument = (data?.creditCards.first as! OAIGetCustomerPaymentInstrumentsResultsDataCreditCards)
+			self.selectedPaymentInstrument = data?.creditCards().first
 
 			self.safeToPay()
 		}
