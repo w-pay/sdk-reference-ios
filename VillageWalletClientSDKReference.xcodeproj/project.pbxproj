@@ -44,6 +44,7 @@
 		89B3B03624AAE4FD00494A00 /* BearerTokenRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B03524AAE4FD00494A00 /* BearerTokenRequestHeader.swift */; };
 		89B3B03824AAE51000494A00 /* ApiKeyRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B03724AAE51000494A00 /* ApiKeyRequestHeader.swift */; };
 		BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */; };
+		BC8DC4047073E2F1489D9C7E /* CustomerLoginApiAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC17CF8FC06826C7F8B01 /* CustomerLoginApiAuthenticator.swift */; };
 		BC8DC51AEB822327BE1DF7D7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC85DF804656C03DBBC89 /* README.md */; };
 		BF5F68DB64DA1919033D4A70 /* Pods_VillageWalletClientSDKReferenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02737F1D4A13D74C79668527 /* Pods_VillageWalletClientSDKReferenceTests.framework */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,7 @@
 		89B3B03324AAE4EB00494A00 /* RequestHeaderChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeaderChain.swift; sourceTree = "<group>"; };
 		89B3B03524AAE4FD00494A00 /* BearerTokenRequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearerTokenRequestHeader.swift; sourceTree = "<group>"; };
 		89B3B03724AAE51000494A00 /* ApiKeyRequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyRequestHeader.swift; sourceTree = "<group>"; };
+		BC8DC17CF8FC06826C7F8B01 /* CustomerLoginApiAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerLoginApiAuthenticator.swift; sourceTree = "<group>"; };
 		BC8DC85DF804656C03DBBC89 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,6 +273,7 @@
 				895676C124A9D08E006EB5EB /* CredentialsStore.swift */,
 				895676C324A9D09A006EB5EB /* IdmTokenDetails.swift */,
 				895676C524A9D0AA006EB5EB /* StoringApiAuthenticator.swift */,
+				BC8DC17CF8FC06826C7F8B01 /* CustomerLoginApiAuthenticator.swift */,
 			);
 			path = auth;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				895676AE24A9C83F006EB5EB /* CustomerPaymentDetails.swift in Sources */,
 				BC8DC51AEB822327BE1DF7D7 /* README.md in Sources */,
 				BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */,
+				BC8DC4047073E2F1489D9C7E /* CustomerLoginApiAuthenticator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
