@@ -38,6 +38,11 @@
 		895676C624A9D0AA006EB5EB /* StoringApiAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676C524A9D0AA006EB5EB /* StoringApiAuthenticator.swift */; };
 		898F80EA24889D2000402105 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80E924889D2000402105 /* BottomSheet.swift */; };
 		89B3B02E24AAE3B100494A00 /* VillageOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B02D24AAE3B100494A00 /* VillageOptions.swift */; };
+		89B3B03024AAE4C800494A00 /* RequestHeaderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B02F24AAE4C800494A00 /* RequestHeaderFactory.swift */; };
+		89B3B03224AAE4DD00494A00 /* RequestHeadersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B03124AAE4DD00494A00 /* RequestHeadersFactory.swift */; };
+		89B3B03424AAE4EB00494A00 /* RequestHeaderChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B03324AAE4EB00494A00 /* RequestHeaderChain.swift */; };
+		89B3B03624AAE4FD00494A00 /* BearerTokenRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B03524AAE4FD00494A00 /* BearerTokenRequestHeader.swift */; };
+		89B3B03824AAE51000494A00 /* ApiKeyRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B03724AAE51000494A00 /* ApiKeyRequestHeader.swift */; };
 		BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */; };
 		BC8DC51AEB822327BE1DF7D7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC85DF804656C03DBBC89 /* README.md */; };
 		BF5F68DB64DA1919033D4A70 /* Pods_VillageWalletClientSDKReferenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02737F1D4A13D74C79668527 /* Pods_VillageWalletClientSDKReferenceTests.framework */; };
@@ -103,6 +108,11 @@
 		895676C524A9D0AA006EB5EB /* StoringApiAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoringApiAuthenticator.swift; sourceTree = "<group>"; };
 		898F80E924889D2000402105 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		89B3B02D24AAE3B100494A00 /* VillageOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillageOptions.swift; sourceTree = "<group>"; };
+		89B3B02F24AAE4C800494A00 /* RequestHeaderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeaderFactory.swift; sourceTree = "<group>"; };
+		89B3B03124AAE4DD00494A00 /* RequestHeadersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeadersFactory.swift; sourceTree = "<group>"; };
+		89B3B03324AAE4EB00494A00 /* RequestHeaderChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeaderChain.swift; sourceTree = "<group>"; };
+		89B3B03524AAE4FD00494A00 /* BearerTokenRequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearerTokenRequestHeader.swift; sourceTree = "<group>"; };
+		89B3B03724AAE51000494A00 /* ApiKeyRequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyRequestHeader.swift; sourceTree = "<group>"; };
 		BC8DC85DF804656C03DBBC89 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,7 +230,12 @@
 			children = (
 				895676BE24A9D073006EB5EB /* auth */,
 				895676AC24A9C80D006EB5EB /* model */,
+				89B3B03724AAE51000494A00 /* ApiKeyRequestHeader.swift */,
 				895676AA24A9C756006EB5EB /* ApiResult.swift */,
+				89B3B03524AAE4FD00494A00 /* BearerTokenRequestHeader.swift */,
+				89B3B03324AAE4EB00494A00 /* RequestHeaderChain.swift */,
+				89B3B02F24AAE4C800494A00 /* RequestHeaderFactory.swift */,
+				89B3B03124AAE4DD00494A00 /* RequestHeadersFactory.swift */,
 				89B3B02D24AAE3B100494A00 /* VillageOptions.swift */,
 			);
 			path = sdk;
@@ -515,6 +530,8 @@
 				893BD925248F3834006EA746 /* BasketItemTableViewCell.swift in Sources */,
 				895676B224A9C9C1006EB5EB /* PaymentInstruments.swift in Sources */,
 				895676B024A9C8A6006EB5EB /* Basket.swift in Sources */,
+				89B3B03624AAE4FD00494A00 /* BearerTokenRequestHeader.swift in Sources */,
+				89B3B03024AAE4C800494A00 /* RequestHeaderFactory.swift in Sources */,
 				89361B5524875E1A00FBED9B /* PaymentConfirmViewController.swift in Sources */,
 				895676C224A9D08E006EB5EB /* CredentialsStore.swift in Sources */,
 				89361B5124875E1A00FBED9B /* AppDelegate.swift in Sources */,
@@ -528,11 +545,14 @@
 				894458202490864E003233FB /* SlideToPayBackground.swift in Sources */,
 				895676C024A9D083006EB5EB /* ApiAuthenticator.swift in Sources */,
 				895676BD24A9CB1E006EB5EB /* OpenApiPaymentResult.swift in Sources */,
+				89B3B03824AAE51000494A00 /* ApiKeyRequestHeader.swift in Sources */,
 				898F80EA24889D2000402105 /* BottomSheet.swift in Sources */,
 				89361B832487A11000FBED9B /* PaymentReceiptViewController.swift in Sources */,
+				89B3B03224AAE4DD00494A00 /* RequestHeadersFactory.swift in Sources */,
 				890304D024970DD00083F31C /* PaymentService.swift in Sources */,
 				895676B424A9CA60006EB5EB /* PaymentResult.swift in Sources */,
 				895676C424A9D09A006EB5EB /* IdmTokenDetails.swift in Sources */,
+				89B3B03424AAE4EB00494A00 /* RequestHeaderChain.swift in Sources */,
 				895676B724A9CAFD006EB5EB /* OpenApiBasket.swift in Sources */,
 				895676AB24A9C756006EB5EB /* ApiResult.swift in Sources */,
 				895676AE24A9C83F006EB5EB /* CustomerPaymentDetails.swift in Sources */,
