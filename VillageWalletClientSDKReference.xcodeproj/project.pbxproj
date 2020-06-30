@@ -43,6 +43,8 @@
 		89B3B03424AAE4EB00494A00 /* RequestHeaderChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B03324AAE4EB00494A00 /* RequestHeaderChain.swift */; };
 		89B3B03624AAE4FD00494A00 /* BearerTokenRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B03524AAE4FD00494A00 /* BearerTokenRequestHeader.swift */; };
 		89B3B03824AAE51000494A00 /* ApiKeyRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B3B03724AAE51000494A00 /* ApiKeyRequestHeader.swift */; };
+		BC8DC1160C35D77030055888 /* OpenApiVillageApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCC3BC706680502B46F49 /* OpenApiVillageApiRepository.swift */; };
+		BC8DC1521AC67AD57653C7C5 /* VillageApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCB861395BFE95C5B22DC /* VillageApiRepository.swift */; };
 		BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */; };
 		BC8DC4047073E2F1489D9C7E /* CustomerLoginApiAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC17CF8FC06826C7F8B01 /* CustomerLoginApiAuthenticator.swift */; };
 		BC8DC51AEB822327BE1DF7D7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC85DF804656C03DBBC89 /* README.md */; };
@@ -116,7 +118,9 @@
 		89B3B03724AAE51000494A00 /* ApiKeyRequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyRequestHeader.swift; sourceTree = "<group>"; };
 		BC8DC17CF8FC06826C7F8B01 /* CustomerLoginApiAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerLoginApiAuthenticator.swift; sourceTree = "<group>"; };
 		BC8DC85DF804656C03DBBC89 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BC8DCB861395BFE95C5B22DC /* VillageApiRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillageApiRepository.swift; sourceTree = "<group>"; };
 		BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		BC8DCC3BC706680502B46F49 /* OpenApiVillageApiRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiVillageApiRepository.swift; sourceTree = "<group>"; };
 		BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A3DAA88D24E469D4DC7243 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C3130BE38596A2EA5576C20F /* Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReferenceTests/Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -239,6 +243,8 @@
 				89B3B02F24AAE4C800494A00 /* RequestHeaderFactory.swift */,
 				89B3B03124AAE4DD00494A00 /* RequestHeadersFactory.swift */,
 				89B3B02D24AAE3B100494A00 /* VillageOptions.swift */,
+				BC8DCB861395BFE95C5B22DC /* VillageApiRepository.swift */,
+				BC8DC41506E61319E753F534 /* openapi */,
 			);
 			path = sdk;
 			sourceTree = "<group>";
@@ -276,6 +282,14 @@
 				BC8DC17CF8FC06826C7F8B01 /* CustomerLoginApiAuthenticator.swift */,
 			);
 			path = auth;
+			sourceTree = "<group>";
+		};
+		BC8DC41506E61319E753F534 /* openapi */ = {
+			isa = PBXGroup;
+			children = (
+				BC8DCC3BC706680502B46F49 /* OpenApiVillageApiRepository.swift */,
+			);
+			path = openapi;
 			sourceTree = "<group>";
 		};
 		D8568702C6D8E515D700072A /* Pods */ = {
@@ -562,6 +576,8 @@
 				BC8DC51AEB822327BE1DF7D7 /* README.md in Sources */,
 				BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */,
 				BC8DC4047073E2F1489D9C7E /* CustomerLoginApiAuthenticator.swift in Sources */,
+				BC8DC1521AC67AD57653C7C5 /* VillageApiRepository.swift in Sources */,
+				BC8DC1160C35D77030055888 /* OpenApiVillageApiRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
