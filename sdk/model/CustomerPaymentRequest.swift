@@ -1,6 +1,6 @@
 import UIKit
 
-protocol CustomerPaymentDetails {
+protocol CustomerPaymentRequest {
 	func paymentRequestId() -> String
 	func merchantReferenceId() -> String
 	func grossAmount() -> NSNumber

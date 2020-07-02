@@ -12,7 +12,7 @@ class OpenApiVillageApiRepository: VillageApiRepository {
 		self.contextRoot = contextRoot
 	}
 
-	func retrievePaymentRequestDetails(qrCodeId: String, callback: @escaping ApiResult<CustomerPaymentDetails>) {
+	func retrievePaymentRequestDetails(qrCodeId: String, callback: @escaping ApiResult<CustomerPaymentRequest>) {
 		let api = createCustomerApi()
 
 		api.getCustomerPaymentDetailsByQRCodeId(withQrId: qrCodeId, completionHandler: { results, error in
@@ -20,7 +20,7 @@ class OpenApiVillageApiRepository: VillageApiRepository {
 				return callback(nil, self.extractHttpResponse(error: error! as NSError))
 			}
 
-			callback(OpenApiCustomerPaymentDetails(customerPaymentDetails: results!.data), nil)
+			callback(OpenApiCustomerPaymentRequest(customerPaymentDetails: results!.data), nil)
 		})
 	}
 
@@ -37,7 +37,7 @@ class OpenApiVillageApiRepository: VillageApiRepository {
 	}
 
 	func makePayment(
-		paymentDetails: CustomerPaymentDetails,
+		paymentRequest: CustomerPaymentRequest,
 		instrument: PaymentInstrument,
 		callback: @escaping ApiResult<PaymentResult>
 	) {
@@ -50,7 +50,7 @@ class OpenApiVillageApiRepository: VillageApiRepository {
 		body.meta = [:]
 
 		api.makeCustomerPayment(
-			withPaymentRequestId: paymentDetails.paymentRequestId(),
+			withPaymentRequestId: paymentRequest.paymentRequestId(),
 			customerPaymentDetails: body,
 			completionHandler: { results, error in
 				guard error == nil else {

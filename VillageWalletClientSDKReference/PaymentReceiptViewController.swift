@@ -9,7 +9,7 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 	@IBOutlet weak var basketCount: UILabel!
 	@IBOutlet weak var tax: UILabel!
     
-	var paymentDetails: CustomerPaymentDetails?
+	var paymentDetails: CustomerPaymentRequest?
 	var usedPaymentInstrument: PaymentInstrument?
 
 	override func viewDidLoad() {

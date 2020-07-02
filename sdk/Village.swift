@@ -17,7 +17,7 @@ class Village<A>: Configurable {
 		return authenticator.authenticate(callback: callback)
 	}
 
-	func retrievePaymentDetails(qrCode: String, callback: @escaping ApiResult<CustomerPaymentDetails>) -> Void {
+	func retrievePaymentDetails(qrCode: String, callback: @escaping ApiResult<CustomerPaymentRequest>) -> Void {
 		api.retrievePaymentRequestDetails(qrCodeId: qrCode, callback: callback)
 	}
 
@@ -26,11 +26,11 @@ class Village<A>: Configurable {
 	}
 
 	func makePayment(
-		paymentDetails: CustomerPaymentDetails,
+		paymentRequest: CustomerPaymentRequest,
 		instrument: PaymentInstrument,
 		callback: @escaping ApiResult<PaymentResult>
 	) {
-		api.makePayment(paymentDetails: paymentDetails, instrument: instrument, callback: callback)
+		api.makePayment(paymentRequest: paymentRequest, instrument: instrument, callback: callback)
 	}
 
 	func setHost(host: String) {

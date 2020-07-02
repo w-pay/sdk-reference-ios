@@ -23,12 +23,12 @@
 		894458202490864E003233FB /* SlideToPayBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944581F2490864E003233FB /* SlideToPayBackground.swift */; };
 		894458222490AFC0003233FB /* SlideToPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894458212490AFC0003233FB /* SlideToPay.swift */; };
 		895676AB24A9C756006EB5EB /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676AA24A9C756006EB5EB /* ApiResult.swift */; };
-		895676AE24A9C83F006EB5EB /* CustomerPaymentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676AD24A9C83F006EB5EB /* CustomerPaymentDetails.swift */; };
+		895676AE24A9C83F006EB5EB /* CustomerPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676AD24A9C83F006EB5EB /* CustomerPaymentRequest.swift */; };
 		895676B024A9C8A6006EB5EB /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676AF24A9C8A6006EB5EB /* Basket.swift */; };
 		895676B224A9C9C1006EB5EB /* PaymentInstruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676B124A9C9C1006EB5EB /* PaymentInstruments.swift */; };
 		895676B424A9CA60006EB5EB /* PaymentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676B324A9CA60006EB5EB /* PaymentResult.swift */; };
 		895676B724A9CAFD006EB5EB /* OpenApiBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676B624A9CAFD006EB5EB /* OpenApiBasket.swift */; };
-		895676B924A9CB07006EB5EB /* OpenApiCustomerPaymentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676B824A9CB07006EB5EB /* OpenApiCustomerPaymentDetails.swift */; };
+		895676B924A9CB07006EB5EB /* OpenApiCustomerPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676B824A9CB07006EB5EB /* OpenApiCustomerPaymentRequest.swift */; };
 		895676BB24A9CB11006EB5EB /* OpenApiPaymentInstruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676BA24A9CB11006EB5EB /* OpenApiPaymentInstruments.swift */; };
 		895676BD24A9CB1E006EB5EB /* OpenApiPaymentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676BC24A9CB1E006EB5EB /* OpenApiPaymentResult.swift */; };
 		895676C024A9D083006EB5EB /* ApiAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895676BF24A9D082006EB5EB /* ApiAuthenticator.swift */; };
@@ -100,12 +100,12 @@
 		894458212490AFC0003233FB /* SlideToPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPay.swift; sourceTree = "<group>"; };
 		8953364B249B259600A50118 /* VillageWalletClientSDKReferenceRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VillageWalletClientSDKReferenceRelease.entitlements; sourceTree = "<group>"; };
 		895676AA24A9C756006EB5EB /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
-		895676AD24A9C83F006EB5EB /* CustomerPaymentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerPaymentDetails.swift; sourceTree = "<group>"; };
+		895676AD24A9C83F006EB5EB /* CustomerPaymentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerPaymentRequest.swift; sourceTree = "<group>"; };
 		895676AF24A9C8A6006EB5EB /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		895676B124A9C9C1006EB5EB /* PaymentInstruments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInstruments.swift; sourceTree = "<group>"; };
 		895676B324A9CA60006EB5EB /* PaymentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResult.swift; sourceTree = "<group>"; };
 		895676B624A9CAFD006EB5EB /* OpenApiBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenApiBasket.swift; sourceTree = "<group>"; };
-		895676B824A9CB07006EB5EB /* OpenApiCustomerPaymentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenApiCustomerPaymentDetails.swift; sourceTree = "<group>"; };
+		895676B824A9CB07006EB5EB /* OpenApiCustomerPaymentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenApiCustomerPaymentRequest.swift; sourceTree = "<group>"; };
 		895676BA24A9CB11006EB5EB /* OpenApiPaymentInstruments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenApiPaymentInstruments.swift; sourceTree = "<group>"; };
 		895676BC24A9CB1E006EB5EB /* OpenApiPaymentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenApiPaymentResult.swift; sourceTree = "<group>"; };
 		895676BF24A9D082006EB5EB /* ApiAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuthenticator.swift; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				895676B524A9CADA006EB5EB /* openapi */,
-				895676AD24A9C83F006EB5EB /* CustomerPaymentDetails.swift */,
+				895676AD24A9C83F006EB5EB /* CustomerPaymentRequest.swift */,
 				895676AF24A9C8A6006EB5EB /* Basket.swift */,
 				895676B124A9C9C1006EB5EB /* PaymentInstruments.swift */,
 				895676B324A9CA60006EB5EB /* PaymentResult.swift */,
@@ -276,7 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				895676B624A9CAFD006EB5EB /* OpenApiBasket.swift */,
-				895676B824A9CB07006EB5EB /* OpenApiCustomerPaymentDetails.swift */,
+				895676B824A9CB07006EB5EB /* OpenApiCustomerPaymentRequest.swift */,
 				895676BA24A9CB11006EB5EB /* OpenApiPaymentInstruments.swift */,
 				895676BC24A9CB1E006EB5EB /* OpenApiPaymentResult.swift */,
 				BC8DC0463F8506F11A28F096 /* OpenApiHealthCheck.swift */,
@@ -570,7 +570,7 @@
 				89B3B02E24AAE3B100494A00 /* VillageOptions.swift in Sources */,
 				895676BB24A9CB11006EB5EB /* OpenApiPaymentInstruments.swift in Sources */,
 				89361B5324875E1A00FBED9B /* SceneDelegate.swift in Sources */,
-				895676B924A9CB07006EB5EB /* OpenApiCustomerPaymentDetails.swift in Sources */,
+				895676B924A9CB07006EB5EB /* OpenApiCustomerPaymentRequest.swift in Sources */,
 				894458202490864E003233FB /* SlideToPayBackground.swift in Sources */,
 				895676C024A9D083006EB5EB /* ApiAuthenticator.swift in Sources */,
 				895676BD24A9CB1E006EB5EB /* OpenApiPaymentResult.swift in Sources */,
@@ -583,7 +583,7 @@
 				89B3B03424AAE4EB00494A00 /* RequestHeaderChain.swift in Sources */,
 				895676B724A9CAFD006EB5EB /* OpenApiBasket.swift in Sources */,
 				895676AB24A9C756006EB5EB /* ApiResult.swift in Sources */,
-				895676AE24A9C83F006EB5EB /* CustomerPaymentDetails.swift in Sources */,
+				895676AE24A9C83F006EB5EB /* CustomerPaymentRequest.swift in Sources */,
 				BC8DC51AEB822327BE1DF7D7 /* README.md in Sources */,
 				BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */,
 				BC8DC4047073E2F1489D9C7E /* CustomerLoginApiAuthenticator.swift in Sources */,

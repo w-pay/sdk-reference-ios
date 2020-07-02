@@ -1,7 +1,7 @@
 import UIKit
 import OpenAPIClient
 
-class OpenApiCustomerPaymentDetails: CustomerPaymentDetails {
+class OpenApiCustomerPaymentRequest: CustomerPaymentRequest {
 	private let customerPaymentDetails: OAICustomerPaymentDetail
 
 	init(customerPaymentDetails: OAICustomerPaymentDetail) {

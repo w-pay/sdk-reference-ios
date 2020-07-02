@@ -9,7 +9,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 
 	private var alertController: UIAlertController?
 
-	private var paymentRequestDetails: CustomerPaymentDetails?
+	private var paymentRequestDetails: CustomerPaymentRequest?
 	private var selectedPaymentInstrument: PaymentInstrument?
 
 	private var slideToPay: SlideToPay?
@@ -66,7 +66,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 		let _ = setTimeout(2, block: onComplete)
 
 		village.makePayment(
-			paymentDetails: paymentRequestDetails!,
+			paymentRequest: paymentRequestDetails!,
 			instrument: selectedPaymentInstrument!,
 		  callback: { data, resp in
 			  guard resp == nil else {
