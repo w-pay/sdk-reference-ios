@@ -7,9 +7,8 @@ target 'VillageWalletClientSDKReference' do
 
   # Pods for VillageWalletClientSDKReference
   pod 'MaterialComponents/ActivityIndicator'
-  
-  # FIXME: When SDK project broken apart
-  pod 'OpenAPIClient', :path => '../../android/objc'
+
+  pod 'OpenAPIClient', :path => 'OpenAPI/objc'
 
   target 'VillageWalletClientSDKReferenceTests' do
     inherit! :search_paths

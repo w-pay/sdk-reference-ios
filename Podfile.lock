@@ -34,7 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - MaterialComponents/ActivityIndicator
-  - OpenAPIClient (from `../../android/objc`)
+  - OpenAPIClient (from `OpenAPI/objc`)
 
 SPEC REPOS:
   trunk:
@@ -48,7 +48,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   OpenAPIClient:
-    :path: "../../android/objc"
+    :path: OpenAPI/objc
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -60,6 +60,6 @@ SPEC CHECKSUMS:
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   OpenAPIClient: a53b747f4a7b2063f94c40b2a397c1795ae57be3
 
-PODFILE CHECKSUM: 78e41c718d8a1560b16bc3580e06629bf10acd58
+PODFILE CHECKSUM: 79684918c0e92cf413a5d49108e7ad6e9b369412
 
 COCOAPODS: 1.9.3
