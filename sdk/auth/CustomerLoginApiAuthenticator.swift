@@ -44,13 +44,15 @@ class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
 				return callback(nil, response)
 			}
 
-			if response.mimeType == "application/json",
-			   let data = data {
-				guard let result = try? JSONDecoder().decode(IdmTokenDetails.self, from: data) else {
-					fatalError("Can't decode IDM token details JSON")
-				}
+			if response.mimeType == "application/json", let data = data {
+				do {
+					let result: IdmTokenDetails = try JSONDecoder().decode(IdmTokenDetails.self, from: data)
 
-				return callback(result, nil)
+					return callback(result, nil)
+				}
+				catch {
+					fatalError("Can't decode IDM token details JSON \(error)")
+				}
 			}
 
 			callback(nil, response)
