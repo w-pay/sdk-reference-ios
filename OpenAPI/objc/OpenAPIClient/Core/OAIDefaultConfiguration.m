@@ -102,6 +102,8 @@
 
 #pragma mark -
 
+// TODO: Manually adjusted until template fix is published.
+// @see https://github.com/OpenAPITools/openapi-generator/pull/6640
 - (NSDictionary *) authSettings {
     return @{
                @"bearerAuth":
@@ -109,7 +111,7 @@
                        @"type": @"basic",
                        @"in": @"header",
                        @"key": @"Authorization",
-                       @"value": [self getBasicAuthToken]
+                       @"value": [self getAccessToken]
                    },
                };
 }
