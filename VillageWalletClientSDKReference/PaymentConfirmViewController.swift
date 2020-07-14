@@ -120,8 +120,11 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	}
 
 	private func authenticateCustomer() {
-		// FIXME: Get from actual code.
+		// FIXME: Get from actual QR code.
 		let qrCode = "55c1142f-d8c8-4b75-bc00-b8ce09c0fd88"
+
+		// FIXME: The host should be set from the QR code contents.
+		village.setHost(host: "https://dev.mobile-api.woolworths.com.au")
 
 		village.authenticate { details, resp in
 			guard resp == nil else {

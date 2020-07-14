@@ -23,8 +23,5 @@ func createVillage() -> Village<IdmTokenDetails> {
 
 	let authentication = StoringApiAuthenticator(delegate: customerLogin, store: bearerTokenRequestHeader)
 
-	let village = Village(api: api, authenticator: authentication)
-	village.setHost(host: "https://dev.mobile-api.woolworths.com.au")
-
-	return village
+	return Village(api: api, authenticator: authentication)
 }
