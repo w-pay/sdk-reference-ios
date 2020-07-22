@@ -106,6 +106,13 @@
 // @see https://github.com/OpenAPITools/openapi-generator/pull/6640
 - (NSDictionary *) authSettings {
     return @{
+               @"ApiKeyAuth":
+                   @{
+                       @"type": @"api_key",
+                       @"in": @"header",
+                       @"key": @"X-Api-Key",
+                       @"value": [self getApiKeyWithPrefix:@"X-Api-Key"]
+                   },
                @"bearerAuth":
                    @{
                        @"type": @"basic",

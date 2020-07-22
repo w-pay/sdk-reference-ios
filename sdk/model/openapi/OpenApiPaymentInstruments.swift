@@ -9,18 +9,18 @@ class OpenApiPaymentInstruments: PaymentInstruments {
 	}
 
 	func creditCards() -> [CreditCard] {
-		paymentInstruments.creditCards.map({ item in OpenApiCreditCard(creditCard: item as! OAIGetCustomerPaymentInstrumentsResultsDataCreditCards) })
+		paymentInstruments.creditCards.map({ item in OpenApiCreditCard(creditCard: item as! OAICreditCard) })
 	}
 
 	func giftCards() -> [GiftCard] {
-		paymentInstruments.giftCards.map({ item in OpenApiGiftCard(giftCard: item as! OAIGetCustomerPaymentInstrumentsResultsDataGiftCards) })
+		paymentInstruments.giftCards.map({ item in OpenApiGiftCard(giftCard: item as! OAIGiftCard) })
 	}
 }
 
 class OpenApiCreditCard: CreditCard {
-	private let creditCard: OAIGetCustomerPaymentInstrumentsResultsDataCreditCards
+	private let creditCard: OAICreditCard
 
-	init(creditCard: OAIGetCustomerPaymentInstrumentsResultsDataCreditCards) {
+	init(creditCard: OAICreditCard) {
 		self.creditCard = creditCard
 	}
 
@@ -34,9 +34,9 @@ class OpenApiCreditCard: CreditCard {
 }
 
 class OpenApiGiftCard: GiftCard {
-	private let giftCard: OAIGetCustomerPaymentInstrumentsResultsDataGiftCards
+	private let giftCard: OAIGiftCard
 
-	init(giftCard: OAIGetCustomerPaymentInstrumentsResultsDataGiftCards) {
+	init(giftCard: OAIGiftCard) {
 		self.giftCard = giftCard
 	}
 

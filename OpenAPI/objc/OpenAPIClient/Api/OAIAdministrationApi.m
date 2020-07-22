@@ -76,7 +76,7 @@ NSInteger kOAIAdministrationApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];

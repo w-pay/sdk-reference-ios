@@ -1,9 +1,12 @@
 #import "OAIMerchantApi.h"
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
+#import "OAICreateMerchantPaymentSessionResponse.h"
 #import "OAICreateMerchantSchemaResults.h"
 #import "OAICreatePaymentQRCodeResults.h"
 #import "OAICreatePaymentRequestResults.h"
+#import "OAICreatePaymentSessionRequest.h"
+#import "OAICustomerPaymentSessionResult.h"
 #import "OAICustomerPreferencesResult.h"
 #import "OAIError.h"
 #import "OAIGetMerchantPaymentDetailsResults.h"
@@ -18,6 +21,7 @@
 #import "OAIPaymentQRCodeDetails.h"
 #import "OAIRefundMerchantTransactionRequest.h"
 #import "OAIRefundMerchantTransactionResults.h"
+#import "OAIUpdatePaymentSessionRequest1.h"
 
 
 @interface OAIMerchantApi ()
@@ -68,12 +72,26 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Invalidate QR Code
 /// Cancel an existing QC code.  Effectively expires the QR code
+///  @param xMerchantID  
+///
 ///  @param qrId The ID of the specific QR Code 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) cancelPaymentQRCodeWithQrId: (NSString*) qrId
+-(NSURLSessionTask*) cancelPaymentQRCodeWithXMerchantID: (NSString*) xMerchantID
+    qrId: (NSString*) qrId
     completionHandler: (void (^)(NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'qrId' is set
     if (qrId == nil) {
         NSParameterAssert(qrId);
@@ -95,6 +113,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -108,7 +129,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -134,14 +155,111 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Create Payment Session
+/// Create a new payment session
+///  @param xMerchantID  
+///
+///  @param createPaymentSessionRequest  
+///
+///  @returns OAICreateMerchantPaymentSessionResponse*
+///
+-(NSURLSessionTask*) createCustomerPaymentSessionWithXMerchantID: (NSString*) xMerchantID
+    createPaymentSessionRequest: (OAICreatePaymentSessionRequest*) createPaymentSessionRequest
+    completionHandler: (void (^)(OAICreateMerchantPaymentSessionResponse* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'createPaymentSessionRequest' is set
+    if (createPaymentSessionRequest == nil) {
+        NSParameterAssert(createPaymentSessionRequest);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"createPaymentSessionRequest"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/merchant/payment/session"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"ApiKeyAuth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = createPaymentSessionRequest;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"OAICreateMerchantPaymentSessionResponse*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((OAICreateMerchantPaymentSessionResponse*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Add Schema
 /// Add a new schema that can be used in schema based payloads for this merchant
+///  @param xMerchantID  
+///
 ///  @param merchantSchema  
 ///
 ///  @returns OAICreateMerchantSchemaResults*
 ///
--(NSURLSessionTask*) createMerchantSchemaWithMerchantSchema: (OAIMerchantSchema*) merchantSchema
+-(NSURLSessionTask*) createMerchantSchemaWithXMerchantID: (NSString*) xMerchantID
+    merchantSchema: (OAIMerchantSchema*) merchantSchema
     completionHandler: (void (^)(OAICreateMerchantSchemaResults* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'merchantSchema' is set
     if (merchantSchema == nil) {
         NSParameterAssert(merchantSchema);
@@ -160,6 +278,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -173,7 +294,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -202,12 +323,26 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Create QR Code
 /// Create a new QR code for an existing payment
+///  @param xMerchantID  
+///
 ///  @param paymentQRCodeDetails  
 ///
 ///  @returns OAICreatePaymentQRCodeResults*
 ///
--(NSURLSessionTask*) createPaymentQRCodeWithPaymentQRCodeDetails: (OAIPaymentQRCodeDetails*) paymentQRCodeDetails
+-(NSURLSessionTask*) createPaymentQRCodeWithXMerchantID: (NSString*) xMerchantID
+    paymentQRCodeDetails: (OAIPaymentQRCodeDetails*) paymentQRCodeDetails
     completionHandler: (void (^)(OAICreatePaymentQRCodeResults* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'paymentQRCodeDetails' is set
     if (paymentQRCodeDetails == nil) {
         NSParameterAssert(paymentQRCodeDetails);
@@ -226,6 +361,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -239,7 +377,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -268,12 +406,26 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Create Payment
 /// Create a new payment request that can then be presented to a customer for payment
+///  @param xMerchantID  
+///
 ///  @param merchantPaymentRequest  
 ///
 ///  @returns OAICreatePaymentRequestResults*
 ///
--(NSURLSessionTask*) createPaymentRequestWithMerchantPaymentRequest: (OAIMerchantPaymentRequest*) merchantPaymentRequest
+-(NSURLSessionTask*) createPaymentRequestWithXMerchantID: (NSString*) xMerchantID
+    merchantPaymentRequest: (OAIMerchantPaymentRequest*) merchantPaymentRequest
     completionHandler: (void (^)(OAICreatePaymentRequestResults* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'merchantPaymentRequest' is set
     if (merchantPaymentRequest == nil) {
         NSParameterAssert(merchantPaymentRequest);
@@ -292,6 +444,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -305,7 +460,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -334,12 +489,26 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Delete Payment
 /// Cancel an existing payment by setting the expiration date/time to now and setting the remaining uses to 0.  Will only be successful if the payment is still pending.  Completed payments need to be refunded using the dedicated API for that purpose
+///  @param xMerchantID  
+///
 ///  @param paymentRequestId The ID of the specific payment request 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteMerchantPaymentWithPaymentRequestId: (NSString*) paymentRequestId
+-(NSURLSessionTask*) deleteMerchantPaymentWithXMerchantID: (NSString*) xMerchantID
+    paymentRequestId: (NSString*) paymentRequestId
     completionHandler: (void (^)(NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'paymentRequestId' is set
     if (paymentRequestId == nil) {
         NSParameterAssert(paymentRequestId);
@@ -361,6 +530,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -374,7 +546,92 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"DELETE"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: nil
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler(error);
+                                }
+                            }];
+}
+
+///
+/// Delete Payment Session
+/// Deletes a payment session by setting its expiration date/time to now
+///  @param xMerchantID  
+///
+///  @param paymentSessionId The ID of the specific payment session to delete 
+///
+///  @returns void
+///
+-(NSURLSessionTask*) deleteMerchantPaymentSessionWithXMerchantID: (NSString*) xMerchantID
+    paymentSessionId: (NSString*) paymentSessionId
+    completionHandler: (void (^)(NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'paymentSessionId' is set
+    if (paymentSessionId == nil) {
+        NSParameterAssert(paymentSessionId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"paymentSessionId"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/merchant/payment/session/{paymentSessionId}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (paymentSessionId != nil) {
+        pathParams[@"paymentSessionId"] = paymentSessionId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -402,12 +659,26 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Get Payment Details
 /// Get the details for a specific payment.  Provides all types of payments and all payment content
+///  @param xMerchantID  
+///
 ///  @param paymentRequestId The ID of the specific payment request 
 ///
 ///  @returns OAIGetMerchantPaymentDetailsResults*
 ///
--(NSURLSessionTask*) getMerchantPaymentDetailsWithPaymentRequestId: (NSString*) paymentRequestId
+-(NSURLSessionTask*) getMerchantPaymentDetailsWithXMerchantID: (NSString*) xMerchantID
+    paymentRequestId: (NSString*) paymentRequestId
     completionHandler: (void (^)(OAIGetMerchantPaymentDetailsResults* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'paymentRequestId' is set
     if (paymentRequestId == nil) {
         NSParameterAssert(paymentRequestId);
@@ -429,6 +700,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -442,7 +716,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -468,8 +742,95 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Get Payment Session
+/// Get the details of a payment session
+///  @param xMerchantID  
+///
+///  @param paymentSessionId The ID of the specific payment session to retrieve 
+///
+///  @returns OAICustomerPaymentSessionResult*
+///
+-(NSURLSessionTask*) getMerchantPaymentSessionWithXMerchantID: (NSString*) xMerchantID
+    paymentSessionId: (NSString*) paymentSessionId
+    completionHandler: (void (^)(OAICustomerPaymentSessionResult* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'paymentSessionId' is set
+    if (paymentSessionId == nil) {
+        NSParameterAssert(paymentSessionId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"paymentSessionId"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/merchant/payment/session/{paymentSessionId}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (paymentSessionId != nil) {
+        pathParams[@"paymentSessionId"] = paymentSessionId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"ApiKeyAuth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"OAICustomerPaymentSessionResult*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((OAICustomerPaymentSessionResult*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Get Payment List
 /// Get a list of the payments initiated by the merchant, both pending and complete
+///  @param xMerchantID  
+///
 ///  @param type The type of payment requests to return: active, inactive or both (optional, default to @"ACTIVE")
 ///
 ///  @param pageSize The number of records to return for this page.  Defaults to 25 if absent (optional, default to @25)
@@ -478,10 +839,22 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIGetMerchantPaymentsResults*
 ///
--(NSURLSessionTask*) getMerchantPaymentsWithType: (NSString*) type
+-(NSURLSessionTask*) getMerchantPaymentsWithXMerchantID: (NSString*) xMerchantID
+    type: (NSString*) type
     pageSize: (NSNumber*) pageSize
     page: (NSNumber*) page
     completionHandler: (void (^)(OAIGetMerchantPaymentsResults* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/merchant/payments"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -498,6 +871,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -511,7 +887,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -539,10 +915,23 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Get Preferences
 /// Get the preferences previously set by the customer or merchant (depending on calling identity)
+///  @param xMerchantID  
+///
 ///  @returns OAICustomerPreferencesResult*
 ///
--(NSURLSessionTask*) getMerchantPreferencesWithCompletionHandler: 
-    (void (^)(OAICustomerPreferencesResult* output, NSError* error)) handler {
+-(NSURLSessionTask*) getMerchantPreferencesWithXMerchantID: (NSString*) xMerchantID
+    completionHandler: (void (^)(OAICustomerPreferencesResult* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/merchant/preferences"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -550,6 +939,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -563,7 +955,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -591,12 +983,26 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Get Schema Details
 /// Get the list of currently usable schema previously added for the merchant
+///  @param xMerchantID  
+///
 ///  @param schemaId The ID of the specific schema to get details for 
 ///
 ///  @returns OAIMerchantSchemaDetailsResult*
 ///
--(NSURLSessionTask*) getMerchantSchemaDetailsWithSchemaId: (NSString*) schemaId
+-(NSURLSessionTask*) getMerchantSchemaDetailsWithXMerchantID: (NSString*) xMerchantID
+    schemaId: (NSString*) schemaId
     completionHandler: (void (^)(OAIMerchantSchemaDetailsResult* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'schemaId' is set
     if (schemaId == nil) {
         NSParameterAssert(schemaId);
@@ -618,6 +1024,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -631,7 +1040,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -659,10 +1068,23 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Get Schema List
 /// Get the list of currently usable schema previously added for the merchant
+///  @param xMerchantID  
+///
 ///  @returns OAIMerchantSchemaResult*
 ///
--(NSURLSessionTask*) getMerchantSchemasWithCompletionHandler: 
-    (void (^)(OAIMerchantSchemaResult* output, NSError* error)) handler {
+-(NSURLSessionTask*) getMerchantSchemasWithXMerchantID: (NSString*) xMerchantID
+    completionHandler: (void (^)(OAIMerchantSchemaResult* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/merchant/schema"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -670,6 +1092,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -683,7 +1108,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -711,12 +1136,26 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Get Transaction Details
 /// Get the details for a specific transaction previously executed with the merchant.  Note that amounts are relative to the merchant.  A positive amount is a positive amount transferred to a merchant
+///  @param xMerchantID  
+///
 ///  @param transactionId The ID of the specific transaction 
 ///
 ///  @returns OAIGetMerchantTransactionDetailsResults*
 ///
--(NSURLSessionTask*) getMerchantTransactionDetailsWithTransactionId: (NSString*) transactionId
+-(NSURLSessionTask*) getMerchantTransactionDetailsWithXMerchantID: (NSString*) xMerchantID
+    transactionId: (NSString*) transactionId
     completionHandler: (void (^)(OAIGetMerchantTransactionDetailsResults* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'transactionId' is set
     if (transactionId == nil) {
         NSParameterAssert(transactionId);
@@ -738,6 +1177,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -751,7 +1193,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -779,6 +1221,8 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Get Transaction List
 /// Get a list of the previously executed transactions with the merchant.  Note that amounts are relative to the merchant.  A positive amount is a positive amount transferred to a merchant
+///  @param xMerchantID  
+///
 ///  @param startTime If present, the date/time to limit transactions returned.  Transactions older than this time will not be returned (optional)
 ///
 ///  @param endTime If present, the date/time to limit transactions returned.  Transactions newer than this time will not be returned (optional)
@@ -789,11 +1233,23 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIGetMerchantTransactionsResults*
 ///
--(NSURLSessionTask*) getMerchantTransactionsWithStartTime: (NSDate*) startTime
+-(NSURLSessionTask*) getMerchantTransactionsWithXMerchantID: (NSString*) xMerchantID
+    startTime: (NSDate*) startTime
     endTime: (NSDate*) endTime
     pageSize: (NSNumber*) pageSize
     page: (NSNumber*) page
     completionHandler: (void (^)(OAIGetMerchantTransactionsResults* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/merchant/transactions"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -813,6 +1269,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -826,7 +1285,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -854,12 +1313,26 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Get QR Code Content
 /// Obtain the content or an image for an existing QR code.  If requested content type is application/json then a payload will be returned.  if requested content is image/png an image will be returned
+///  @param xMerchantID  
+///
 ///  @param qrId The ID of the specific QR Code 
 ///
 ///  @returns OAICreatePaymentQRCodeResults*
 ///
--(NSURLSessionTask*) getPaymentQRCodeContentWithQrId: (NSString*) qrId
+-(NSURLSessionTask*) getPaymentQRCodeContentWithXMerchantID: (NSString*) xMerchantID
+    qrId: (NSString*) qrId
     completionHandler: (void (^)(OAICreatePaymentQRCodeResults* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'qrId' is set
     if (qrId == nil) {
         NSParameterAssert(qrId);
@@ -881,6 +1354,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json", @"image/png"]];
     if(acceptHeader.length > 0) {
@@ -894,7 +1370,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -922,15 +1398,29 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Refund Transaction
 /// Refund a previously executed transaction
+///  @param xMerchantID  
+///
 ///  @param transactionId The ID of the specific transaction to reverse 
 ///
 ///  @param refundMerchantTransactionRequest  
 ///
 ///  @returns OAIRefundMerchantTransactionResults*
 ///
--(NSURLSessionTask*) refundMerchantTransactionWithTransactionId: (NSString*) transactionId
+-(NSURLSessionTask*) refundMerchantTransactionWithXMerchantID: (NSString*) xMerchantID
+    transactionId: (NSString*) transactionId
     refundMerchantTransactionRequest: (OAIRefundMerchantTransactionRequest*) refundMerchantTransactionRequest
     completionHandler: (void (^)(OAIRefundMerchantTransactionResults* output, NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'transactionId' is set
     if (transactionId == nil) {
         NSParameterAssert(transactionId);
@@ -963,6 +1453,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -976,7 +1469,7 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -1005,12 +1498,26 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
 ///
 /// Set Preferences
 /// Change the preferences for the customer or merchant (depending on calling identity)
+///  @param xMerchantID  
+///
 ///  @param merchantPreferences  
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) setMerchantPreferencesWithMerchantPreferences: (OAIMerchantPreferences*) merchantPreferences
+-(NSURLSessionTask*) setMerchantPreferencesWithXMerchantID: (NSString*) xMerchantID
+    merchantPreferences: (OAIMerchantPreferences*) merchantPreferences
     completionHandler: (void (^)(NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'merchantPreferences' is set
     if (merchantPreferences == nil) {
         NSParameterAssert(merchantPreferences);
@@ -1029,6 +1536,9 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[]];
     if(acceptHeader.length > 0) {
@@ -1042,12 +1552,112 @@ NSInteger kOAIMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"bearerAuth"];
+    NSArray *authSettings = @[@"ApiKeyAuth"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
     bodyParam = merchantPreferences;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: nil
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler(error);
+                                }
+                            }];
+}
+
+///
+/// Update Payment Session
+/// Update the payment session details
+///  @param xMerchantID  
+///
+///  @param paymentSessionId The ID of the specific payment session to retrieve 
+///
+///  @param updatePaymentSessionRequest1  
+///
+///  @returns void
+///
+-(NSURLSessionTask*) updateMerchantPaymentSessionWithXMerchantID: (NSString*) xMerchantID
+    paymentSessionId: (NSString*) paymentSessionId
+    updatePaymentSessionRequest1: (OAIUpdatePaymentSessionRequest1*) updatePaymentSessionRequest1
+    completionHandler: (void (^)(NSError* error)) handler {
+    // verify the required parameter 'xMerchantID' is set
+    if (xMerchantID == nil) {
+        NSParameterAssert(xMerchantID);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"xMerchantID"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'paymentSessionId' is set
+    if (paymentSessionId == nil) {
+        NSParameterAssert(paymentSessionId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"paymentSessionId"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'updatePaymentSessionRequest1' is set
+    if (updatePaymentSessionRequest1 == nil) {
+        NSParameterAssert(updatePaymentSessionRequest1);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"updatePaymentSessionRequest1"] };
+            NSError* error = [NSError errorWithDomain:kOAIMerchantApiErrorDomain code:kOAIMerchantApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/merchant/payment/session/{paymentSessionId}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (paymentSessionId != nil) {
+        pathParams[@"paymentSessionId"] = paymentSessionId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (xMerchantID != nil) {
+        headerParams[@"X-Merchant-ID"] = xMerchantID;
+    }
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"ApiKeyAuth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = updatePaymentSessionRequest1;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

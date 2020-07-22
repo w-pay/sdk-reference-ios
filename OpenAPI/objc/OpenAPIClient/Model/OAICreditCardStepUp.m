@@ -1,6 +1,6 @@
-#import "OAIGetCustomerPaymentInstrumentsResultsDataStepUp.h"
+#import "OAICreditCardStepUp.h"
 
-@implementation OAIGetCustomerPaymentInstrumentsResultsDataStepUp
+@implementation OAICreditCardStepUp
 
 - (instancetype)init {
   self = [super init];

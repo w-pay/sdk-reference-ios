@@ -9,7 +9,8 @@ func createVillage() -> Village<IdmTokenDetails> {
 			requestHeadersFactory: RequestHeaderChain(
 				factories: [
 					apiKeyRequestHeader,
-					bearerTokenRequestHeader
+					bearerTokenRequestHeader,
+					WalletIdRequestHeader()
 				]
 			),
 			// TODO: This should be in a project property

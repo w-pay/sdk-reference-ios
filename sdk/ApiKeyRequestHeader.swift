@@ -8,6 +8,6 @@ class ApiKeyRequestHeader: RequestHeaderFactory {
 	}
 
 	func addHeaders(headers: inout [String: String]) {
-		headers["x-api-key"] = options.apiKey
+		headers[X_API_KEY] = options.apiKey
 	}
 }

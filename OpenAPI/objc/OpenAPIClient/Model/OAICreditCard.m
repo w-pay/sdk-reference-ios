@@ -1,6 +1,6 @@
-#import "OAIGetCustomerPaymentInstrumentsResultsDataCreditCards.h"
+#import "OAICreditCard.h"
 
-@implementation OAIGetCustomerPaymentInstrumentsResultsDataCreditCards
+@implementation OAICreditCard
 
 - (instancetype)init {
   self = [super init];
@@ -27,7 +27,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[];
+  NSArray *optionalProperties = @[@"lastUsed", ];
   return [optionalProperties containsObject:propertyName];
 }
 

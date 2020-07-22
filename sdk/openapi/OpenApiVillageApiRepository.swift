@@ -1,39 +1,40 @@
 import UIKit
 import OpenAPIClient
 
-class OpenApiVillageApiRepository: VillageApiRepository {
-	private let requestHeadersFactory: RequestHeadersFactory
-	private let contextRoot: String
-
-	private var host: String = "localhost:3000"
-
-	init(requestHeadersFactory: RequestHeadersFactory, contextRoot: String) {
-		self.requestHeadersFactory = requestHeadersFactory
-		self.contextRoot = contextRoot
+class OpenApiVillageApiRepository: OpenApiClientFactory, VillageApiRepository {
+	override init(requestHeadersFactory: RequestHeadersFactory, contextRoot: String) {
+		super.init(requestHeadersFactory: requestHeadersFactory, contextRoot: contextRoot)
 	}
 
 	func retrievePaymentRequestDetails(qrCodeId: String, callback: @escaping ApiResult<CustomerPaymentRequest>) {
 		let api = createCustomerApi()
 
-		api.getCustomerPaymentDetailsByQRCodeId(withQrId: qrCodeId, completionHandler: { results, error in
-			guard error == nil else {
-				return callback(nil, self.extractHttpResponse(error: error! as NSError))
-			}
+		api.getCustomerPaymentDetailsByQRCodeId(
+			withXWalletID: self.getDefaultHeader(client: api.apiClient, name: X_WALLET_ID),
+			qrId: qrCodeId,
+			completionHandler: { results, error in
+				guard error == nil else {
+					return callback(nil, self.extractHttpResponse(error: error! as NSError))
+				}
 
-			callback(OpenApiCustomerPaymentRequest(customerPaymentDetails: results!.data), nil)
+				callback(OpenApiCustomerPaymentRequest(customerPaymentDetails: results!.data), nil)
 		})
 	}
 
 	func retrievePaymentInstruments(callback: @escaping ApiResult<PaymentInstruments>) {
 		let api = createCustomerApi()
 
-		api.getCustomerPaymentInstruments { results, error in
-			guard error == nil else {
-				return callback(nil, self.extractHttpResponse(error: error! as NSError))
-			}
+		api.getCustomerPaymentInstruments(
+			withXWalletID: self.getDefaultHeader(client: api.apiClient, name: X_WALLET_ID),
+			// FIXME: Set to input
+			xEverdayPayWallet: false,
+			completionHandler: { results, error in
+				guard error == nil else {
+					return callback(nil, self.extractHttpResponse(error: error! as NSError))
+				}
 
-			callback(OpenApiPaymentInstruments(paymentInstruments: results!.data), nil)
-		}
+				callback(OpenApiPaymentInstruments(paymentInstruments: results!.data), nil)
+		})
 	}
 
 	func makePayment(
@@ -50,8 +51,11 @@ class OpenApiVillageApiRepository: VillageApiRepository {
 		body.meta = [:]
 
 		api.makeCustomerPayment(
-			withPaymentRequestId: paymentRequest.paymentRequestId(),
+			withXWalletID: self.getDefaultHeader(client: api.apiClient, name: X_WALLET_ID),
+			paymentRequestId: paymentRequest.paymentRequestId(),
 			customerPaymentDetails: body,
+			// FIXME: Set to input
+			xEverdayPayWallet: false,
 			completionHandler: { results, error in
 				guard error == nil else {
 					return callback(nil, self.extractHttpResponse(error: error! as NSError))
@@ -59,26 +63,6 @@ class OpenApiVillageApiRepository: VillageApiRepository {
 
 				callback(OpenApiPaymentResult(), nil)
 			})
-	}
-
-	private func createCustomerApi() -> OAICustomerApi {
-		let config = OAIDefaultConfiguration()
-
-		let apiClient = OAIApiClient(
-			baseURL: URL(string: "\(host)\(contextRoot)"),
-			configuration: config
-		)
-
-		requestHeadersFactory.createHeaders().forEach { name, value in
-			guard let token = authorisationHeader(name: name, value: value) else {
-				config.setDefaultHeaderValue(value, forKey: name)
-				return
-			}
-
-			config.accessToken = token
-		}
-
-		return OAICustomerApi(apiClient: apiClient)
 	}
 
 	private func authorisationHeader(name: String, value: String) -> String? {
@@ -100,9 +84,5 @@ class OpenApiVillageApiRepository: VillageApiRepository {
 		}
 
 		return data!
-	}
-
-	func setHost(host: String) {
-		self.host = host
 	}
 }
