@@ -33,7 +33,11 @@ class OpenApiVillageApiRepository: OpenApiClientFactory, VillageApiRepository {
 					return callback(nil, self.extractHttpResponse(error: error! as NSError))
 				}
 
-				callback(OpenApiPaymentInstruments(paymentInstruments: results!.data), nil)
+				// FIXME: Set wallet to input
+				callback(OpenApiPaymentInstruments(
+					creditCards: results!.data.creditCards as! [OAICreditCard],
+					giftCards: results!.data.giftCards as! [OAIGiftCard],
+					wallet: Wallet.MERCHANT), nil)
 		})
 	}
 
