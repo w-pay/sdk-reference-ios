@@ -32,6 +32,15 @@ class OpenApiClientFactory: Configurable {
 		getDefaultHeader(config: client.configuration, name: name)
 	}
 
+	internal func toDynamicPayload(payload: DynamicPayload) -> OAIDynamicPayload {
+		let dto = OAIDynamicPayload()
+
+		dto.schemaId = payload.schemaId()
+		dto.payload = (payload.payload() as! [String: NSObject])
+
+		return dto
+	}
+
 	private func getDefaultHeader(config: OAIConfiguration, name: String) -> String? {
 		(config.defaultHeaders as! [String: String])[name]
 	}

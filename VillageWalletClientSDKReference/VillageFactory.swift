@@ -1,11 +1,11 @@
 import UIKit
 
-func createVillage() -> Village<IdmTokenDetails> {
+func createVillage() -> CustomerVillage<IdmTokenDetails> {
 	let options = VillageOptions(apiKey: "95udD3oX82JScUQ1qyACSOMysyAl93Gb")
 	let apiKeyRequestHeader = ApiKeyRequestHeader(options: options)
 	let bearerTokenRequestHeader = BearerTokenRequestHeader()
 	let api =
-		OpenApiVillageApiRepository(
+		OpenApiVillageCustomerApiRepository(
 			requestHeadersFactory: RequestHeaderChain(
 				factories: [
 					apiKeyRequestHeader,
@@ -24,5 +24,5 @@ func createVillage() -> Village<IdmTokenDetails> {
 
 	let authentication = StoringApiAuthenticator(delegate: customerLogin, store: bearerTokenRequestHeader)
 
-	return Village(api: api, authenticator: authentication)
+	return CustomerVillage(api: api, authenticator: authentication)
 }
