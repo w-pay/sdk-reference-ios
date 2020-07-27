@@ -32,6 +32,27 @@ class OpenApiClientFactory: Configurable {
 		getDefaultHeader(config: client.configuration, name: name)
 	}
 
+	internal func authorisationHeader(name: String, value: String) -> String? {
+		if (name == "Authorization") {
+			let token = value.split(separator: " ")[1]
+
+			return String(token)
+		}
+
+		return nil
+	}
+
+	internal func extractHttpResponse(error: NSError) -> HTTPURLResponse {
+		let info = (error as NSError).userInfo
+		let data = info["com.alamofire.serialization.response.error.response"] as? HTTPURLResponse
+
+		guard data != nil else {
+			fatalError("No HTTP response data in error")
+		}
+
+		return data!
+	}
+
 	internal func toDynamicPayload(payload: DynamicPayload) -> OAIDynamicPayload {
 		let dto = OAIDynamicPayload()
 

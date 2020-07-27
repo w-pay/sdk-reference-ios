@@ -4,8 +4,8 @@ import OpenAPIClient
 class OpenApiMerchantTransactionSummaries: MerchantTransactionSummaries {
 	private let theTransactions: [OAIMerchantTransactionSummary]
 
-	init(theTransactions: [OAIMerchantTransactionSummary]) {
-		self.theTransactions = theTransactions
+	init(transactions: [OAIMerchantTransactionSummary]) {
+		self.theTransactions = transactions
 	}
 
 	func transactions() -> [MerchantTransactionSummary] {

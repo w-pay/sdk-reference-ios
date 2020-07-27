@@ -4,8 +4,8 @@ import OpenAPIClient
 class OpenApiMerchantSchemaSummaries: MerchantSchemaSummaries {
 	private let theSchemas: [OAIMerchantSchemaSummary]
 
-	init(theSchemas: [OAIMerchantSchemaSummary]) {
-		self.theSchemas = theSchemas
+	init(schemas: [OAIMerchantSchemaSummary]) {
+		self.theSchemas = schemas
 	}
 
 	func schemas() -> [MerchantSchemaSummary] {
