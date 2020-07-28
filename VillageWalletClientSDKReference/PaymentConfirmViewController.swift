@@ -150,7 +150,9 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	}
 
 	private func retrievePaymentInstruments() {
-		village.retrievePaymentInstruments { data, resp in
+		village.retrievePaymentInstruments(
+			wallet: Wallet.MERCHANT,
+			callback: { data, resp in
 			guard resp == nil else {
 				return self.handleErrorResponse(resp: resp!, message: "Oops! Can't retrieve payment instruments.")
 			}
@@ -158,7 +160,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 			self.selectedPaymentInstrument = data?.creditCards().first
 
 			self.safeToPay()
-		}
+		})
 	}
 
 	private func handleErrorResponse(resp: HTTPURLResponse, message: String) {
