@@ -41,7 +41,7 @@ protocol VillageCustomerApiRepository: VillageAdministrationApiRepository {
 	func makePayment(
 		paymentRequest: CustomerPaymentRequest,
 		instrument: PaymentInstrument,
-		callback: @escaping ApiResult<PaymentResult>
+		callback: @escaping ApiResult<CustomerTransactionSummary>
 	)
 	
 	func initiatePaymentInstrumentAddition(

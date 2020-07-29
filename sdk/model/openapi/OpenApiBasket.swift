@@ -28,20 +28,20 @@ class OpenApiBasketItem: BasketItem {
 		self.item.description
 	}
 
-	func quantity() -> NSNumber? {
-		self.item.quantity
+	func quantity() -> Int? {
+		self.item.quantity.intValue
 	}
 
-	func unitPrice() -> NSNumber? {
-		self.item.unitPrice
+	func unitPrice() -> Decimal? {
+		self.item.unitPrice.decimalValue
 	}
 
 	func unitMeasure() -> String? {
 		self.item.unitMeasure
 	}
 
-	func totalPrice() -> NSNumber? {
-		self.item.totalPrice
+	func totalPrice() -> Decimal? {
+		self.item.totalPrice.decimalValue
 	}
 
 	func tags() -> [String: String] {

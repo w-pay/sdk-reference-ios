@@ -7,9 +7,9 @@ protocol Basket {
 protocol BasketItem {
 	func label() -> String
 	func description() -> String?
-	func quantity() -> NSNumber?
-	func unitPrice() -> NSNumber?
+	func quantity() -> Int?
+	func unitPrice() -> Decimal?
 	func unitMeasure() -> String?
-	func totalPrice() -> NSNumber?
+	func totalPrice() -> Decimal?
 	func tags() -> [String: String]
 }

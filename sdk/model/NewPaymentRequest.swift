@@ -2,7 +2,7 @@ import UIKit
 
 protocol NewPaymentRequest {
 	func merchantReferenceId() -> String
-	func grossAmount() -> NSNumber
+	func grossAmount() -> Decimal
 	func generateQR() -> Bool
 	func maxUses() -> Int?
 	func timeToLivePayment() -> Int?

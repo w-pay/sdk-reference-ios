@@ -1,6 +1,6 @@
 import UIKit
 
-protocol HeathCheck {
+protocol HealthCheck {
 	/**
 	 * @return nil if invalid API data received.
 	 */

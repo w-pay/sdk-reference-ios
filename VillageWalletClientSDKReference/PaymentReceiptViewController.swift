@@ -38,14 +38,14 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 				fatalError("The dequeued cell is not an instance of BasketItemTableViewCell.")
 		}
 
-		let item: BasketItem! = (paymentDetails?.basket()?.items()[indexPath.row] as! BasketItem)
+		let item: BasketItem! = (paymentDetails?.basket()?.items()[indexPath.row])
 		cell.basketItemDescription.text = item.label()
 		cell.baketItemAmount.text = formatCurrency(value: item.totalPrice() ?? 0)
 
 		return cell
 	}
 
-	private func calculateGST(total: NSNumber) -> NSNumber {
-		total.doubleValue / 11.0 as NSNumber
+	private func calculateGST(total: Decimal) -> Decimal {
+		total / 11.0 as Decimal
 	}
 }

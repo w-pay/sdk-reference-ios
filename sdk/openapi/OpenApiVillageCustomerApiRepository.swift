@@ -113,7 +113,7 @@ class OpenApiVillageCustomerApiRepository: OpenApiClientFactory, VillageCustomer
 	func makePayment(
 		paymentRequest: CustomerPaymentRequest,
 		instrument: PaymentInstrument,
-		callback: @escaping ApiResult<PaymentResult>
+		callback: @escaping ApiResult<CustomerTransactionSummary>
 	) {
 		let api = createCustomerApi()
 
@@ -133,7 +133,7 @@ class OpenApiVillageCustomerApiRepository: OpenApiClientFactory, VillageCustomer
 					return callback(nil, self.extractHttpResponse(error: error! as NSError))
 				}
 
-				callback(OpenApiPaymentResult(), nil)
+				callback(OpenApiCustomerTransactionSummary(summary: results!.data), nil)
 			})
 	}
 
@@ -255,7 +255,7 @@ class OpenApiVillageCustomerApiRepository: OpenApiClientFactory, VillageCustomer
 		})
 	}
 
-	func checkHealth(callback: @escaping ApiResult<HeathCheck>) {
+	func checkHealth(callback: @escaping ApiResult<HealthCheck>) {
 		let api = createAdministrationApi()
 
 		api.checkHealth(

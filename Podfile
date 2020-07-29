@@ -12,7 +12,8 @@ target 'VillageWalletClientSDKReference' do
 
   target 'VillageWalletClientSDKReferenceTests' do
     inherit! :search_paths
-    # Pods for testing
+
+    pod 'SwiftHamcrest', '~> 2.2.1'
   end
 
   target 'VillageWalletClientSDKReferenceUITests' do

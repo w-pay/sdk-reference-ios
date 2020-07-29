@@ -152,7 +152,7 @@ class OpenApiVillageMerchantApiRepository: OpenApiClientFactory, VillageMerchant
 		let body = OAIMerchantPaymentRequest()
 		body.data = OAIMerchantPaymentsData()
 		body.data.merchantReferenceId = paymentRequest.merchantReferenceId()
-		body.data.grossAmount = paymentRequest.grossAmount()
+		body.data.grossAmount = NSDecimalNumber(decimal: paymentRequest.grossAmount())
 		body.data.generateQR = paymentRequest.generateQR() as NSNumber
 		body.data.maxUses = paymentRequest.maxUses() as NSNumber?
 		body.data.timeToLivePayment = paymentRequest.timeToLivePayment() as NSNumber?
@@ -180,10 +180,21 @@ class OpenApiVillageMerchantApiRepository: OpenApiClientFactory, VillageMerchant
 				let item = OAIBasketItems()
 				item.label = it.label()
 				item._description = it.description()
-				item.quantity = it.quantity()
-				item.unitPrice = it.unitPrice()
+
+				if let quantity = it.quantity() {
+					item.quantity = NSNumber(value: quantity)
+				}
+
+				if let unitPrice = it.unitPrice() {
+					item.unitPrice = NSDecimalNumber(decimal: unitPrice)
+				}
+
 				item.unitMeasure = it.unitMeasure()
-				item.totalPrice = it.totalPrice()
+
+				if let totalPrice = it.totalPrice() {
+					item.totalPrice = NSDecimalNumber(decimal: totalPrice)
+				}
+
 				item.tags = it.tags()
 
 				return item
@@ -399,7 +410,7 @@ class OpenApiVillageMerchantApiRepository: OpenApiClientFactory, VillageMerchant
 			})
 	}
 
-	func checkHealth(callback: @escaping ApiResult<HeathCheck>) {
+	func checkHealth(callback: @escaping ApiResult<HealthCheck>) {
 		let api = createAdministrationApi()
 
 		api.checkHealth(completionHandler: { result, error in

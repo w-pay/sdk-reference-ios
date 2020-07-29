@@ -56,8 +56,8 @@ class OpenApiMerchantTransactionSummary: MerchantTransactionSummary {
 		summary.merchantReferenceId
 	}
 
-	func grossAmount() -> NSNumber {
-		summary.grossAmount
+	func grossAmount() -> Decimal {
+		summary.grossAmount.decimalValue
 	}
 }
 
@@ -128,7 +128,7 @@ class OpenApiMerchantTransactionDetails: MerchantTransactionDetails {
 		details.merchantReferenceId
 	}
 
-	func grossAmount() -> NSNumber {
-		details.grossAmount
+	func grossAmount() -> Decimal {
+		details.grossAmount.decimalValue
 	}
 }

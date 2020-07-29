@@ -40,8 +40,8 @@ class OpenApiMerchantPaymentSummary: MerchantPaymentSummary {
 		payment.merchantReferenceId
 	}
 
-	func grossAmount() -> NSNumber {
-		payment.grossAmount
+	func grossAmount() -> Decimal {
+		payment.grossAmount.decimalValue
 	}
 }
 
@@ -96,7 +96,7 @@ class OpenApiMerchantPaymentDetails: MerchantPaymentDetails {
 		details.merchantReferenceId
 	}
 
-	func grossAmount() -> NSNumber {
-		details.grossAmount
+	func grossAmount() -> Decimal {
+		details.grossAmount.decimalValue
 	}
 }

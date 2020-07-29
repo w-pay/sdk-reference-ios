@@ -1,7 +1,7 @@
 import UIKit
 import OpenAPIClient
 
-class OpenApiHealthCheck: HeathCheck {
+class OpenApiHealthCheck: HealthCheck {
 	private let check: OAIHealthCheckResultData
 
 	init(check: OAIHealthCheckResultData) {

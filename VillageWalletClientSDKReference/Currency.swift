@@ -10,6 +10,6 @@ let currencyFormat: NumberFormatter = {
 	return currencyFormat
 }()
 
-func formatCurrency(value: NSNumber) -> String? {
-	currencyFormat.string(from: value)
+func formatCurrency(value: Decimal) -> String? {
+	currencyFormat.string(from: NSDecimalNumber(decimal: value))
 }

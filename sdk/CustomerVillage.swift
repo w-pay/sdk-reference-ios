@@ -31,7 +31,7 @@ class CustomerVillage<A>: Configurable {
 	func makePayment(
 		paymentRequest: CustomerPaymentRequest,
 		instrument: PaymentInstrument,
-		callback: @escaping ApiResult<PaymentResult>
+		callback: @escaping ApiResult<CustomerTransactionSummary>
 	) {
 		api.makePayment(paymentRequest: paymentRequest, instrument: instrument, callback: callback)
 	}

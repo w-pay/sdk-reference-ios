@@ -31,10 +31,12 @@ PODS:
     - AFNetworking (~> 3)
     - ISO8601 (~> 0.6)
     - JSONModel (~> 1.2)
+  - SwiftHamcrest (2.2.1)
 
 DEPENDENCIES:
   - MaterialComponents/ActivityIndicator
   - OpenAPIClient (from `OpenAPI/objc`)
+  - SwiftHamcrest (~> 2.2.1)
 
 SPEC REPOS:
   trunk:
@@ -45,6 +47,7 @@ SPEC REPOS:
     - MDFInternationalization
     - MotionAnimator
     - MotionInterchange
+    - SwiftHamcrest
 
 EXTERNAL SOURCES:
   OpenAPIClient:
@@ -59,7 +62,8 @@ SPEC CHECKSUMS:
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   OpenAPIClient: a53b747f4a7b2063f94c40b2a397c1795ae57be3
+  SwiftHamcrest: 67454f9c4c7fae8d7a0f82dfd42f8a54a79095b1
 
-PODFILE CHECKSUM: 79684918c0e92cf413a5d49108e7ad6e9b369412
+PODFILE CHECKSUM: a7c9a6b9474e5037721ea16940aa4aed8d525dc7
 
 COCOAPODS: 1.9.3

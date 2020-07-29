@@ -16,8 +16,8 @@ class OpenApiCustomerPaymentRequest: CustomerPaymentRequest {
 		customerPaymentDetails.merchantReferenceId
 	}
 
-	func grossAmount() -> NSNumber {
-		customerPaymentDetails.grossAmount
+	func grossAmount() -> Decimal {
+		customerPaymentDetails.grossAmount.decimalValue
 	}
 
 	func merchantId() -> String {
