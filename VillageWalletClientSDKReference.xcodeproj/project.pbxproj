@@ -44,6 +44,7 @@
 		BC8DC05A84A2AEB27B02BE60 /* TransactionRefundDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC5AF06A47A401654CB26 /* TransactionRefundDetails.swift */; };
 		BC8DC0A09CDF1ECE997116DD /* MerchantSchemas.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC84EBB23F49C5ADA0DDC /* MerchantSchemas.swift */; };
 		BC8DC0ABD43A33A9605A8A8D /* BasketMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC8BA1E5A592007279858 /* BasketMatcher.swift */; };
+		BC8DC0BF700F5BE298F9D294 /* VillageMerchantApiRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCA03F6A42806986DAB20 /* VillageMerchantApiRepositoryTest.swift */; };
 		BC8DC1160C35D77030055888 /* OpenApiVillageCustomerApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCC3BC706680502B46F49 /* OpenApiVillageCustomerApiRepository.swift */; };
 		BC8DC1521AC67AD57653C7C5 /* VillageCustomerApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCB861395BFE95C5B22DC /* VillageCustomerApiRepository.swift */; };
 		BC8DC1AAD299207C27FE4CCA /* PaymentInstrumentAddition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC173D294F76016ABDFCA /* PaymentInstrumentAddition.swift */; };
@@ -65,6 +66,9 @@
 		BC8DC5761F1D1831C59034B5 /* TestCreatePaymentSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCF107C5271E81EA17D6C /* TestCreatePaymentSessionRequest.swift */; };
 		BC8DC57A9AB3800C0A946EFE /* VillageAdministrationApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC2674ADAC0E670F97AF4 /* VillageAdministrationApiRepository.swift */; };
 		BC8DC591D6E0920D59F85069 /* OpenApiClientFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC5508B092D97EB3BB196 /* OpenApiClientFactory.swift */; };
+		BC8DC5A7052D964265CB71B6 /* MerchantSchemasMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC81393DE5E5ED2695E54 /* MerchantSchemasMatcher.swift */; };
+		BC8DC5C9D506F8477725FB0A /* MerchantTransactionMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCA0EA1DDC7A665767331 /* MerchantTransactionMatchers.swift */; };
+		BC8DC5DA22663815D1BD0E50 /* MerchantPayloadMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCEEE4E21E90D796416F9 /* MerchantPayloadMatchers.swift */; };
 		BC8DC5EBE53A3DE66C3113A8 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCAD7364A5773CE6CFE0F /* Date.swift */; };
 		BC8DC60BFBD686336592DAB4 /* UpdatePaymentSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC1A1840EA92E63797D9B /* UpdatePaymentSessionRequest.swift */; };
 		BC8DC613FB091BE1F0E1C17E /* OpenApiSdkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC2F67ECD60D4EAF07C0C /* OpenApiSdkFactory.swift */; };
@@ -79,6 +83,7 @@
 		BC8DC80AE418960D4790B36D /* CustomerTransactionsMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC67691842FAA3A8D12D8 /* CustomerTransactionsMatchers.swift */; };
 		BC8DC8178FB4F87A204F13B8 /* StringMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC0ECA3DB6DB7A15F37F6 /* StringMatchers.swift */; };
 		BC8DC81AF1651EC7480646AD /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCB21D3C092580787E710 /* QRCode.swift */; };
+		BC8DC88B3B3583BCC6A677CC /* VillageApiRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC49DED422611DF65FB69 /* VillageApiRepositoryTest.swift */; };
 		BC8DC8AAB46345EC959EAD11 /* WalletIdRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCA1744989720951D6073 /* WalletIdRequestHeader.swift */; };
 		BC8DC8DA81BD401492B97500 /* HeaderNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCF431E62BF00538CED56 /* HeaderNames.swift */; };
 		BC8DC8E58ECA4DB94831ED34 /* MerchantTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC33A051FDBDC01155D1C /* MerchantTransactions.swift */; };
@@ -110,6 +115,7 @@
 		BC8DCDC7B2ACBC7C43DF7ED7 /* CustomerPaymentRequestMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCE1184FF1D77E8A918DA /* CustomerPaymentRequestMatcher.swift */; };
 		BC8DCDD92268B62DDB2DCFE1 /* OpenApiHealthCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC0463F8506F11A28F096 /* OpenApiHealthCheck.swift */; };
 		BC8DCDFDFC34D2520742EE37 /* TestCustomerPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCFF128F7CA12F90D641E /* TestCustomerPaymentRequest.swift */; };
+		BC8DCE462E87A0DF43820008 /* MerchantPaymentsMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC238CE9D1EDD588C44C8 /* MerchantPaymentsMatchers.swift */; };
 		BC8DCEACB415B5E0B80256E3 /* HealthCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCED58553E0C5177205F1 /* HealthCheck.swift */; };
 		BC8DCEB5FA5078160E2AB26B /* OpenApiVillageMerchantApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC7112DB6D6AECFA945B5 /* OpenApiVillageMerchantApiRepository.swift */; };
 		BC8DCF91107C1C2BDCCB873A /* HealthCheckMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC79C101EEAB4F4CA3184 /* HealthCheckMatcher.swift */; };
@@ -191,6 +197,7 @@
 		BC8DC1A1840EA92E63797D9B /* UpdatePaymentSessionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdatePaymentSessionRequest.swift; path = sdk/model/UpdatePaymentSessionRequest.swift; sourceTree = "<group>"; };
 		BC8DC2191B05344A50B4EEF6 /* TestMerchantSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestMerchantSchema.swift; path = "sdk-tests/data/TestMerchantSchema.swift"; sourceTree = "<group>"; };
 		BC8DC22EAE63A1A61D35215A /* DynamicPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DynamicPayload.swift; path = sdk/model/DynamicPayload.swift; sourceTree = "<group>"; };
+		BC8DC238CE9D1EDD588C44C8 /* MerchantPaymentsMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MerchantPaymentsMatchers.swift; path = "sdk-tests/matchers/MerchantPaymentsMatchers.swift"; sourceTree = "<group>"; };
 		BC8DC23F51E9295AA22F36DF /* VillageMerchantApiRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillageMerchantApiRepository.swift; sourceTree = "<group>"; };
 		BC8DC2674ADAC0E670F97AF4 /* VillageAdministrationApiRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillageAdministrationApiRepository.swift; sourceTree = "<group>"; };
 		BC8DC2CE4D929C700B57E9AC /* OpenApiQRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiQRCode.swift; sourceTree = "<group>"; };
@@ -204,6 +211,7 @@
 		BC8DC466B954ABFEC5B385A1 /* CustomerTranssactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerTranssactions.swift; path = sdk/model/CustomerTranssactions.swift; sourceTree = "<group>"; };
 		BC8DC4729C2C330C30D10AD3 /* QRCodePaymentReferenceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRCodePaymentReferenceType.swift; path = sdk/model/QRCodePaymentReferenceType.swift; sourceTree = "<group>"; };
 		BC8DC47AEC924A7732AD3F22 /* NewPaymentRequestQRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewPaymentRequestQRCode.swift; path = sdk/model/NewPaymentRequestQRCode.swift; sourceTree = "<group>"; };
+		BC8DC49DED422611DF65FB69 /* VillageApiRepositoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VillageApiRepositoryTest.swift; path = "sdk-tests/VillageApiRepositoryTest.swift"; sourceTree = "<group>"; };
 		BC8DC522556D79D5D27B245B /* CreatePaymentRequestResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePaymentRequestResult.swift; path = sdk/model/CreatePaymentRequestResult.swift; sourceTree = "<group>"; };
 		BC8DC5407D915424F2C7FE7F /* OpenApiPaymentSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiPaymentSession.swift; sourceTree = "<group>"; };
 		BC8DC5508B092D97EB3BB196 /* OpenApiClientFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiClientFactory.swift; sourceTree = "<group>"; };
@@ -219,6 +227,7 @@
 		BC8DC79C101EEAB4F4CA3184 /* HealthCheckMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthCheckMatcher.swift; path = "sdk-tests/matchers/HealthCheckMatcher.swift"; sourceTree = "<group>"; };
 		BC8DC7B389ED3D03F0B90EFF /* Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Payment.swift; path = sdk/model/Payment.swift; sourceTree = "<group>"; };
 		BC8DC80345A38F159B5F1566 /* OpenApiCreatePaymentSessionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiCreatePaymentSessionResult.swift; sourceTree = "<group>"; };
+		BC8DC81393DE5E5ED2695E54 /* MerchantSchemasMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MerchantSchemasMatcher.swift; path = "sdk-tests/matchers/MerchantSchemasMatcher.swift"; sourceTree = "<group>"; };
 		BC8DC84EBB23F49C5ADA0DDC /* MerchantSchemas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MerchantSchemas.swift; path = sdk/model/MerchantSchemas.swift; sourceTree = "<group>"; };
 		BC8DC85DF804656C03DBBC89 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BC8DC8869272757D9B72C68F /* OpenApiMerchantPayments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiMerchantPayments.swift; sourceTree = "<group>"; };
@@ -227,7 +236,9 @@
 		BC8DC94093FFE747CCA81F6D /* TestNewPaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestNewPaymentRequest.swift; path = "sdk-tests/data/TestNewPaymentRequest.swift"; sourceTree = "<group>"; };
 		BC8DC95CD439839A35B44C21 /* TransactionSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionSummary.swift; path = sdk/model/TransactionSummary.swift; sourceTree = "<group>"; };
 		BC8DC9B4088437FDBCC3883A /* MerchantPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MerchantPayload.swift; path = sdk/model/MerchantPayload.swift; sourceTree = "<group>"; };
+		BC8DCA03F6A42806986DAB20 /* VillageMerchantApiRepositoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VillageMerchantApiRepositoryTest.swift; path = "sdk-tests/VillageMerchantApiRepositoryTest.swift"; sourceTree = "<group>"; };
 		BC8DCA0A1C10ADF70D5024FD /* OpenApiPaymentInstrumentAdditionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiPaymentInstrumentAdditionResult.swift; sourceTree = "<group>"; };
+		BC8DCA0EA1DDC7A665767331 /* MerchantTransactionMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MerchantTransactionMatchers.swift; path = "sdk-tests/matchers/MerchantTransactionMatchers.swift"; sourceTree = "<group>"; };
 		BC8DCA1744989720951D6073 /* WalletIdRequestHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletIdRequestHeader.swift; sourceTree = "<group>"; };
 		BC8DCA60254FB6C96936F22E /* OpenApiMerchantSchemas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiMerchantSchemas.swift; sourceTree = "<group>"; };
 		BC8DCA9A737AF79C8D9DDF17 /* TestUpdatePaymentSessionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestUpdatePaymentSessionRequest.swift; path = "sdk-tests/data/TestUpdatePaymentSessionRequest.swift"; sourceTree = "<group>"; };
@@ -251,6 +262,7 @@
 		BC8DCE74A353793F26E40249 /* PaymentSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentSession.swift; path = sdk/model/PaymentSession.swift; sourceTree = "<group>"; };
 		BC8DCE8280FE65C0D749A5C6 /* OpenApiMerchantPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiMerchantPayload.swift; sourceTree = "<group>"; };
 		BC8DCED58553E0C5177205F1 /* HealthCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthCheck.swift; sourceTree = "<group>"; };
+		BC8DCEEE4E21E90D796416F9 /* MerchantPayloadMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MerchantPayloadMatchers.swift; path = "sdk-tests/matchers/MerchantPayloadMatchers.swift"; sourceTree = "<group>"; };
 		BC8DCF107C5271E81EA17D6C /* TestCreatePaymentSessionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCreatePaymentSessionRequest.swift; path = "sdk-tests/data/TestCreatePaymentSessionRequest.swift"; sourceTree = "<group>"; };
 		BC8DCF431E62BF00538CED56 /* HeaderNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderNames.swift; sourceTree = "<group>"; };
 		BC8DCFD1397C3160AC0E91A7 /* OpenApiCreatePaymentRequestResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenApiCreatePaymentRequestResult.swift; sourceTree = "<group>"; };
@@ -319,6 +331,12 @@
 				BC8DC3449CA2C401D8CA6769 /* PaymentSessionMatchers.swift */,
 				BC8DCB5CB8CAC6336546A01F /* QRCodeMatcher.swift */,
 				BC8DC79C101EEAB4F4CA3184 /* HealthCheckMatcher.swift */,
+				BC8DCA03F6A42806986DAB20 /* VillageMerchantApiRepositoryTest.swift */,
+				BC8DC49DED422611DF65FB69 /* VillageApiRepositoryTest.swift */,
+				BC8DCA0EA1DDC7A665767331 /* MerchantTransactionMatchers.swift */,
+				BC8DC238CE9D1EDD588C44C8 /* MerchantPaymentsMatchers.swift */,
+				BC8DCEEE4E21E90D796416F9 /* MerchantPayloadMatchers.swift */,
+				BC8DC81393DE5E5ED2695E54 /* MerchantSchemasMatcher.swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -872,6 +890,12 @@
 				BC8DC6EF58ED6BAF2E1F5F9F /* PaymentSessionMatchers.swift in Sources */,
 				BC8DCAC2770920AC9B8E0DD7 /* QRCodeMatcher.swift in Sources */,
 				BC8DCF91107C1C2BDCCB873A /* HealthCheckMatcher.swift in Sources */,
+				BC8DC0BF700F5BE298F9D294 /* VillageMerchantApiRepositoryTest.swift in Sources */,
+				BC8DC88B3B3583BCC6A677CC /* VillageApiRepositoryTest.swift in Sources */,
+				BC8DC5C9D506F8477725FB0A /* MerchantTransactionMatchers.swift in Sources */,
+				BC8DCE462E87A0DF43820008 /* MerchantPaymentsMatchers.swift in Sources */,
+				BC8DC5DA22663815D1BD0E50 /* MerchantPayloadMatchers.swift in Sources */,
+				BC8DC5A7052D964265CB71B6 /* MerchantSchemasMatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

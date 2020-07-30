@@ -3,7 +3,7 @@ import Hamcrest
 
 @testable import VillageWalletClientSDKReference
 
-class VillageCustomerApiRepositoryTest: XCTestCase {
+class VillageCustomerApiRepositoryTest: VillageApiRepositoryTest {
 	private let apiFactory = OpenApiSdkFactory()
 	private var api: VillageCustomerApiRepository!
 
@@ -267,9 +267,5 @@ class VillageCustomerApiRepositoryTest: XCTestCase {
 		wait(for: [promise], timeout: 2)
 
 		assertThat(result, isHealthyService())
-	}
-
-	func apiResultExpectation() -> XCTestExpectation {
-		expectation(description: "API result")
 	}
 }
