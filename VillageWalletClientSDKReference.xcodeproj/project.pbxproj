@@ -196,6 +196,7 @@
 		893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItemTableViewCell.swift; sourceTree = "<group>"; };
 		8944581F2490864E003233FB /* SlideToPayBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPayBackground.swift; sourceTree = "<group>"; };
 		894458212490AFC0003233FB /* SlideToPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPay.swift; sourceTree = "<group>"; };
+		894C5F3824D2AB9100367A31 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		8953364B249B259600A50118 /* VillageWalletClientSDKReferenceRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VillageWalletClientSDKReferenceRelease.entitlements; sourceTree = "<group>"; };
 		898F80E924889D2000402105 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		BC8DC0065BB48AFE18603CBF /* Basket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
@@ -618,6 +619,7 @@
 		BC8DCC811E51BC816C16DE69 /* sdk-tests */ = {
 			isa = PBXGroup;
 			children = (
+				894C5F3824D2AB9100367A31 /* TestPlan.xctestplan */,
 				BC8DC797AC36E4602E5AA2C8 /* data */,
 				BC8DC36605A7CE227D9112F4 /* openapi */,
 				BC8DC1882EE857F0D1F7880E /* matchers */,
