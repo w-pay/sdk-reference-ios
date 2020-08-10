@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+import VillageOpenApiClient
 
 class OpenApiMerchantPayload: MerchantPayload {
 	private let aPayload: OAIMerchantPayload

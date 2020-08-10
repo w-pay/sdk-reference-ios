@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+import VillageOpenApiClient
 
 class OpenApiUsedPaymentInstrument: CustomerTransactionUsedPaymentInstrument {
 	private let instrument: OAICustomerTransactionSummaryAllOfInstruments

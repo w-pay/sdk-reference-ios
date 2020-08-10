@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+import VillageOpenApiClient
 
 class OpenApiPosPayload: PosPayload {
 	private let thePayload: OAIPosPayload

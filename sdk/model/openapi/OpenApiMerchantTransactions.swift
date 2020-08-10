@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+import VillageOpenApiClient
 
 class OpenApiMerchantTransactionSummaries: MerchantTransactionSummaries {
 	private let theTransactions: [OAIMerchantTransactionSummary]

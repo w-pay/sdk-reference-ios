@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+import VillageOpenApiClient
 
 class OpenApiCustomerPaymentRequest: CustomerPaymentRequest {
 	private let customerPaymentDetails: OAICustomerPaymentDetail

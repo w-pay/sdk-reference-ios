@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+import VillageOpenApiClient
 
 class OpenApiClientFactory: Configurable {
 	private let requestHeadersFactory: RequestHeadersFactory

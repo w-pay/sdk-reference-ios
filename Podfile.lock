@@ -27,16 +27,16 @@ PODS:
   - MotionAnimator (2.8.1):
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
-  - OpenAPIClient (1.0.0):
+  - SwiftHamcrest (2.2.1)
+  - VillageOpenApiClient (0.0.5.0):
     - AFNetworking (~> 3)
     - ISO8601 (~> 0.6)
     - JSONModel (~> 1.2)
-  - SwiftHamcrest (2.2.1)
 
 DEPENDENCIES:
   - MaterialComponents/ActivityIndicator
-  - OpenAPIClient (from `OpenAPI/objc`)
   - SwiftHamcrest (~> 2.2.1)
+  - VillageOpenApiClient (from `OpenAPI/objc`)
 
 SPEC REPOS:
   trunk:
@@ -50,7 +50,7 @@ SPEC REPOS:
     - SwiftHamcrest
 
 EXTERNAL SOURCES:
-  OpenAPIClient:
+  VillageOpenApiClient:
     :path: OpenAPI/objc
 
 SPEC CHECKSUMS:
@@ -61,9 +61,9 @@ SPEC CHECKSUMS:
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
-  OpenAPIClient: a53b747f4a7b2063f94c40b2a397c1795ae57be3
   SwiftHamcrest: 67454f9c4c7fae8d7a0f82dfd42f8a54a79095b1
+  VillageOpenApiClient: 9066bfeb7a38757a48e3b23d4f023cbd225f4957
 
-PODFILE CHECKSUM: a7c9a6b9474e5037721ea16940aa4aed8d525dc7
+PODFILE CHECKSUM: 0b1b216995fefc29e8cb7271cabe924afdd66c11
 
 COCOAPODS: 1.9.3

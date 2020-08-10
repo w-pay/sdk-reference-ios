@@ -8,7 +8,7 @@ target 'VillageWalletClientSDKReference' do
   # Pods for VillageWalletClientSDKReference
   pod 'MaterialComponents/ActivityIndicator'
 
-  pod 'OpenAPIClient', :path => 'OpenAPI/objc'
+  pod 'VillageOpenApiClient', :path => 'OpenAPI/objc'
 
   target 'VillageWalletClientSDKReferenceTests' do
     inherit! :search_paths

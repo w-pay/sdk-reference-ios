@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+import VillageOpenApiClient
 
 class OpenApiPaymentSession: PaymentSession {
 	private let session: OAIPaymentSession

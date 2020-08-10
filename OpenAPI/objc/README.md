@@ -1,4 +1,4 @@
-# OpenAPIClient
+# VillageOpenApiClient
 
 APIs for Village Wallet
 
@@ -18,7 +18,7 @@ The SDK requires [**ARC (Automatic Reference Counting)**](http://stackoverflow.c
 Add the following to the Podfile:
 
 ```ruby
-pod 'OpenAPIClient', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
+pod 'VillageOpenApiClient', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
 ```
 
 To specify a particular branch, append `, :branch => 'branch-name-here'`
@@ -27,10 +27,10 @@ To specify a particular commit, append `, :commit => '11aa22'`
 
 ### Install from local path using [CocoaPods](https://cocoapods.org/)
 
-Put the SDK under your project folder (e.g. /path/to/objc_project/Vendor/OpenAPIClient) and then add the following to the Podfile:
+Put the SDK under your project folder (e.g. /path/to/objc_project/Vendor/VillageOpenApiClient) and then add the following to the Podfile:
 
 ```ruby
-pod 'OpenAPIClient', :path => 'Vendor/OpenAPIClient'
+pod 'VillageOpenApiClient', :path => 'Vendor/VillageOpenApiClient'
 ```
 
 ### Usage
@@ -38,97 +38,97 @@ pod 'OpenAPIClient', :path => 'Vendor/OpenAPIClient'
 Import the following:
 
 ```objc
-#import <OpenAPIClient/OAIApiClient.h>
-#import <OpenAPIClient/OAIDefaultConfiguration.h>
+#import <VillageOpenApiClient/OAIApiClient.h>
+#import <VillageOpenApiClient/OAIDefaultConfiguration.h>
 // load models
-#import <OpenAPIClient/OAIBasket.h>
-#import <OpenAPIClient/OAIBasketItems.h>
-#import <OpenAPIClient/OAICommonPaymentBase.h>
-#import <OpenAPIClient/OAICommonPaymentSummary.h>
-#import <OpenAPIClient/OAICommonPaymentSummaryAllOf.h>
-#import <OpenAPIClient/OAICommonTransactionSummary.h>
-#import <OpenAPIClient/OAICommonTransactionSummaryAllOf.h>
-#import <OpenAPIClient/OAICreateMerchantPaymentSessionResponse.h>
-#import <OpenAPIClient/OAICreateMerchantPaymentSessionResponseData.h>
-#import <OpenAPIClient/OAICreateMerchantSchemaResults.h>
-#import <OpenAPIClient/OAICreatePaymentQRCodeResults.h>
-#import <OpenAPIClient/OAICreatePaymentRequestResults.h>
-#import <OpenAPIClient/OAICreatePaymentRequestResultsData.h>
-#import <OpenAPIClient/OAICreatePaymentSessionRequest.h>
-#import <OpenAPIClient/OAICreditCard.h>
-#import <OpenAPIClient/OAICreditCardStepUp.h>
-#import <OpenAPIClient/OAICustomerInstrumentsData.h>
-#import <OpenAPIClient/OAICustomerPaymentDetail.h>
-#import <OpenAPIClient/OAICustomerPaymentDetailAllOf.h>
-#import <OpenAPIClient/OAICustomerPaymentDetails.h>
-#import <OpenAPIClient/OAICustomerPaymentSessionPaymentSessionIdData.h>
-#import <OpenAPIClient/OAICustomerPaymentSessionResult.h>
-#import <OpenAPIClient/OAICustomerPaymentsPaymentRequestIdData.h>
-#import <OpenAPIClient/OAICustomerPaymentsPaymentRequestIdDataSecondaryInstruments.h>
-#import <OpenAPIClient/OAICustomerPreferences.h>
-#import <OpenAPIClient/OAICustomerPreferencesResult.h>
-#import <OpenAPIClient/OAICustomerTransactionDetail.h>
-#import <OpenAPIClient/OAICustomerTransactionDetailAllOf.h>
-#import <OpenAPIClient/OAICustomerTransactionSummary.h>
-#import <OpenAPIClient/OAICustomerTransactionSummaryAllOf.h>
-#import <OpenAPIClient/OAICustomerTransactionSummaryAllOfInstruments.h>
-#import <OpenAPIClient/OAIDynamicPayload.h>
-#import <OpenAPIClient/OAIError.h>
-#import <OpenAPIClient/OAIGetCustomerPaymentInstrumentsResults.h>
-#import <OpenAPIClient/OAIGetCustomerPaymentInstrumentsResultsData.h>
-#import <OpenAPIClient/OAIGetCustomerPaymentInstrumentsResultsDataEverydayPay.h>
-#import <OpenAPIClient/OAIGetCustomerPaymentResult.h>
-#import <OpenAPIClient/OAIGetCustomerTransactionDetailsResults.h>
-#import <OpenAPIClient/OAIGetCustomerTransactionsResult.h>
-#import <OpenAPIClient/OAIGetCustomerTransactionsResultData.h>
-#import <OpenAPIClient/OAIGetMerchantPaymentDetailsResults.h>
-#import <OpenAPIClient/OAIGetMerchantPaymentsResults.h>
-#import <OpenAPIClient/OAIGetMerchantPaymentsResultsData.h>
-#import <OpenAPIClient/OAIGetMerchantTransactionDetailsResults.h>
-#import <OpenAPIClient/OAIGetMerchantTransactionsResults.h>
-#import <OpenAPIClient/OAIGetMerchantTransactionsResultsData.h>
-#import <OpenAPIClient/OAIGiftCard.h>
-#import <OpenAPIClient/OAIGiftCardStepUp.h>
-#import <OpenAPIClient/OAIHealthCheckResult.h>
-#import <OpenAPIClient/OAIHealthCheckResultData.h>
-#import <OpenAPIClient/OAIInitiatePaymentInstrumentAdditionResults.h>
-#import <OpenAPIClient/OAIInitiatePaymentInstrumentAdditionResultsData.h>
-#import <OpenAPIClient/OAIInstrumentAdditionDetails.h>
-#import <OpenAPIClient/OAIMakeCustomerPaymentResults.h>
-#import <OpenAPIClient/OAIMerchantPayload.h>
-#import <OpenAPIClient/OAIMerchantPaymentDetail.h>
-#import <OpenAPIClient/OAIMerchantPaymentDetailAllOf.h>
-#import <OpenAPIClient/OAIMerchantPaymentRequest.h>
-#import <OpenAPIClient/OAIMerchantPaymentSessionData.h>
-#import <OpenAPIClient/OAIMerchantPaymentSummary.h>
-#import <OpenAPIClient/OAIMerchantPaymentSummaryAllOf.h>
-#import <OpenAPIClient/OAIMerchantPaymentsData.h>
-#import <OpenAPIClient/OAIMerchantPreferences.h>
-#import <OpenAPIClient/OAIMerchantQrData.h>
-#import <OpenAPIClient/OAIMerchantSchema.h>
-#import <OpenAPIClient/OAIMerchantSchemaData.h>
-#import <OpenAPIClient/OAIMerchantSchemaDetailsResult.h>
-#import <OpenAPIClient/OAIMerchantSchemaDetailsResultData.h>
-#import <OpenAPIClient/OAIMerchantSchemaResult.h>
-#import <OpenAPIClient/OAIMerchantSchemaResultData.h>
-#import <OpenAPIClient/OAIMerchantSchemaSummary.h>
-#import <OpenAPIClient/OAIMerchantTransactionDetail.h>
-#import <OpenAPIClient/OAIMerchantTransactionSummary.h>
-#import <OpenAPIClient/OAIMerchantTransactionSummaryAllOf.h>
-#import <OpenAPIClient/OAIMerchantTransactionsTransactionIdRefundData.h>
-#import <OpenAPIClient/OAIMetaPaginated.h>
-#import <OpenAPIClient/OAIPaymentQRCodeDetails.h>
-#import <OpenAPIClient/OAIPaymentSession.h>
-#import <OpenAPIClient/OAIPosPayload.h>
-#import <OpenAPIClient/OAIQr.h>
-#import <OpenAPIClient/OAIRefundMerchantTransactionRequest.h>
-#import <OpenAPIClient/OAIRefundMerchantTransactionResults.h>
-#import <OpenAPIClient/OAIUpdatePaymentSessionRequest.h>
-#import <OpenAPIClient/OAIUpdatePaymentSessionRequest1.h>
+#import <VillageOpenApiClient/OAIBasket.h>
+#import <VillageOpenApiClient/OAIBasketItems.h>
+#import <VillageOpenApiClient/OAICommonPaymentBase.h>
+#import <VillageOpenApiClient/OAICommonPaymentSummary.h>
+#import <VillageOpenApiClient/OAICommonPaymentSummaryAllOf.h>
+#import <VillageOpenApiClient/OAICommonTransactionSummary.h>
+#import <VillageOpenApiClient/OAICommonTransactionSummaryAllOf.h>
+#import <VillageOpenApiClient/OAICreateMerchantPaymentSessionResponse.h>
+#import <VillageOpenApiClient/OAICreateMerchantPaymentSessionResponseData.h>
+#import <VillageOpenApiClient/OAICreateMerchantSchemaResults.h>
+#import <VillageOpenApiClient/OAICreatePaymentQRCodeResults.h>
+#import <VillageOpenApiClient/OAICreatePaymentRequestResults.h>
+#import <VillageOpenApiClient/OAICreatePaymentRequestResultsData.h>
+#import <VillageOpenApiClient/OAICreatePaymentSessionRequest.h>
+#import <VillageOpenApiClient/OAICreditCard.h>
+#import <VillageOpenApiClient/OAICreditCardStepUp.h>
+#import <VillageOpenApiClient/OAICustomerInstrumentsData.h>
+#import <VillageOpenApiClient/OAICustomerPaymentDetail.h>
+#import <VillageOpenApiClient/OAICustomerPaymentDetailAllOf.h>
+#import <VillageOpenApiClient/OAICustomerPaymentDetails.h>
+#import <VillageOpenApiClient/OAICustomerPaymentSessionPaymentSessionIdData.h>
+#import <VillageOpenApiClient/OAICustomerPaymentSessionResult.h>
+#import <VillageOpenApiClient/OAICustomerPaymentsPaymentRequestIdData.h>
+#import <VillageOpenApiClient/OAICustomerPaymentsPaymentRequestIdDataSecondaryInstruments.h>
+#import <VillageOpenApiClient/OAICustomerPreferences.h>
+#import <VillageOpenApiClient/OAICustomerPreferencesResult.h>
+#import <VillageOpenApiClient/OAICustomerTransactionDetail.h>
+#import <VillageOpenApiClient/OAICustomerTransactionDetailAllOf.h>
+#import <VillageOpenApiClient/OAICustomerTransactionSummary.h>
+#import <VillageOpenApiClient/OAICustomerTransactionSummaryAllOf.h>
+#import <VillageOpenApiClient/OAICustomerTransactionSummaryAllOfInstruments.h>
+#import <VillageOpenApiClient/OAIDynamicPayload.h>
+#import <VillageOpenApiClient/OAIError.h>
+#import <VillageOpenApiClient/OAIGetCustomerPaymentInstrumentsResults.h>
+#import <VillageOpenApiClient/OAIGetCustomerPaymentInstrumentsResultsData.h>
+#import <VillageOpenApiClient/OAIGetCustomerPaymentInstrumentsResultsDataEverydayPay.h>
+#import <VillageOpenApiClient/OAIGetCustomerPaymentResult.h>
+#import <VillageOpenApiClient/OAIGetCustomerTransactionDetailsResults.h>
+#import <VillageOpenApiClient/OAIGetCustomerTransactionsResult.h>
+#import <VillageOpenApiClient/OAIGetCustomerTransactionsResultData.h>
+#import <VillageOpenApiClient/OAIGetMerchantPaymentDetailsResults.h>
+#import <VillageOpenApiClient/OAIGetMerchantPaymentsResults.h>
+#import <VillageOpenApiClient/OAIGetMerchantPaymentsResultsData.h>
+#import <VillageOpenApiClient/OAIGetMerchantTransactionDetailsResults.h>
+#import <VillageOpenApiClient/OAIGetMerchantTransactionsResults.h>
+#import <VillageOpenApiClient/OAIGetMerchantTransactionsResultsData.h>
+#import <VillageOpenApiClient/OAIGiftCard.h>
+#import <VillageOpenApiClient/OAIGiftCardStepUp.h>
+#import <VillageOpenApiClient/OAIHealthCheckResult.h>
+#import <VillageOpenApiClient/OAIHealthCheckResultData.h>
+#import <VillageOpenApiClient/OAIInitiatePaymentInstrumentAdditionResults.h>
+#import <VillageOpenApiClient/OAIInitiatePaymentInstrumentAdditionResultsData.h>
+#import <VillageOpenApiClient/OAIInstrumentAdditionDetails.h>
+#import <VillageOpenApiClient/OAIMakeCustomerPaymentResults.h>
+#import <VillageOpenApiClient/OAIMerchantPayload.h>
+#import <VillageOpenApiClient/OAIMerchantPaymentDetail.h>
+#import <VillageOpenApiClient/OAIMerchantPaymentDetailAllOf.h>
+#import <VillageOpenApiClient/OAIMerchantPaymentRequest.h>
+#import <VillageOpenApiClient/OAIMerchantPaymentSessionData.h>
+#import <VillageOpenApiClient/OAIMerchantPaymentSummary.h>
+#import <VillageOpenApiClient/OAIMerchantPaymentSummaryAllOf.h>
+#import <VillageOpenApiClient/OAIMerchantPaymentsData.h>
+#import <VillageOpenApiClient/OAIMerchantPreferences.h>
+#import <VillageOpenApiClient/OAIMerchantQrData.h>
+#import <VillageOpenApiClient/OAIMerchantSchema.h>
+#import <VillageOpenApiClient/OAIMerchantSchemaData.h>
+#import <VillageOpenApiClient/OAIMerchantSchemaDetailsResult.h>
+#import <VillageOpenApiClient/OAIMerchantSchemaDetailsResultData.h>
+#import <VillageOpenApiClient/OAIMerchantSchemaResult.h>
+#import <VillageOpenApiClient/OAIMerchantSchemaResultData.h>
+#import <VillageOpenApiClient/OAIMerchantSchemaSummary.h>
+#import <VillageOpenApiClient/OAIMerchantTransactionDetail.h>
+#import <VillageOpenApiClient/OAIMerchantTransactionSummary.h>
+#import <VillageOpenApiClient/OAIMerchantTransactionSummaryAllOf.h>
+#import <VillageOpenApiClient/OAIMerchantTransactionsTransactionIdRefundData.h>
+#import <VillageOpenApiClient/OAIMetaPaginated.h>
+#import <VillageOpenApiClient/OAIPaymentQRCodeDetails.h>
+#import <VillageOpenApiClient/OAIPaymentSession.h>
+#import <VillageOpenApiClient/OAIPosPayload.h>
+#import <VillageOpenApiClient/OAIQr.h>
+#import <VillageOpenApiClient/OAIRefundMerchantTransactionRequest.h>
+#import <VillageOpenApiClient/OAIRefundMerchantTransactionResults.h>
+#import <VillageOpenApiClient/OAIUpdatePaymentSessionRequest.h>
+#import <VillageOpenApiClient/OAIUpdatePaymentSessionRequest1.h>
 // load API classes for accessing endpoints
-#import <OpenAPIClient/OAIAdministrationApi.h>
-#import <OpenAPIClient/OAICustomerApi.h>
-#import <OpenAPIClient/OAIMerchantApi.h>
+#import <VillageOpenApiClient/OAIAdministrationApi.h>
+#import <VillageOpenApiClient/OAICustomerApi.h>
+#import <VillageOpenApiClient/OAIMerchantApi.h>
 
 ```
 

@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+import VillageOpenApiClient
 
 class OpenApiDynamicPayload: DynamicPayload {
 	private let aPayload: OAIDynamicPayload

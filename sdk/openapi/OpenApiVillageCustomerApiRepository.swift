@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+import VillageOpenApiClient
 
 class OpenApiVillageCustomerApiRepository: OpenApiClientFactory, VillageCustomerApiRepository {
 	override init(requestHeadersFactory: RequestHeadersFactory, contextRoot: String) {

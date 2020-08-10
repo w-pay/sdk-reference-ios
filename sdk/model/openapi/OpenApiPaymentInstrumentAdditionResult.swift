@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+import VillageOpenApiClient
 
 class OpenApiPaymentInstrumentAdditionResult: PaymentInstrumentAdditionResult {
 	private let result: OAIInitiatePaymentInstrumentAdditionResultsData
