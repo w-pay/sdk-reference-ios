@@ -1,4 +1,6 @@
 import UIKit
+import VillageWalletSDK
+import VillageWalletSDKOAIClient
 
 func createVillage() -> CustomerVillage<IdmTokenDetails> {
 	let options = VillageOptions(apiKey: "95udD3oX82JScUQ1qyACSOMysyAl93Gb")

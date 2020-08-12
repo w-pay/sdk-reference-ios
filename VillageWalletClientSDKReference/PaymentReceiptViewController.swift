@@ -1,4 +1,5 @@
 import UIKit
+import VillageWalletSDK
 
 class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var amountPaid: UILabel!

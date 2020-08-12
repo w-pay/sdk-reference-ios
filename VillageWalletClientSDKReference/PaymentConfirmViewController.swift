@@ -1,4 +1,5 @@
 import UIKit
+import VillageWalletSDK
 
 class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	@IBOutlet weak var action: UILabel!

@@ -26,6 +26,7 @@
 		898F80EA24889D2000402105 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80E924889D2000402105 /* BottomSheet.swift */; };
 		BC8DC1B7C5FCFCB5E7A9A091 /* VillageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCD9BCD73C1B1812E90FF /* VillageFactory.swift */; };
 		BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */; };
+		BC8DCEE575178C86A0E9F0B3 /* CustomerLoginApiAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		8953364B249B259600A50118 /* VillageWalletClientSDKReferenceRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VillageWalletClientSDKReferenceRelease.entitlements; sourceTree = "<group>"; };
 		898F80E924889D2000402105 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		9CDA15D0E9AA137A8464BBDE /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerLoginApiAuthenticator.swift; sourceTree = "<group>"; };
 		BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BC8DCD9BCD73C1B1812E90FF /* VillageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillageFactory.swift; sourceTree = "<group>"; };
 		BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 				8944581F2490864E003233FB /* SlideToPayBackground.swift */,
 				BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */,
 				BC8DCD9BCD73C1B1812E90FF /* VillageFactory.swift */,
+				BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */,
 			);
 			path = VillageWalletClientSDKReference;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				89361B832487A11000FBED9B /* PaymentReceiptViewController.swift in Sources */,
 				BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */,
 				BC8DC1B7C5FCFCB5E7A9A091 /* VillageFactory.swift in Sources */,
+				BC8DCEE575178C86A0E9F0B3 /* CustomerLoginApiAuthenticator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

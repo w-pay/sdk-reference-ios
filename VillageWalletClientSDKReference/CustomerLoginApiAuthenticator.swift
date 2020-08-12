@@ -1,4 +1,5 @@
 import UIKit
+import VillageWalletSDK
 
 class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
 	private let requestHeaders: RequestHeadersFactory
@@ -9,6 +10,8 @@ class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
 	init(requestHeaders: RequestHeadersFactory, path: String) {
 		self.requestHeaders = requestHeaders
 		self.path = path
+
+		super.init()
 	}
 
 	override func authenticate(callback: @escaping ApiResult<IdmTokenDetails>) {
