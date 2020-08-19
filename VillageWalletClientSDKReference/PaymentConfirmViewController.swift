@@ -67,7 +67,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 		let _ = setTimeout(2, block: onComplete)
 
 		village.makePayment(
-			paymentRequest: paymentRequestDetails!,
+			paymentRequestId: paymentRequestDetails!.paymentRequestId(),
 			instrument: selectedPaymentInstrument!,
 		  callback: { data, resp in
 			  guard resp == nil else {
@@ -122,7 +122,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 
 	private func authenticateCustomer() {
 		// FIXME: Get from actual QR code.
-		let qrCode = "38a9b075-5363-4bda-95f2-e2d217a58dc0"
+		let qrCode = "79c9165f-bc5f-4928-a6ff-66de169a8d41"
 
 		// FIXME: The host should be set from the QR code contents.
 		village.setHost(host: "https://dev.mobile-api.woolworths.com.au")
@@ -138,7 +138,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	}
 
 	private func retrievePaymentDetails(qrCodeId: String) {
-		village.retrievePaymentDetails(qrCode: qrCodeId, callback: { (data, resp) in
+		village.retrievePaymentRequestDetailsByQRCode(qrCode: qrCodeId, callback: { (data, resp) in
 			guard resp == nil else {
 				return self.handleErrorResponse(resp: resp!, message: "Oops! Can't get payment details.")
 			}
