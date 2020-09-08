@@ -14,7 +14,7 @@ class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
 		super.init()
 	}
 
-	override func authenticate(callback: @escaping ApiResult<IdmTokenDetails>) {
+	override func authenticate(completion: @escaping ApiCompletion<IdmTokenDetails>) {
 		guard let origin = self.origin else {
 			fatalError("Origin server must be set")
 		}
@@ -39,26 +39,41 @@ class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
 				fatalError("Didn't get a HTTPURLResponse back")
 			}
 
-			if error != nil {
-				return callback(nil, response)
+			if let error = error {
+				return completion(.failure(.error(error: error)))
 			}
 
 			guard (200...299).contains(response.statusCode) else {
-				return callback(nil, response)
+				switch(response.statusCode) {
+					case 400:
+						return completion(.failure(.httpError(reason: .invalidInput, response: response)))
+
+					case 401:
+						return completion(.failure(.httpError(reason: .unauthorised, response: response)))
+
+					case 422:
+						return completion(.failure(.httpError(reason: .processingError, response: response)))
+
+					default:
+						return completion(.failure(.httpError(reason: .serverError, response: response)))
+				}
 			}
 
 			if response.mimeType == "application/json", let data = data {
 				do {
 					let result: IdmTokenDetails = try JSONDecoder().decode(IdmTokenDetails.self, from: data)
 
-					return callback(result, nil)
+					return completion(.success(result))
 				}
 				catch {
-					fatalError("Can't decode IDM token details JSON \(error)")
+					return completion(.failure(.jsonDecoding(
+						message: "Can't decode IDM token details JSON",
+						details: [ "error": error ]))
+					)
 				}
 			}
 
-			callback(nil, response)
+			completion(.failure(.httpError(reason: .serverError, response: response)))
 		}
 		.resume()
 	}

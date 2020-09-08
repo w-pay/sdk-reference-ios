@@ -21,15 +21,15 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 
 		basketItems.heightAnchor.constraint(equalTo: receipt.heightAnchor, multiplier: 0.7).isActive = true
 
-		amountPaid.text = formatCurrency(value: paymentDetails?.grossAmount() ?? 0)
-		paymentInstrument.text = "Credit Card **** \(usedPaymentInstrument?.cardSuffix() ?? "")"
-		basketCount.text = "\(paymentDetails?.basket()?.items().count ?? 0) Items"
+		amountPaid.text = formatCurrency(value: paymentDetails?.grossAmount ?? 0)
+		paymentInstrument.text = "Credit Card **** \(usedPaymentInstrument?.cardSuffix ?? "")"
+		basketCount.text = "\(paymentDetails?.basket?.items.count ?? 0) Items"
 		basketTotal.text = amountPaid.text
-		tax.text = formatCurrency(value: calculateGST(total: paymentDetails?.grossAmount() ?? 0))
+		tax.text = formatCurrency(value: calculateGST(total: paymentDetails?.grossAmount ?? 0))
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		paymentDetails?.basket()?.items().count ?? 0
+		paymentDetails?.basket?.items.count ?? 0
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,9 +39,9 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 				fatalError("The dequeued cell is not an instance of BasketItemTableViewCell.")
 		}
 
-		let item: BasketItem! = (paymentDetails?.basket()?.items()[indexPath.row])
-		cell.basketItemDescription.text = item.label()
-		cell.baketItemAmount.text = formatCurrency(value: item.totalPrice() ?? 0)
+		let item: BasketItem! = (paymentDetails?.basket?.items[indexPath.row])
+		cell.basketItemDescription.text = item.label
+		cell.baketItemAmount.text = formatCurrency(value: item.totalPrice ?? 0)
 
 		return cell
 	}

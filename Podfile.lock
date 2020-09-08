@@ -27,17 +27,17 @@ PODS:
   - MotionAnimator (2.8.1):
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
-  - VillageWalletSDK (1.1.0)
-  - VillageWalletSDKOAIClient (1.1.0):
+  - VillageWalletSDK (3.0.0)
+  - VillageWalletSDKOAIClient (3.0.0):
     - AFNetworking (~> 3)
     - ISO8601 (~> 0.6)
     - JSONModel (~> 1.2)
-    - VillageWalletSDK (= 1.1.0)
+    - VillageWalletSDK (~> 3)
 
 DEPENDENCIES:
   - MaterialComponents/ActivityIndicator
-  - "VillageWalletSDK (from `git@github.com:woolworthslimited/paysdk2-ios.git`, tag `v1.1.0`)"
-  - "VillageWalletSDKOAIClient (from `git@github.com:woolworthslimited/paysdk2-openapi-ios.git`, tag `v1.1.0`)"
+  - "VillageWalletSDK (from `git@github.com:woolworthslimited/paysdk2-ios.git`, tag `v3.0.0`)"
+  - "VillageWalletSDKOAIClient (from `git@github.com:woolworthslimited/paysdk2-openapi-ios.git`, tag `v3.0.0`)"
 
 SPEC REPOS:
   trunk:
@@ -52,18 +52,18 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   VillageWalletSDK:
     :git: "git@github.com:woolworthslimited/paysdk2-ios.git"
-    :tag: v1.1.0
+    :tag: v3.0.0
   VillageWalletSDKOAIClient:
     :git: "git@github.com:woolworthslimited/paysdk2-openapi-ios.git"
-    :tag: v1.1.0
+    :tag: v3.0.0
 
 CHECKOUT OPTIONS:
   VillageWalletSDK:
     :git: "git@github.com:woolworthslimited/paysdk2-ios.git"
-    :tag: v1.1.0
+    :tag: v3.0.0
   VillageWalletSDKOAIClient:
     :git: "git@github.com:woolworthslimited/paysdk2-openapi-ios.git"
-    :tag: v1.1.0
+    :tag: v3.0.0
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -73,9 +73,9 @@ SPEC CHECKSUMS:
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
-  VillageWalletSDK: 65c14f0c4ff460f74773fd6d0a103af88d5b68cd
-  VillageWalletSDKOAIClient: 32aaa4a0db7f9e8c5f3cb5925b4018aadfdfc66e
+  VillageWalletSDK: 6859dd0e4204d6de0ff427f1ff663326c2aec72a
+  VillageWalletSDKOAIClient: 92c08497e64c494152f49130f0a0957a69267a07
 
-PODFILE CHECKSUM: c451896cc95e452f6e09c0290d82b7c1a24b4c03
+PODFILE CHECKSUM: 82a6ca63b66a1c7ee1dbc3e9e8589208f3c4efe7
 
 COCOAPODS: 1.9.3

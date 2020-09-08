@@ -67,14 +67,21 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 		let _ = setTimeout(2, block: onComplete)
 
 		village.makePayment(
-			paymentRequestId: paymentRequestDetails!.paymentRequestId(),
+			paymentRequestId: paymentRequestDetails!.paymentRequestId,
 			instrument: selectedPaymentInstrument!,
-		  callback: { data, resp in
-			  guard resp == nil else {
-				  return self.showErrorAlert(message: "Oops! Something went wrong.")
-			  }
+			secondaryInstruments: nil,
+			clientReference: nil,
+			challengeResponses: nil,
+			completion: { result in
+			  switch(result) {
+			    case .failure:
+				    self.showErrorAlert(message: "Oops! Something went wrong.")
+				    return
 
-			  onComplete()
+			    case .success:
+				    onComplete()
+				    return
+			  }
 		  })
 	}
 
@@ -122,50 +129,67 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 
 	private func authenticateCustomer() {
 		// FIXME: Get from actual QR code.
-		let qrCode = "79c9165f-bc5f-4928-a6ff-66de169a8d41"
+		let qrCode = "1467913e-0d40-4506-9a21-d94b89f9a080"
 
 		// FIXME: The host should be set from the QR code contents.
 		village.setHost(host: "https://dev.mobile-api.woolworths.com.au")
 
-		village.authenticate { details, resp in
-			guard resp == nil else {
-				return self.handleErrorResponse(resp: resp!, message: "Oops! Authentication failed!")
-			}
+		village.authenticate { result in
+			switch (result) {
+				case .failure(let error):
+					return self.handleErrorResponse(error: error, message: "Oops! Authentication failed!")
 
-			self.retrievePaymentDetails(qrCodeId: qrCode)
-			self.retrievePaymentInstruments()
+				case .success:
+					self.retrievePaymentDetails(qrCodeId: qrCode)
+					self.retrievePaymentInstruments()
+			}
 		}
 	}
 
 	private func retrievePaymentDetails(qrCodeId: String) {
-		village.retrievePaymentRequestDetailsByQRCode(qrCode: qrCodeId, callback: { (data, resp) in
-			guard resp == nil else {
-				return self.handleErrorResponse(resp: resp!, message: "Oops! Can't get payment details.")
+		village.retrievePaymentRequestDetailsBy(
+			qrCodeId: qrCodeId,
+			completion: { (result) in
+				switch(result) {
+					case .failure(let error):
+						return self.handleErrorResponse(error: error, message: "Oops! Can't get payment details.")
+
+					case .success(let data):
+						self.paymentRequestDetails = data
+						self.amountToPay.text = formatCurrency(value: data.grossAmount) ?? "???"
+
+						self.safeToPay()
+				}
 			}
-
-			self.paymentRequestDetails = data
-			self.amountToPay.text = formatCurrency(value: data?.grossAmount() ?? 0) ?? "???"
-
-			self.safeToPay()
-		})
+		)
 	}
 
 	private func retrievePaymentInstruments() {
 		village.retrievePaymentInstruments(
 			wallet: Wallet.MERCHANT,
-			callback: { data, resp in
-			guard resp == nil else {
-				return self.handleErrorResponse(resp: resp!, message: "Oops! Can't retrieve payment instruments.")
+			completion: { result in
+				switch(result) {
+					case .failure(let error):
+						return self.handleErrorResponse(error: error, message: "Oops! Can't retrieve payment instruments.")
+
+					case .success(let data):
+						self.selectedPaymentInstrument = data.creditCards.first
+
+						self.safeToPay()
+				}
 			}
-
-			self.selectedPaymentInstrument = data?.creditCards().first
-
-			self.safeToPay()
-		})
+		)
 	}
 
-	private func handleErrorResponse(resp: HTTPURLResponse, message: String) {
-		print("Error Response: \(resp)")
+	private func handleErrorResponse(error: ApiError, message: String) {
+		switch(error) {
+			case .httpError(let reason, let resp):
+				print("Error '\(reason)' Response: \(resp)")
+				break
+
+			default:
+				print("Got error")
+		}
 
 		showMissingDetailsError(message: message)
 	}
