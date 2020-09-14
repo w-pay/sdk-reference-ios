@@ -1,18 +1,18 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - ISO8601 (0.6.0)
   - JSONModel (1.8.0)
@@ -27,17 +27,17 @@ PODS:
   - MotionAnimator (2.8.1):
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
-  - VillageWalletSDK (3.1.0)
-  - VillageWalletSDKOAIClient (3.1.0):
-    - AFNetworking (~> 3)
+  - VillageWalletSDK (3.3.0)
+  - VillageWalletSDKOAIClient (3.2.0):
+    - AFNetworking (~> 4)
     - ISO8601 (~> 0.6)
     - JSONModel (~> 1.2)
-    - VillageWalletSDK (~> 3.1)
+    - VillageWalletSDK (~> 3.2)
 
 DEPENDENCIES:
   - MaterialComponents/ActivityIndicator
-  - "VillageWalletSDK (from `git@github.com:woolworthslimited/paysdk2-ios.git`, tag `v3.1.0`)"
-  - "VillageWalletSDKOAIClient (from `git@github.com:woolworthslimited/paysdk2-openapi-ios.git`, tag `v3.1.0`)"
+  - "VillageWalletSDK (from `git@github.com:woolworthslimited/paysdk2-ios.git`, tag `v3.3.0`)"
+  - "VillageWalletSDKOAIClient (from `git@github.com:woolworthslimited/paysdk2-openapi-ios.git`, tag `v3.3.0`)"
 
 SPEC REPOS:
   trunk:
@@ -52,30 +52,30 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   VillageWalletSDK:
     :git: "git@github.com:woolworthslimited/paysdk2-ios.git"
-    :tag: v3.1.0
+    :tag: v3.3.0
   VillageWalletSDKOAIClient:
     :git: "git@github.com:woolworthslimited/paysdk2-openapi-ios.git"
-    :tag: v3.1.0
+    :tag: v3.3.0
 
 CHECKOUT OPTIONS:
   VillageWalletSDK:
     :git: "git@github.com:woolworthslimited/paysdk2-ios.git"
-    :tag: v3.1.0
+    :tag: v3.3.0
   VillageWalletSDKOAIClient:
     :git: "git@github.com:woolworthslimited/paysdk2-openapi-ios.git"
-    :tag: v3.1.0
+    :tag: v3.3.0
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   MaterialComponents: cc9571d99d14bb085893b43ea90161a7eb696a8f
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
-  VillageWalletSDK: a6f99d57e4ddb912cb03f2533cdfdee50f453385
-  VillageWalletSDKOAIClient: f50df57f84ffd635151b850f41b4dd3fca87e73c
+  VillageWalletSDK: 60f4fb75821fc426b697850e53822d0320981392
+  VillageWalletSDKOAIClient: 2bda2314308fd525d6cd0e153c9a835ec9b55ae6
 
-PODFILE CHECKSUM: 0b3f49225a0572ed20ead966dd57aac557161525
+PODFILE CHECKSUM: 9207e946e754a6a04ee29680f39771fda6c252cc
 
 COCOAPODS: 1.9.3

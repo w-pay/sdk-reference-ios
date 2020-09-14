@@ -2,7 +2,7 @@ import UIKit
 import VillageWalletSDK
 import VillageWalletSDKOAIClient
 
-func createVillage() -> CustomerVillage<IdmTokenDetails> {
+func createVillage() -> CustomerVillage<HasAccessToken> {
 	let options = VillageOptions(apiKey: "95udD3oX82JScUQ1qyACSOMysyAl93Gb")
 	let apiKeyRequestHeader = ApiKeyRequestHeader(options: options)
 	let bearerTokenRequestHeader = BearerTokenRequestHeader()
@@ -24,7 +24,10 @@ func createVillage() -> CustomerVillage<IdmTokenDetails> {
 		path: "/wow/v1/idm/servers/token"
 	)
 
-	let authentication = StoringApiAuthenticator(delegate: customerLogin, store: bearerTokenRequestHeader)
+	let authentication = StoringApiAuthenticator<HasAccessToken>(
+		delegate: customerLogin as AnyApiAuthenticator<HasAccessToken>,
+		store: bearerTokenRequestHeader as AnyCredentialsStore<HasAccessToken>
+	)
 
 	return CustomerVillage(api: api, authenticator: authentication)
 }

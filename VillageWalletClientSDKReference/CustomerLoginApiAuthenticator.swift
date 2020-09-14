@@ -1,7 +1,7 @@
 import UIKit
 import VillageWalletSDK
 
-class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
+class CustomerLoginApiAuthenticator: AnyApiAuthenticator<HasAccessToken> {
 	private let requestHeaders: RequestHeadersFactory
 	private let path: String
 
@@ -14,7 +14,7 @@ class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
 		super.init()
 	}
 
-	override func authenticate(completion: @escaping ApiCompletion<IdmTokenDetails>) {
+	override func authenticate(completion: @escaping ApiCompletion<HasAccessToken>) {
 		guard let origin = self.origin else {
 			fatalError("Origin server must be set")
 		}
