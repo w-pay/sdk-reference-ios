@@ -8,8 +8,8 @@ target "VillageWalletClientSDKReference" do
   # Pods for VillageWalletClientSDKReference
   pod "MaterialComponents/ActivityIndicator"
 
-  pod "VillageWalletSDKOAIClient", :git => "git@github.com:woolworthslimited/paysdk2-openapi-ios.git", :tag => "v3.3.0"
-  pod "VillageWalletSDK", :git => "git@github.com:woolworthslimited/paysdk2-ios.git", :tag => "v3.3.0"
+  pod "VillageWalletSDKOAIClient", :git => "git@github.com:woolworthslimited/paysdk2-openapi-ios.git", :tag => "v3.4.0"
+  pod "VillageWalletSDK", :git => "git@github.com:woolworthslimited/paysdk2-ios.git", :tag => "v3.4.1"
 
   target "VillageWalletClientSDKReferenceTests" do
     # Pods for testing
