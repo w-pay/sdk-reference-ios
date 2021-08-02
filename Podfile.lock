@@ -27,17 +27,17 @@ PODS:
   - MotionAnimator (2.8.1):
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
-  - VillageWalletSDK (3.4.0)
-  - VillageWalletSDKOAIClient (3.4.0):
+  - VillageWalletSDK (4.2.0)
+  - VillageWalletSDKOAIClient (4.2.0):
     - AFNetworking (~> 4)
     - ISO8601 (~> 0.6)
     - JSONModel (~> 1.2)
-    - VillageWalletSDK (~> 3.4)
+    - VillageWalletSDK (~> 4.2.0)
 
 DEPENDENCIES:
   - MaterialComponents/ActivityIndicator
-  - "VillageWalletSDK (from `git@github.com:woolworthslimited/paysdk2-ios.git`, tag `v3.4.1`)"
-  - "VillageWalletSDKOAIClient (from `git@github.com:woolworthslimited/paysdk2-openapi-ios.git`, tag `v3.4.0`)"
+  - "VillageWalletSDK (from `git@github.com:w-pay/sdk-wpay-ios.git`, tag `v4.2.0`)"
+  - "VillageWalletSDKOAIClient (from `git@github.com:w-pay/sdk-wpay-openapi-ios.git`, tag `v4.2.0`)"
 
 SPEC REPOS:
   trunk:
@@ -51,19 +51,19 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   VillageWalletSDK:
-    :git: "git@github.com:woolworthslimited/paysdk2-ios.git"
-    :tag: v3.4.1
+    :git: "git@github.com:w-pay/sdk-wpay-ios.git"
+    :tag: v4.2.0
   VillageWalletSDKOAIClient:
-    :git: "git@github.com:woolworthslimited/paysdk2-openapi-ios.git"
-    :tag: v3.4.0
+    :git: "git@github.com:w-pay/sdk-wpay-openapi-ios.git"
+    :tag: v4.2.0
 
 CHECKOUT OPTIONS:
   VillageWalletSDK:
-    :git: "git@github.com:woolworthslimited/paysdk2-ios.git"
-    :tag: v3.4.1
+    :git: "git@github.com:w-pay/sdk-wpay-ios.git"
+    :tag: v4.2.0
   VillageWalletSDKOAIClient:
-    :git: "git@github.com:woolworthslimited/paysdk2-openapi-ios.git"
-    :tag: v3.4.0
+    :git: "git@github.com:w-pay/sdk-wpay-openapi-ios.git"
+    :tag: v4.2.0
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -73,9 +73,9 @@ SPEC CHECKSUMS:
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
-  VillageWalletSDK: 4e68106f5906f871903406c19f184f591013c413
-  VillageWalletSDKOAIClient: 8719a1478688a6a08cb0f1c0d0c3e689eeb84c0d
+  VillageWalletSDK: 7ca3e651f94c30813ca9afab17ca20c1dfe28966
+  VillageWalletSDKOAIClient: 94c7e5179facba687f921b2112329f0e92e587ec
 
-PODFILE CHECKSUM: a9e00c05d88512831aa7231740e09d52d605912b
+PODFILE CHECKSUM: e6ae64e9888cd266677185496468d2865c771834
 
 COCOAPODS: 1.9.3

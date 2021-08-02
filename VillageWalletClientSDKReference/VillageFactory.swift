@@ -2,32 +2,29 @@ import UIKit
 import VillageWalletSDK
 import VillageWalletSDKOAIClient
 
-func createVillage() -> CustomerVillage<IdmTokenDetails> {
-	let options = VillageOptions(apiKey: "95udD3oX82JScUQ1qyACSOMysyAl93Gb")
-	let apiKeyRequestHeader = ApiKeyRequestHeader(options: options)
-	let bearerTokenRequestHeader = BearerTokenRequestHeader<IdmTokenDetails>()
-	let api =
-		OpenApiVillageCustomerApiRepository(
-			requestHeadersFactory: RequestHeaderChain(
-				factories: [
-					apiKeyRequestHeader,
-					bearerTokenRequestHeader,
-					WalletIdRequestHeader()
-				]
-			),
-			// TODO: This should be in a project property
-			contextRoot: "/wow/v1/dpwallet"
-		)
+func createCustomerSDK(
+	options: VillageCustomerOptions,
+	authenticator: AnyApiAuthenticator<HasAccessToken>
+) -> VillageCustomerApiRepository {
+	CustomerVillage.createSDK(
+		options: options,
 
-	let customerLogin = CustomerLoginApiAuthenticator(
-		requestHeaders: RequestHeaderChain(factories: [ apiKeyRequestHeader ]),
-		path: "/wow/v1/idm/servers/token"
+		// see the docs on how we can use different token types.
+		token: .apiAuthenticatorToken(authenticator: authenticator),
+		repository: OpenApiVillageCustomerApiRepository.factory
+	)
+}
+
+func createCustomerLoginAuthenticator(
+	options: VillageOptions,
+	origin: String
+) -> CustomerLoginApiAuthenticator {
+	let authenticator = CustomerLoginApiAuthenticator(
+		requestHeaders: RequestHeaderChain(factories: [ApiKeyRequestHeader(options: options)]),
+		path: "/idm/servers/token"
 	)
 
-	let authentication = StoringApiAuthenticator<IdmTokenDetails>(
-		delegate: customerLogin,
-		store: bearerTokenRequestHeader
-	)
+	authenticator.setOrigin(origin: origin)
 
-	return CustomerVillage(api: api, authenticator: authentication)
+	return authenticator
 }

@@ -1,7 +1,25 @@
 import UIKit
+import VillageWalletSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+	let sdk: VillageCustomerApiRepository
+
+	override init() {
+		// FIXME: The host should be set from the QR code contents.
+		let origin = "https://dev.mobile-api.woolworths.com.au/wow/v1"
+
+		let options = VillageCustomerOptions(
+			apiKey: "95udD3oX82JScUQ1qyACSOMysyAl93Gb",
+			baseUrl: "\(origin)/pay"
+		)
+
+		let authenticator = createCustomerLoginAuthenticator(options: options, origin: origin)
+		sdk = createCustomerSDK(options: options, authenticator: authenticator)
+
+		super.init()
+	}
+
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		return true

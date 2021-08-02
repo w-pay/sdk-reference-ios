@@ -11,7 +11,7 @@ class PaymentReceiptViewController: UIViewController, UITableViewDataSource, UIT
 	@IBOutlet weak var tax: UILabel!
     
 	var paymentDetails: CustomerPaymentRequest?
-	var usedPaymentInstrument: PaymentInstrument?
+	var usedPaymentInstrument: CardPaymentInstrument?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

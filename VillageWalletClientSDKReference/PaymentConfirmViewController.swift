@@ -6,12 +6,12 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	@IBOutlet weak var amountToPay: UILabel!
 	@IBOutlet weak var bottomSheet: BottomSheet!
 
-	private let village = createVillage()
+	private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 	private var alertController: UIAlertController?
 
 	private var paymentRequestDetails: CustomerPaymentRequest?
-	private var selectedPaymentInstrument: PaymentInstrument?
+	private var selectedPaymentInstrument: CardPaymentInstrument?
 
 	private var slideToPay: SlideToPay?
 
@@ -66,12 +66,14 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 
 		let _ = setTimeout(2, block: onComplete)
 
-		village.makePayment(
+		appDelegate.sdk.paymentRequests.makePayment(
 			paymentRequestId: paymentRequestDetails!.paymentRequestId,
-			instrument: selectedPaymentInstrument!,
+			primaryInstrument: selectedPaymentInstrument?.paymentInstrumentId,
 			secondaryInstruments: nil,
 			clientReference: nil,
+			preferences: nil,
 			challengeResponses: nil,
+      fraudPayload: nil,
 			completion: { result in
 			  switch(result) {
 			    case .failure:
@@ -129,12 +131,9 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 
 	private func authenticateCustomer() {
 		// FIXME: Get from actual QR code.
-		let qrCode = "777481d2-3792-478e-a272-8909c0213e71"
+		let qrCode = "d6677fe3-01d3-4a1e-941c-461ca095ddc7"
 
-		// FIXME: The host should be set from the QR code contents.
-		village.setHost(host: "https://dev.mobile-api.woolworths.com.au")
-
-		village.authenticate { result in
+		appDelegate.sdk.authenticator.authenticate { result in
 			switch (result) {
 				case .failure(let error):
 					return self.handleErrorResponse(error: error, message: "Oops! Authentication failed!")
@@ -147,7 +146,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	}
 
 	private func retrievePaymentDetails(qrCodeId: String) {
-		village.retrievePaymentRequestDetailsBy(
+		appDelegate.sdk.paymentRequests.getBy(
 			qrCodeId: qrCodeId,
 			completion: { (result) in
 				switch(result) {
@@ -165,8 +164,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 	}
 
 	private func retrievePaymentInstruments() {
-		village.retrievePaymentInstruments(
-			wallet: Wallet.MERCHANT,
+		appDelegate.sdk.instruments.list(
 			completion: { result in
 				switch(result) {
 					case .failure(let error):

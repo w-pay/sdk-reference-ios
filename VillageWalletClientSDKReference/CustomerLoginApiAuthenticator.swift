@@ -1,10 +1,14 @@
 import UIKit
 import VillageWalletSDK
 
-class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
+class CustomerLoginApiAuthenticator: AnyApiAuthenticator<HasAccessToken> {
 	private let requestHeaders: RequestHeadersFactory
 	private let path: String
 
+	/*
+	  We allow the origin to be changeable so that the same authenticator instance can
+	  be used against different hosts if required.
+	 */
 	private var origin: String?
 
 	init(requestHeaders: RequestHeadersFactory, path: String) {
@@ -14,7 +18,7 @@ class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
 		super.init()
 	}
 
-	override func authenticate(completion: @escaping ApiCompletion<IdmTokenDetails>) {
+	override func authenticate(completion: @escaping ApiCompletion<HasAccessToken>) {
 		guard let origin = self.origin else {
 			fatalError("Origin server must be set")
 		}
@@ -78,7 +82,7 @@ class CustomerLoginApiAuthenticator: AnyApiAuthenticator<IdmTokenDetails> {
 		.resume()
 	}
 
-	override func setHost(host: String) {
-		origin = host
+	func setOrigin(origin: String) {
+		self.origin = origin
 	}
 }
