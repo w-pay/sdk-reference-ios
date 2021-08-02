@@ -48,4 +48,4 @@ $ sudo gem install cocoapods
 $ pod install
 ```
 
-Open the workspace in XCode/App Code.
+Open the workspace in XCode/[AppCode](https://www.jetbrains.com/objc/).
