@@ -74,6 +74,8 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 			preferences: nil,
 			challengeResponses: nil,
       fraudPayload: nil,
+			transactionType: nil,
+			allowPartialSuccess: nil,
 			completion: { result in
 			  switch(result) {
 			    case .failure:

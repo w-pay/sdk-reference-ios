@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - DownPicker (0.1.34)
   - ISO8601 (0.6.0)
   - JSONModel (1.8.0)
   - MaterialComponents/ActivityIndicator (109.7.0):
@@ -27,21 +28,25 @@ PODS:
   - MotionAnimator (2.8.1):
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
-  - VillageWalletSDK (4.2.0)
-  - VillageWalletSDKOAIClient (4.2.0):
+  - VillageWalletSDK (4.4.6)
+  - VillageWalletSDKOAIClient (4.4.1):
     - AFNetworking (~> 4)
     - ISO8601 (~> 0.6)
     - JSONModel (~> 1.2)
-    - VillageWalletSDK (~> 4.2.0)
+    - VillageWalletSDK (~> 4.4.5)
+  - WPayFramesSDK (0.3.0)
 
 DEPENDENCIES:
+  - DownPicker
   - MaterialComponents/ActivityIndicator
-  - "VillageWalletSDK (from `git@github.com:w-pay/sdk-wpay-ios.git`, tag `v4.2.0`)"
-  - "VillageWalletSDKOAIClient (from `git@github.com:w-pay/sdk-wpay-openapi-ios.git`, tag `v4.2.0`)"
+  - "VillageWalletSDK (from `git@github.com:w-pay/sdk-wpay-ios.git`, tag `v4.4.6`)"
+  - "VillageWalletSDKOAIClient (from `git@github.com:w-pay/sdk-wpay-openapi-ios.git`, tag `v4.4.1`)"
+  - "WPayFramesSDK (from `git@github.com:w-pay/sdk-wpay-ios-frames.git`, tag `v0.3.0`)"
 
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - DownPicker
     - ISO8601
     - JSONModel
     - MaterialComponents
@@ -52,30 +57,38 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   VillageWalletSDK:
     :git: "git@github.com:w-pay/sdk-wpay-ios.git"
-    :tag: v4.2.0
+    :tag: v4.4.6
   VillageWalletSDKOAIClient:
     :git: "git@github.com:w-pay/sdk-wpay-openapi-ios.git"
-    :tag: v4.2.0
+    :tag: v4.4.1
+  WPayFramesSDK:
+    :git: "git@github.com:w-pay/sdk-wpay-ios-frames.git"
+    :tag: v0.3.0
 
 CHECKOUT OPTIONS:
   VillageWalletSDK:
     :git: "git@github.com:w-pay/sdk-wpay-ios.git"
-    :tag: v4.2.0
+    :tag: v4.4.6
   VillageWalletSDKOAIClient:
     :git: "git@github.com:w-pay/sdk-wpay-openapi-ios.git"
-    :tag: v4.2.0
+    :tag: v4.4.1
+  WPayFramesSDK:
+    :git: "git@github.com:w-pay/sdk-wpay-ios-frames.git"
+    :tag: v0.3.0
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  DownPicker: c00ea63f08ae82116cc93d0eba74e86bf3d4c68e
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   MaterialComponents: cc9571d99d14bb085893b43ea90161a7eb696a8f
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
-  VillageWalletSDK: 7ca3e651f94c30813ca9afab17ca20c1dfe28966
-  VillageWalletSDKOAIClient: 94c7e5179facba687f921b2112329f0e92e587ec
+  VillageWalletSDK: 79e76fdbf1b02e071f137988f764bc6c60188af6
+  VillageWalletSDKOAIClient: e6430fa65a577ad882243e18dc0fabbaf706417a
+  WPayFramesSDK: 111cabe69be5976cc20fa14bbb50f72c8c9d209f
 
-PODFILE CHECKSUM: e6ae64e9888cd266677185496468d2865c771834
+PODFILE CHECKSUM: 33ee3a40609e75eb25aef7daaa4cf35c1aa373f3
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.2
