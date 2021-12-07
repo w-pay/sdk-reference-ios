@@ -66,7 +66,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 
 		let _ = setTimeout(2, block: onComplete)
 
-		appDelegate.sdk.paymentRequests.makePayment(
+		/*appDelegate.sdk.paymentRequests.makePayment(
 			paymentRequestId: paymentRequestDetails!.paymentRequestId,
 			primaryInstrument: selectedPaymentInstrument?.paymentInstrumentId,
 			secondaryInstruments: nil,
@@ -86,7 +86,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 				    onComplete()
 				    return
 			  }
-		  })
+		  })*/
 	}
 
 	func onSwiped() {
@@ -135,7 +135,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 		// FIXME: Get from actual QR code.
 		let qrCode = "d6677fe3-01d3-4a1e-941c-461ca095ddc7"
 
-		appDelegate.sdk.authenticator.authenticate { result in
+		/*appDelegate.sdk.authenticator.authenticate { result in
 			switch (result) {
 				case .failure(let error):
 					return self.handleErrorResponse(error: error, message: "Oops! Authentication failed!")
@@ -144,11 +144,11 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 					self.retrievePaymentDetails(qrCodeId: qrCode)
 					self.retrievePaymentInstruments()
 			}
-		}
+		}*/
 	}
 
 	private func retrievePaymentDetails(qrCodeId: String) {
-		appDelegate.sdk.paymentRequests.getBy(
+		/*appDelegate.sdk.paymentRequests.getBy(
 			qrCodeId: qrCodeId,
 			completion: { (result) in
 				switch(result) {
@@ -162,11 +162,11 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 						self.safeToPay()
 				}
 			}
-		)
+		)*/
 	}
 
 	private func retrievePaymentInstruments() {
-		appDelegate.sdk.instruments.list(
+		/*appDelegate.sdk.instruments.list(
 			completion: { result in
 				switch(result) {
 					case .failure(let error):
@@ -178,7 +178,7 @@ class PaymentConfirmViewController: UIViewController, SlideToPayDelegate {
 						self.safeToPay()
 				}
 			}
-		)
+		)*/
 	}
 
 	private func handleErrorResponse(error: ApiError, message: String) {

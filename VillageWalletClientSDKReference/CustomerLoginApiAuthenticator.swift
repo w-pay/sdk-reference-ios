@@ -3,33 +3,28 @@ import VillageWalletSDK
 
 class CustomerLoginApiAuthenticator: AnyApiAuthenticator<HasAccessToken> {
 	private let requestHeaders: RequestHeadersFactory
-	private let path: String
+	private let url: String
+	private let customerId: String
 
-	/*
-	  We allow the origin to be changeable so that the same authenticator instance can
-	  be used against different hosts if required.
-	 */
-	private var origin: String?
-
-	init(requestHeaders: RequestHeadersFactory, path: String) {
+	init(
+		requestHeaders: RequestHeadersFactory,
+		url: String,
+		customerId: String
+	) {
 		self.requestHeaders = requestHeaders
-		self.path = path
+		self.url = url
+		self.customerId = customerId
 
 		super.init()
 	}
 
 	override func authenticate(completion: @escaping ApiCompletion<HasAccessToken>) {
-		guard let origin = self.origin else {
-			fatalError("Origin server must be set")
-		}
-
 		let credentials = [
-			"shopperId": "1100000000093126352",
-			"username": "1100000000093126352"
+			"shopperId": customerId,
+			"username": customerId
 		]
 
-		let url = URL(string: "\(origin)\(path)")!
-		var request = URLRequest(url: url)
+		var request = URLRequest(url: URL(string: url)!)
 		request.httpMethod = "POST"
 		requestHeaders.createHeaders().forEach { name, value in request.setValue(value, forHTTPHeaderField: name) }
 		request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -80,9 +75,5 @@ class CustomerLoginApiAuthenticator: AnyApiAuthenticator<HasAccessToken> {
 			completion(.failure(.httpError(reason: .serverError, response: response)))
 		}
 		.resume()
-	}
-
-	func setOrigin(origin: String) {
-		self.origin = origin
 	}
 }

@@ -16,15 +16,11 @@ func createCustomerSDK(
 }
 
 func createCustomerLoginAuthenticator(
-	options: VillageOptions,
-	origin: String
+	options: SimulatorCustomerOptions
 ) -> CustomerLoginApiAuthenticator {
-	let authenticator = CustomerLoginApiAuthenticator(
+	CustomerLoginApiAuthenticator(
 		requestHeaders: RequestHeaderChain(factories: [ApiKeyRequestHeader(options: options)]),
-		path: "/idm/servers/token"
+		url: "\(options.baseUrl)/wow/v1/idm/servers/token",
+		customerId: options.customerId
 	)
-
-	authenticator.setOrigin(origin: origin)
-
-	return authenticator
 }
