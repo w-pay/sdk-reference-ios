@@ -26,7 +26,11 @@
 		898F80EA24889D2000402105 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80E924889D2000402105 /* BottomSheet.swift */; };
 		BC8DC00B8ED6CFC38914C9F3 /* IdmTokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC1A5E100A56972D07CD3 /* IdmTokenDetails.swift */; };
 		BC8DC1B7C5FCFCB5E7A9A091 /* VillageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCD9BCD73C1B1812E90FF /* VillageFactory.swift */; };
+		BC8DC24350AA914D5ADA2954 /* SimulatorMerchantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCF56D05E5F890D4E64C9 /* SimulatorMerchantOptions.swift */; };
 		BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */; };
+		BC8DC48ACC6DDA43106B7FA9 /* WPaySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCD3DC899605A381B8566 /* WPaySettings.swift */; };
+		BC8DCE15AD8DE54F8E7A5EDC /* SimulatorPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCED486567B1439BBE0F6 /* SimulatorPaymentRequest.swift */; };
+		BC8DCE4F9467D692F2988424 /* SimulatorCustomerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCC2C6715FEAEDDF18906 /* SimulatorCustomerOptions.swift */; };
 		BC8DCEE575178C86A0E9F0B3 /* CustomerLoginApiAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +82,11 @@
 		BC8DC1A5E100A56972D07CD3 /* IdmTokenDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdmTokenDetails.swift; sourceTree = "<group>"; };
 		BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerLoginApiAuthenticator.swift; sourceTree = "<group>"; };
 		BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		BC8DCC2C6715FEAEDDF18906 /* SimulatorCustomerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimulatorCustomerOptions.swift; path = Model/SimulatorCustomerOptions.swift; sourceTree = "<group>"; };
+		BC8DCD3DC899605A381B8566 /* WPaySettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WPaySettings.swift; path = Settings/WPaySettings.swift; sourceTree = "<group>"; };
 		BC8DCD9BCD73C1B1812E90FF /* VillageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillageFactory.swift; sourceTree = "<group>"; };
+		BC8DCED486567B1439BBE0F6 /* SimulatorPaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimulatorPaymentRequest.swift; path = Model/SimulatorPaymentRequest.swift; sourceTree = "<group>"; };
+		BC8DCF56D05E5F890D4E64C9 /* SimulatorMerchantOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimulatorMerchantOptions.swift; path = Model/SimulatorMerchantOptions.swift; sourceTree = "<group>"; };
 		BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A3DAA88D24E469D4DC7243 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C3130BE38596A2EA5576C20F /* Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReferenceTests/Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +175,10 @@
 				BC8DCD9BCD73C1B1812E90FF /* VillageFactory.swift */,
 				BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */,
 				BC8DC1A5E100A56972D07CD3 /* IdmTokenDetails.swift */,
+				BC8DCD3DC899605A381B8566 /* WPaySettings.swift */,
+				BC8DCF56D05E5F890D4E64C9 /* SimulatorMerchantOptions.swift */,
+				BC8DCC2C6715FEAEDDF18906 /* SimulatorCustomerOptions.swift */,
+				BC8DCED486567B1439BBE0F6 /* SimulatorPaymentRequest.swift */,
 			);
 			path = VillageWalletClientSDKReference;
 			sourceTree = "<group>";
@@ -474,6 +486,10 @@
 				BC8DC1B7C5FCFCB5E7A9A091 /* VillageFactory.swift in Sources */,
 				BC8DCEE575178C86A0E9F0B3 /* CustomerLoginApiAuthenticator.swift in Sources */,
 				BC8DC00B8ED6CFC38914C9F3 /* IdmTokenDetails.swift in Sources */,
+				BC8DC48ACC6DDA43106B7FA9 /* WPaySettings.swift in Sources */,
+				BC8DC24350AA914D5ADA2954 /* SimulatorMerchantOptions.swift in Sources */,
+				BC8DCE4F9467D692F2988424 /* SimulatorCustomerOptions.swift in Sources */,
+				BC8DCE15AD8DE54F8E7A5EDC /* SimulatorPaymentRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
