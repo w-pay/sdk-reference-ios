@@ -8,6 +8,7 @@ target "VillageWalletClientSDKReference" do
   # Pods for VillageWalletClientSDKReference
   pod "DownPicker"
   pod "MaterialComponents/ActivityIndicator"
+  pod "SnackBar.swift"
 
   pod "VillageWalletSDKOAIClient", :git => "git@github.com:w-pay/sdk-wpay-openapi-ios.git", :tag => "v4.4.1"
   pod "VillageWalletSDK", :git => "git@github.com:w-pay/sdk-wpay-ios.git", :tag => "v4.4.6"

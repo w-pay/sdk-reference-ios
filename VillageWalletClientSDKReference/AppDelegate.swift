@@ -1,3 +1,4 @@
+import SnackBar_swift
 import UIKit
 import VillageWalletSDK
 
@@ -22,6 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Called when the user discards a scene session.
 		// If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
 		// Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+	}
+
+	func onError(error: Any) {
+		let message = "Something went wrong. Check the console."
+		let view: UIView = (UIApplication.shared.windows.first?.rootViewController?.view)!
+
+		print("[PaymentSimulator]: \(error)")
+
+		SnackBar.make(in: view, message: message, duration: .lengthLong).show()
 	}
 
 	func onCreatePaymentRequest(
