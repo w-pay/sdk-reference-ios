@@ -82,7 +82,9 @@ class WPaySettings: UIViewController {
 				require3DSPA: require3DSPA.isOn,
 				fraudPayload: SimulatorFraudPayload()
 			)
-		)
+		) {
+			print("Done")
+		}
 	}
     
 	private func setDefaultProps() {
