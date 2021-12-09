@@ -83,8 +83,13 @@ class WPaySettings: UIViewController {
 				fraudPayload: SimulatorFraudPayload()
 			)
 		) {
-			print("Done")
+			let paymentDetails = self.storyboard!.instantiateViewController(identifier: "PaymentDetails")
+			paymentDetails.modalPresentationStyle = .fullScreen
+
+			self.present(paymentDetails, animated: true, completion: nil)
 		}
+
+		(sender as? UIButton)?.isEnabled = false
 	}
     
 	private func setDefaultProps() {
