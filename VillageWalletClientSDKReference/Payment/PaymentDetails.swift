@@ -2,10 +2,33 @@ import UIKit
 import VillageWalletSDK
 import WPayFramesSDK
 
+let CARD_CAPTURE_DOM_ID = "cardCaptureGroup"
+let CARD_NO_DOM_ID = "cardNoElement"
+let CARD_EXPIRY_DOM_ID = "cardExpiryElement"
+let CARD_CVV_DOM_ID = "cardCvvElement"
+let VALIDATE_CARD_DOM_ID = "validateCardElement"
+
+let HTML = """
+<html>
+ <body>
+   <div id="\(CARD_CAPTURE_DOM_ID)">
+     <div id="\(CARD_NO_DOM_ID)"></div>
+     <div>
+       <div id="\(CARD_EXPIRY_DOM_ID)" style="display: inline-block; width: 50%"></div>
+       <div id="\(CARD_CVV_DOM_ID)" style="display: inline-block; width: 40%; float: right;"></div>
+     </div>
+   </div>
+   <div id="\(VALIDATE_CARD_DOM_ID)" style="display: none;"></div>
+ </body>
+</html>
+"""
+
 class PaymentDetails: UIViewController, FramesViewCallback {
 	@IBOutlet weak var framesMessage: UILabel!
 	@IBOutlet weak var framesHost: FramesView!
 	@IBOutlet weak var existingCards: UITableView!
+
+	private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 	func onComplete(response: String) {
 		debug(message: "onComplete(response: \(response))")
@@ -41,7 +64,17 @@ class PaymentDetails: UIViewController, FramesViewCallback {
 	func onPageLoaded() {
 		debug(message: "onPageLoaded()")
 
-		// TODO: Post capture card command
+		do {
+			try Commands.cardCaptureCommand(
+				options: CardCaptureOptions(
+					wallet: appDelegate.customerWallet,
+					require3DS: appDelegate.require3DSNPA
+				)
+			).post(view: framesHost)
+		}
+		catch {
+			fatalError("Can't post card capture command")
+		}
 	}
 
 	func onRendered(id: String) {
@@ -54,6 +87,21 @@ class PaymentDetails: UIViewController, FramesViewCallback {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		framesHost.configure(
+			config: FramesViewConfig(
+				html: HTML
+			),
+			callback: self,
+			logger: DebugLogger()
+		)
+
+		do {
+			try framesHost.loadFrames(config: appDelegate.framesConfig!)
+		}
+		catch {
+			fatalError("Can't load frames")
+		}
 	}
 }
 
