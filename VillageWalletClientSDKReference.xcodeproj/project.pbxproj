@@ -29,6 +29,7 @@
 		BC8DC24350AA914D5ADA2954 /* SimulatorMerchantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCF56D05E5F890D4E64C9 /* SimulatorMerchantOptions.swift */; };
 		BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */; };
 		BC8DC48ACC6DDA43106B7FA9 /* WPaySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCD3DC899605A381B8566 /* WPaySettings.swift */; };
+		BC8DCBACF63BBDCC9EA3E78B /* PaymentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCCA1DB61ABED11A316BF /* PaymentDetails.swift */; };
 		BC8DCE15AD8DE54F8E7A5EDC /* SimulatorPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCED486567B1439BBE0F6 /* SimulatorPaymentRequest.swift */; };
 		BC8DCE4F9467D692F2988424 /* SimulatorCustomerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCC2C6715FEAEDDF18906 /* SimulatorCustomerOptions.swift */; };
 		BC8DCEE575178C86A0E9F0B3 /* CustomerLoginApiAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */; };
@@ -83,6 +84,7 @@
 		BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerLoginApiAuthenticator.swift; sourceTree = "<group>"; };
 		BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BC8DCC2C6715FEAEDDF18906 /* SimulatorCustomerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimulatorCustomerOptions.swift; path = Model/SimulatorCustomerOptions.swift; sourceTree = "<group>"; };
+		BC8DCCA1DB61ABED11A316BF /* PaymentDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentDetails.swift; path = Payment/PaymentDetails.swift; sourceTree = "<group>"; };
 		BC8DCD3DC899605A381B8566 /* WPaySettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WPaySettings.swift; path = Settings/WPaySettings.swift; sourceTree = "<group>"; };
 		BC8DCD9BCD73C1B1812E90FF /* VillageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillageFactory.swift; sourceTree = "<group>"; };
 		BC8DCED486567B1439BBE0F6 /* SimulatorPaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimulatorPaymentRequest.swift; path = Model/SimulatorPaymentRequest.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				BC8DCF56D05E5F890D4E64C9 /* SimulatorMerchantOptions.swift */,
 				BC8DCC2C6715FEAEDDF18906 /* SimulatorCustomerOptions.swift */,
 				BC8DCED486567B1439BBE0F6 /* SimulatorPaymentRequest.swift */,
+				BC8DCCA1DB61ABED11A316BF /* PaymentDetails.swift */,
 			);
 			path = VillageWalletClientSDKReference;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				BC8DC24350AA914D5ADA2954 /* SimulatorMerchantOptions.swift in Sources */,
 				BC8DCE4F9467D692F2988424 /* SimulatorCustomerOptions.swift in Sources */,
 				BC8DCE15AD8DE54F8E7A5EDC /* SimulatorPaymentRequest.swift in Sources */,
+				BC8DCBACF63BBDCC9EA3E78B /* PaymentDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

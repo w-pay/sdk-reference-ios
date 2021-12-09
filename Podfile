@@ -7,6 +7,7 @@ target "VillageWalletClientSDKReference" do
 
   # Pods for VillageWalletClientSDKReference
   pod "DownPicker"
+  pod "DLRadioButton", "~> 1.4"
   pod "MaterialComponents/ActivityIndicator"
   pod "SnackBar.swift"
 

@@ -29,7 +29,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcZ-Ir-JDM" userLabel="BottomSheet" customClass="BottomSheet" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jcZ-Ir-JDM" userLabel="BottomSheet" customClass="BottomSheet" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="740" width="414" height="156"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZO-1A-3BB">
@@ -126,7 +126,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rrq-pi-XAf" customClass="BottomSheet" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrq-pi-XAf" customClass="BottomSheet" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="740" width="414" height="156"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ckq-P1-qTd" userLabel="Receipt">
@@ -376,7 +376,7 @@ Soup WW Creamy Pumpkin Soup</string>
         <!--WPaySettings-->
         <scene sceneID="zyo-H8-Gpc">
             <objects>
-                <viewController id="7iE-Pq-s9L" userLabel="WPaySettings" customClass="WPaySettings" customModule="VillageWalletClientSDKReference" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WPaySettings" id="7iE-Pq-s9L" userLabel="WPaySettings" customClass="WPaySettings" customModule="VillageWalletClientSDKReference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cif-A1-Eq7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -653,8 +653,116 @@ Soup WW Creamy Pumpkin Soup</string>
             </objects>
             <point key="canvasLocation" x="1093" y="1376"/>
         </scene>
+        <!--Payment Details-->
+        <scene sceneID="Gvh-Ex-mhc">
+            <objects>
+                <viewController storyboardIdentifier="PaymentDetails" id="c5P-f2-OXf" customClass="PaymentDetails" customModule="VillageWalletClientSDKReference" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EVi-yX-Eg2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-5y-jjd">
+                                <rect key="frame" x="20" y="94" width="374" height="368"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How would you like to pay?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bar-3z-zvX">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PX-s7-aXI" userLabel="New Card Option" customClass="DLRadioButton">
+                                        <rect key="frame" x="0.0" y="40.5" width="374" height="34"/>
+                                        <state key="normal" title="Enter card details">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="circle" catalog="system"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="circle.fill" catalog="system"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconStrokeWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="otherButtons" destination="p4S-FE-J17" id="Opi-Jc-0FR"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsJ-28-QK6">
+                                        <rect key="frame" x="0.0" y="94.5" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbF-NR-rue" customClass="FramesView" customModule="WPayFramesSDK">
+                                        <rect key="frame" x="0.0" y="164.5" width="374" height="150"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="p4S-FE-J17" userLabel="Existing Card Option" customClass="DLRadioButton">
+                                        <rect key="frame" x="0.0" y="334.5" width="374" height="33.5"/>
+                                        <state key="normal" title="Use an existing card stored in your digital wallet">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="circle" catalog="system"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="circle.fill" catalog="system"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconStrokeWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="otherButtons" destination="8PX-s7-aXI" id="haj-W3-K2R"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-dA-Lmg">
+                                <rect key="frame" x="20" y="482" width="374" height="380"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="380" id="Aje-zy-YkZ"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4v5-ov-1pJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TRi-dA-Lmg" firstAttribute="trailing" secondItem="4v5-ov-1pJ" secondAttribute="trailing" constant="-20" id="0fa-IU-i7s"/>
+                            <constraint firstItem="yMG-5y-jjd" firstAttribute="trailing" secondItem="4v5-ov-1pJ" secondAttribute="trailing" constant="-20" id="0v2-fE-3h9"/>
+                            <constraint firstItem="yMG-5y-jjd" firstAttribute="top" secondItem="4v5-ov-1pJ" secondAttribute="top" constant="50" id="HRc-7H-5mA"/>
+                            <constraint firstItem="yMG-5y-jjd" firstAttribute="leading" secondItem="4v5-ov-1pJ" secondAttribute="leading" constant="20" id="QKV-AX-FqQ"/>
+                            <constraint firstItem="TRi-dA-Lmg" firstAttribute="top" secondItem="yMG-5y-jjd" secondAttribute="bottom" constant="20" id="aPa-BV-QEl"/>
+                            <constraint firstItem="TRi-dA-Lmg" firstAttribute="leading" secondItem="4v5-ov-1pJ" secondAttribute="leading" constant="20" id="d4d-rS-MBa"/>
+                            <constraint firstItem="TRi-dA-Lmg" firstAttribute="bottom" secondItem="4v5-ov-1pJ" secondAttribute="bottom" id="rhT-y0-YJ9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="existingCards" destination="TRi-dA-Lmg" id="6KX-os-xCp"/>
+                        <outlet property="framesHost" destination="vbF-NR-rue" id="GeK-HF-CeQ"/>
+                        <outlet property="framesMessage" destination="rsJ-28-QK6" id="3iT-Ss-N18"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sIL-h3-7ZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2003" y="1375"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="JFN-HQ-mkC">
+            <size key="intrinsicContentSize" width="26" height="26"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="mastercard" width="40" height="24.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
