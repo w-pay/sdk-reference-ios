@@ -51,6 +51,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 
+	public func listPaymentInstruments(next: @escaping () -> Void) {
+		customerSDK?.instruments.list { result in
+			switch(result) {
+				case .failure(let error):
+					return self.onError(error: error)
+
+				case .success(let data):
+					var cards: [CreditCard]
+
+					if (self.customerSDK?.options.wallet == Wallet.EVERYDAY_PAY) {
+						cards = data.everydayPay?.creditCards ?? []
+					}
+					else {
+						cards = data.creditCards
+					}
+
+					self.paymentInstruments = cards
+
+					next()
+				}
+		}
+	}
+
 	func onCreatePaymentRequest(
 		merchant: SimulatorMerchantOptions,
 		customer: SimulatorCustomerOptions,
@@ -121,29 +144,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				}
 			}
 		)
-	}
-
-	private func listPaymentInstruments(next: @escaping () -> Void) {
-		customerSDK?.instruments.list { result in
-			switch(result) {
-				case .failure(let error):
-					return self.onError(error: error)
-
-				case .success(let data):
-					var cards: [CreditCard]
-
-					if (self.customerSDK?.options.wallet == Wallet.EVERYDAY_PAY) {
-						cards = data.everydayPay?.creditCards ?? []
-					}
-					else {
-						cards = data.creditCards
-					}
-
-					self.paymentInstruments = cards
-
-					next()
-			}
-		}
 	}
 
 	private func createSDKs(

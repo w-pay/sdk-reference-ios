@@ -129,6 +129,24 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 		}
 	}
 
+	func reloadPaymentInstruments() {
+		appDelegate.listPaymentInstruments(next: {
+			self.existingCards.reloadData()
+		})
+	}
+
+	func deleteCardFromCell(cell: ExistingCardCell) {
+		let index = existingCards.indexPath(for: cell)!.row
+		let card = appDelegate.paymentInstruments![index]
+
+		appDelegate.customerSDK?.instruments.delete(
+			instrument: card.paymentInstrumentId,
+			completion: { _ in
+				self.reloadPaymentInstruments()
+			}
+		)
+	}
+
 	func selectCardFromCell(cell: ExistingCardCell) {
 		let index = existingCards.indexPath(for: cell)
 
@@ -148,6 +166,10 @@ class ExistingCardCell : UITableViewCell {
 
 	@IBAction func onCardSelected(_ sender: Any) {
 		controller.selectCardFromCell(cell: self)
+	}
+
+	@IBAction func onDeleteCard(_ sender: Any) {
+		controller.deleteCardFromCell(cell: self)
 	}
 }
 

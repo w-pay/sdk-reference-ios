@@ -763,6 +763,9 @@ Soup WW Creamy Pumpkin Soup</string>
                                                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwl-EL-dSH" userLabel="Delete Card">
                                                             <rect key="frame" x="314.5" y="0.0" width="19.5" height="34"/>
                                                             <state key="normal" image="trash" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="onDeleteCard:" destination="OJV-I1-R6g" eventType="touchUpInside" id="dbD-uV-bhd"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
