@@ -126,7 +126,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrq-pi-XAf" customClass="BottomSheet" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rrq-pi-XAf" customClass="BottomSheet" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="740" width="414" height="156"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ckq-P1-qTd" userLabel="Receipt">
@@ -696,7 +696,7 @@ Soup WW Creamy Pumpkin Soup</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbF-NR-rue" customClass="FramesView" customModule="WPayFramesSDK">
-                                        <rect key="frame" x="0.0" y="164.5" width="374" height="150"/>
+                                        <rect key="frame" x="0.0" y="164.5" width="374" height="129.5"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -704,7 +704,7 @@ Soup WW Creamy Pumpkin Soup</string>
                                         </wkWebViewConfiguration>
                                     </wkWebView>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="p4S-FE-J17" userLabel="Existing Card Option" customClass="DLRadioButton">
-                                        <rect key="frame" x="0.0" y="334.5" width="374" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="314" width="374" height="54"/>
                                         <state key="normal" title="Use an existing card stored in your digital wallet">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -724,24 +724,80 @@ Soup WW Creamy Pumpkin Soup</string>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-dA-Lmg">
-                                <rect key="frame" x="20" y="482" width="374" height="380"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-dA-Lmg">
+                                <rect key="frame" x="20" y="482" width="374" height="330"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="380" id="Aje-zy-YkZ"/>
+                                    <constraint firstAttribute="height" constant="330" id="Aje-zy-YkZ"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExistingCardCell" id="OJV-I1-R6g" customClass="ExistingCardCell" customModule="VillageWalletClientSDKReference" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="34"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OJV-I1-R6g" id="8BS-Ee-xJN">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-Oa-yro">
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="34"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlD-rP-wzY" userLabel="Select Card Option" customClass="DLRadioButton">
+                                                            <rect key="frame" x="0.0" y="0.0" width="294.5" height="34"/>
+                                                            <state key="normal">
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="image" keyPath="icon" value="circle" catalog="system"/>
+                                                                <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="circle.fill" catalog="system"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="iconStrokeWidth">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="onCardSelected:" destination="OJV-I1-R6g" eventType="touchUpInside" id="GWN-ot-Hda"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwl-EL-dSH" userLabel="Delete Card">
+                                                            <rect key="frame" x="314.5" y="0.0" width="19.5" height="34"/>
+                                                            <state key="normal" image="trash" catalog="system"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fiv-Oa-yro" secondAttribute="trailing" constant="20" id="Wia-JO-QEi"/>
+                                                <constraint firstItem="fiv-Oa-yro" firstAttribute="top" secondItem="8BS-Ee-xJN" secondAttribute="top" id="Xly-3f-Wlm"/>
+                                                <constraint firstItem="fiv-Oa-yro" firstAttribute="leading" secondItem="8BS-Ee-xJN" secondAttribute="leading" constant="20" id="bcv-yN-TSp"/>
+                                                <constraint firstAttribute="bottom" secondItem="fiv-Oa-yro" secondAttribute="bottom" id="kAB-mP-rLs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="selectCard" destination="LlD-rP-wzY" id="gAe-7B-98A"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MB-8v-bBp">
+                                <rect key="frame" x="0.0" y="812" width="414" height="30"/>
+                                <state key="normal" title="Pay Now"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4v5-ov-1pJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="TRi-dA-Lmg" firstAttribute="trailing" secondItem="4v5-ov-1pJ" secondAttribute="trailing" constant="-20" id="0fa-IU-i7s"/>
                             <constraint firstItem="yMG-5y-jjd" firstAttribute="trailing" secondItem="4v5-ov-1pJ" secondAttribute="trailing" constant="-20" id="0v2-fE-3h9"/>
+                            <constraint firstItem="TRi-dA-Lmg" firstAttribute="bottom" secondItem="2MB-8v-bBp" secondAttribute="top" id="CXo-bd-DI1"/>
                             <constraint firstItem="yMG-5y-jjd" firstAttribute="top" secondItem="4v5-ov-1pJ" secondAttribute="top" constant="50" id="HRc-7H-5mA"/>
                             <constraint firstItem="yMG-5y-jjd" firstAttribute="leading" secondItem="4v5-ov-1pJ" secondAttribute="leading" constant="20" id="QKV-AX-FqQ"/>
                             <constraint firstItem="TRi-dA-Lmg" firstAttribute="top" secondItem="yMG-5y-jjd" secondAttribute="bottom" constant="20" id="aPa-BV-QEl"/>
                             <constraint firstItem="TRi-dA-Lmg" firstAttribute="leading" secondItem="4v5-ov-1pJ" secondAttribute="leading" constant="20" id="d4d-rS-MBa"/>
-                            <constraint firstItem="TRi-dA-Lmg" firstAttribute="bottom" secondItem="4v5-ov-1pJ" secondAttribute="bottom" id="rhT-y0-YJ9"/>
+                            <constraint firstItem="2MB-8v-bBp" firstAttribute="trailing" secondItem="4v5-ov-1pJ" secondAttribute="trailing" id="wLf-9b-9o8"/>
+                            <constraint firstItem="2MB-8v-bBp" firstAttribute="leading" secondItem="4v5-ov-1pJ" secondAttribute="leading" id="wTD-1F-6Uu"/>
+                            <constraint firstItem="2MB-8v-bBp" firstAttribute="bottom" secondItem="4v5-ov-1pJ" secondAttribute="bottom" constant="-20" id="zjt-6q-kKL"/>
                         </constraints>
                     </view>
                     <connections>
@@ -755,15 +811,11 @@ Soup WW Creamy Pumpkin Soup</string>
             <point key="canvasLocation" x="2003" y="1375"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="JFN-HQ-mkC">
-            <size key="intrinsicContentSize" width="26" height="26"/>
-        </designable>
-    </designables>
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="mastercard" width="40" height="24.5"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

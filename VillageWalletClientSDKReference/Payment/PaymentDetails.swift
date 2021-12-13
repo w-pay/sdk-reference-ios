@@ -1,6 +1,7 @@
 import UIKit
 import VillageWalletSDK
 import WPayFramesSDK
+import DLRadioButton
 
 let CARD_CAPTURE_DOM_ID = "cardCaptureGroup"
 let CARD_NO_DOM_ID = "cardNoElement"
@@ -23,12 +24,32 @@ let HTML = """
 </html>
 """
 
-class PaymentDetails: UIViewController, FramesViewCallback {
+class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallback {
 	@IBOutlet weak var framesMessage: UILabel!
 	@IBOutlet weak var framesHost: FramesView!
 	@IBOutlet weak var existingCards: UITableView!
 
 	private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		appDelegate.paymentInstruments?.count ?? 0
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExistingCardCell", for: indexPath) as? ExistingCardCell else {
+			fatalError("The dequeued cell is not an instance of ExistingCardCell.")
+		}
+
+		let cardForRow = appDelegate.paymentInstruments![indexPath.row]
+
+		cell.controller = self
+		cell.selectCard.setTitle(
+			"\(cardForRow.scheme) XXXX-\(cardForRow.cardSuffix) - \(cardForRow.expiryMonth)/\(cardForRow.expiryYear)",
+			for: .normal
+		)
+
+		return cell
+	}
 
 	func onComplete(response: String) {
 		debug(message: "onComplete(response: \(response))")
@@ -88,6 +109,10 @@ class PaymentDetails: UIViewController, FramesViewCallback {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		existingCards.dataSource = self
+		// hide separators if number of items less than height of table
+		existingCards.tableFooterView = UIView()
+
 		framesHost.configure(
 			config: FramesViewConfig(
 				html: HTML
@@ -102,6 +127,27 @@ class PaymentDetails: UIViewController, FramesViewCallback {
 		catch {
 			fatalError("Can't load frames")
 		}
+	}
+
+	func selectCardFromCell(cell: ExistingCardCell) {
+		let index = existingCards.indexPath(for: cell)
+
+		existingCards.selectRow(at: index, animated: false, scrollPosition: .none)
+	}
+}
+
+class ExistingCardCell : UITableViewCell {
+	@IBOutlet weak var selectCard: DLRadioButton!
+	weak var controller: PaymentDetails!
+
+	override func setSelected(_ selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
+
+		selectCard.isSelected = selected
+	}
+
+	@IBAction func onCardSelected(_ sender: Any) {
+		controller.selectCardFromCell(cell: self)
 	}
 }
 
