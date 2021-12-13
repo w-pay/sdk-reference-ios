@@ -28,8 +28,19 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	@IBOutlet weak var framesMessage: UILabel!
 	@IBOutlet weak var framesHost: FramesView!
 	@IBOutlet weak var existingCards: UITableView!
-
+	@IBOutlet weak var useExistingCard: DLRadioButton!
+	@IBOutlet weak var payNow: UIButton!
+    
 	private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+	private var paymentOption: PaymentOptions = .noOption
+
+	/*
+	 * Because the Frames SDK only emits validation changes we need to record them.
+	 */
+	private var cardNumberValid: Bool = false
+	private var cardExpiryValid: Bool = false
+	private var cardCvvValid: Bool = false
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		appDelegate.paymentInstruments?.count ?? 0
@@ -109,10 +120,53 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		existingCards.dataSource = self
-		// hide separators if number of items less than height of table
-		existingCards.tableFooterView = UIView()
+		configureCardsList()
+		configureFramesHost()
+		checkPaymentPossible()
+	}
 
+	@IBAction func selectNewCardPaymentOption() {
+		changePaymentOption(option: .newCard(valid: newCardValid()))
+	}
+
+	@IBAction func selectExistingCardPaymentOption() {
+		guard let index = existingCards.indexPathForSelectedRow else {
+			return
+		}
+
+		guard let card = appDelegate.paymentInstruments?[index.row] else {
+			fatalError("No card for index")
+		}
+
+		changePaymentOption(option: .existingCard(card: card))
+	}
+
+	internal func deleteCardFromCell(cell: ExistingCardCell) {
+		let index = existingCards.indexPath(for: cell)!.row
+		let card = appDelegate.paymentInstruments![index]
+
+		appDelegate.customerSDK?.instruments.delete(
+			instrument: card.paymentInstrumentId,
+			completion: { _ in
+				self.reloadPaymentInstruments()
+			}
+		)
+	}
+
+	internal func selectCardFromCell(cell: ExistingCardCell) {
+		let index = existingCards.indexPath(for: cell)
+
+		existingCards.selectRow(at: index, animated: false, scrollPosition: .none)
+
+		/*
+		 * If we're selecting a cell, make sure that the existing cards option is also selected
+		 */
+		useExistingCard.isSelected = true
+
+		selectExistingCardPaymentOption()
+	}
+
+	private func configureFramesHost() {
 		framesHost.configure(
 			config: FramesViewConfig(
 				html: HTML
@@ -129,28 +183,30 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 		}
 	}
 
-	func reloadPaymentInstruments() {
+	private func configureCardsList() {
+		existingCards.dataSource = self
+		// hide separators if number of items less than height of table
+		existingCards.tableFooterView = UIView()
+	}
+
+	private func changePaymentOption(option: PaymentOptions) {
+		paymentOption = option
+
+		checkPaymentPossible()
+	}
+
+	private func checkPaymentPossible() {
+    payNow.isEnabled = paymentOption.isValid()
+	}
+
+	private func reloadPaymentInstruments() {
 		appDelegate.listPaymentInstruments(next: {
 			self.existingCards.reloadData()
 		})
 	}
 
-	func deleteCardFromCell(cell: ExistingCardCell) {
-		let index = existingCards.indexPath(for: cell)!.row
-		let card = appDelegate.paymentInstruments![index]
-
-		appDelegate.customerSDK?.instruments.delete(
-			instrument: card.paymentInstrumentId,
-			completion: { _ in
-				self.reloadPaymentInstruments()
-			}
-		)
-	}
-
-	func selectCardFromCell(cell: ExistingCardCell) {
-		let index = existingCards.indexPath(for: cell)
-
-		existingCards.selectRow(at: index, animated: false, scrollPosition: .none)
+	private func newCardValid() -> Bool {
+		cardNumberValid && cardExpiryValid && cardCvvValid
 	}
 }
 

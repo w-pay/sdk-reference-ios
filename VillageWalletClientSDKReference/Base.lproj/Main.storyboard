@@ -686,6 +686,7 @@ Soup WW Creamy Pumpkin Soup</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="selectNewCardPaymentOption" destination="c5P-f2-OXf" eventType="touchUpInside" id="zGT-wK-dZD"/>
                                             <outletCollection property="otherButtons" destination="p4S-FE-J17" id="Opi-Jc-0FR"/>
                                         </connections>
                                     </button>
@@ -719,6 +720,7 @@ Soup WW Creamy Pumpkin Soup</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="selectExistingCardPaymentOption" destination="c5P-f2-OXf" eventType="touchUpInside" id="1LV-GB-7a4"/>
                                             <outletCollection property="otherButtons" destination="8PX-s7-aXI" id="haj-W3-K2R"/>
                                         </connections>
                                     </button>
@@ -807,6 +809,8 @@ Soup WW Creamy Pumpkin Soup</string>
                         <outlet property="existingCards" destination="TRi-dA-Lmg" id="6KX-os-xCp"/>
                         <outlet property="framesHost" destination="vbF-NR-rue" id="GeK-HF-CeQ"/>
                         <outlet property="framesMessage" destination="rsJ-28-QK6" id="3iT-Ss-N18"/>
+                        <outlet property="payNow" destination="2MB-8v-bBp" id="vLn-Ly-AEu"/>
+                        <outlet property="useExistingCard" destination="p4S-FE-J17" id="1SA-oM-SG5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sIL-h3-7ZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
