@@ -37,6 +37,24 @@ class Commands {
 		)
 	}
 
+	static func cardValidateCommand(
+		sessionId: String,
+		windowSize: AcsWindowSize
+	) throws -> JavascriptCommand {
+		GroupCommand(name: "validateCard", commands:
+			try ValidateCard(
+				payload: validateCardOptions(sessionId: sessionId, windowSize: windowSize)
+			).toCommand(name: VALIDATE_CARD_ACTION),
+			StartActionCommand(name: VALIDATE_CARD_ACTION),
+			CreateActionControlCommand(
+				actionName: VALIDATE_CARD_ACTION,
+				controlType: ControlType.VALIDATE_CARD,
+				domId: VALIDATE_CARD_DOM_ID
+			),
+			CompleteActionCommand(name: VALIDATE_CARD_ACTION)
+		)
+	}
+
 	static func cardCaptureOptions(options: CardCaptureOptions) -> CaptureCard.Payload {
 		CaptureCard.Payload(
 			verify: true,
@@ -52,5 +70,52 @@ class Commands {
 		}
 
 		return nil
+	}
+
+	static func validateCardOptions(
+		sessionId: String,
+		windowSize: AcsWindowSize
+	) -> ValidateCard.Payload {
+		ValidateCard.Payload(
+			sessionId: sessionId,
+			env3DS: ThreeDSEnv.STAGING,
+			acsWindowSize: windowSize
+		)
+	}
+}
+
+class ShowValidationChallenge : JavascriptCommand {
+	init() {
+		super.init(command: """
+	    frames.showValidationChallenge = function() {
+	      const cardCapture = document.getElementById('\(CARD_CAPTURE_DOM_ID)');
+	      cardCapture.style.display = "none";
+	      
+	      const challenge = document.getElementById('\(VALIDATE_CARD_DOM_ID)');
+	      challenge.style.display = "block";
+	    };
+	    
+	    frames.showValidationChallenge();
+
+	    true
+	  """)
+	}
+}
+
+class HideValidationChallenge: JavascriptCommand {
+	init() {
+		super.init(command: """
+      frames.showValidationChallenge = function() {
+        const cardCapture = document.getElementById('\(CARD_CAPTURE_DOM_ID)');
+        cardCapture.style.display = "block";
+        
+        const challenge = document.getElementById('\(VALIDATE_CARD_DOM_ID)');
+        challenge.style.display = "none";
+      };
+      
+      frames.showValidationChallenge();
+
+      true
+    """)
 	}
 }

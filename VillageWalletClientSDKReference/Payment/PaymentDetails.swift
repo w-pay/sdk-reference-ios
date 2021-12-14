@@ -24,6 +24,12 @@ let HTML = """
 </html>
 """
 
+/*
+ * When a Frames SDK action completes, we want to handle the result differently based on the command
+ * that was being executed
+ */
+typealias FramesActionHandler = (String) -> Void
+
 class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallback {
 	@IBOutlet weak var framesMessage: UILabel!
 	@IBOutlet weak var framesHost: FramesView!
@@ -36,12 +42,19 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	private var paymentOption: PaymentOptions = .noOption
 	private var paymentOutcome: PaymentOutcomes = .noOutcome
 
+	private var framesActionHandler: FramesActionHandler?
+
 	/*
 	 * Because the Frames SDK only emits validation changes we need to record them.
 	 */
 	private var cardNumberValid: Bool = false
 	private var cardExpiryValid: Bool = false
 	private var cardCvvValid: Bool = false
+
+	/*
+	 * If we try to validate a card more than once, we should stop and fail.
+	 */
+	private var validCardAttemptCounter = 0
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		appDelegate.paymentInstruments?.count ?? 0
@@ -65,6 +78,8 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 
 	func onComplete(response: String) {
 		debug(message: "onComplete(response: \(response))")
+
+		framesActionHandler!(response)
 	}
 
 	func onError(error: FramesErrors) {
@@ -87,7 +102,33 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	}
 
 	func onValidationChange(domId: String, isValid: Bool) {
-		debug(message: "onValidationChange(\(domId), isValid: \(isValid)")
+		debug(message: "onValidationChange(\(domId), isValid: \(isValid))")
+
+		switch (domId) {
+			case CARD_NO_DOM_ID: cardNumberValid = isValid
+			case CARD_EXPIRY_DOM_ID: cardExpiryValid = isValid
+			case CARD_CVV_DOM_ID: cardCvvValid = isValid
+
+			default:
+				break
+		}
+
+		/*
+		 * If the user has already selected to use a new card to pay,
+		 * as they enter data into the card elements we need to keep
+		 * the option updated with whether the card is valid or not.
+		 */
+		switch (paymentOption) {
+			case .newCard:
+				selectNewCardPaymentOption()
+
+			default:
+				break
+		}
+
+		if (newCardValid()) {
+			framesMessage.text = ""
+		}
 	}
 
 	func onFocusChange(domId: String, isFocussed: Bool) {
@@ -112,10 +153,18 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 
 	func onRendered(id: String) {
 		debug(message: "onRendered(\(id)")
+
+		if (id == VALIDATE_CARD_ACTION) {
+			ShowValidationChallenge().post(view: framesHost)
+		}
 	}
 
 	func onRemoved(id: String) {
 		debug(message: "onRemoved(\(id)")
+
+		if (id == VALIDATE_CARD_ACTION) {
+			HideValidationChallenge().post(view: framesHost)
+		}
 	}
 
 	override func viewDidLoad() {
@@ -143,16 +192,7 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	}
 
 	@IBAction func makePayment(_ sender: Any) {
-		switch (paymentOption) {
-			case .newCard:
-				completeCapturingCard()
-
-			case .existingCard(let card):
-				payWithCard(card: card)
-
-			default:
-				fatalError("Can't pay with nothing")
-		}
+		makePaymentUsingOption()
 
 		payNow.isEnabled = false
 	}
@@ -183,7 +223,110 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	}
 
 	private func completeCapturingCard() {
-		// TODO: Implement me.
+		validCardAttemptCounter = 0
+
+		SubmitFormCommand(name: CAPTURE_CARD_ACTION).post(view: framesHost)
+	}
+
+	private func validateCard(threeDSToken: String) {
+		if (validCardAttemptCounter > 1) {
+			failPayment(reason: "Validate card attempt counter exceeded")
+		}
+		else {
+			validCardAttemptCounter = validCardAttemptCounter + 1
+
+			framesActionHandler = onValidateCard
+
+			do {
+				try Commands.cardValidateCommand(
+					sessionId: threeDSToken,
+					windowSize: appDelegate.windowSize!
+				).post(view: framesHost)
+			}
+			catch {
+				fatalError("Can't post card validate command")
+			}
+		}
+	}
+
+	private func onCaptureCard(_ data: String) -> Void {
+		do {
+			let response = try CardCaptureResponse.fromJson(json: data)!
+			var instrumentId: String?
+
+			if (response.itemId != nil && response.itemId != "") {
+				instrumentId = response.itemId
+			}
+			else {
+				instrumentId = response.paymentInstrument?.itemId
+			}
+
+			if (response.message == "3DS Validation Rejected" ||
+					response.message == "3DS Validation Failed" ||
+					response.message == "3DS Validation Timeout") {
+					failPayment(reason: response.message!)
+			}
+
+			if (response.threeDSError == ThreeDSError.TOKEN_REQUIRED) {
+				validateCard(threeDSToken: response.threeDSToken!)
+			}
+
+			if (response.threeDSError == ThreeDSError.VALIDATION_FAILED) {
+				failPayment(reason: "Three DS Validation Failed")
+			}
+
+			if (response.status?.responseText == "ACCEPTED") {
+				appDelegate.listPaymentInstruments {
+					let card = self.appDelegate.paymentInstruments?.first(where: { card in
+						card.paymentInstrumentId == instrumentId
+					})
+
+					self.paymentOption = .existingCard(card: card)
+					self.makePaymentUsingOption()
+				}
+			}
+		}
+		catch {
+			failPayment(error: error as! FramesErrors)
+		}
+	}
+
+	private func onValidateCard(data: String) {
+		do {
+			let response = try ValidateCardResponse.fromJson(json: data)!
+			var challengeResponse: [WPayFramesSDK.ChallengeResponse] = []
+
+			if let challenge = response.challengeResponse {
+				challengeResponse.append(challenge)
+			}
+
+			framesActionHandler = onCaptureCard
+
+			GroupCommand(name: "completeCardCapture", commands:
+				try CompleteActionCommand(
+					name: CAPTURE_CARD_ACTION,
+					challengeResponses: challengeResponse
+				)
+			).post(view: framesHost, callback: nil)
+		}
+		catch {
+			failPayment(error: error as! FramesErrors)
+		}
+	}
+
+	private func makePaymentUsingOption() {
+		paymentOutcome = .inProgress
+
+		switch (paymentOption) {
+			case .newCard:
+				completeCapturingCard()
+
+			case .existingCard(let card):
+				payWithCard(card: card)
+
+			default:
+				fatalError("Can't pay with nothing")
+		}
 	}
 
 	private func payWithCard(card: CreditCard?) {
@@ -255,6 +398,25 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 		failPayment(reason: reason)
 	}
 
+	private func failPayment(error: FramesErrors) {
+		print("Payment Error: \(error)")
+
+		var reason: String
+
+		switch(error) {
+			case .FATAL_ERROR(let message): reason = message
+			case .NETWORK_ERROR(let message): reason = message
+			case .TIMEOUT_ERROR(let message): reason = message
+			case .FORM_ERROR(let message): reason = message
+			case .EVAL_ERROR(let message): reason = message
+			case .DECODE_JSON_ERROR(let message, _, _): reason = message
+			case .ENCODE_JSON_ERROR(let message, _, _): reason = message
+			case .SDK_INIT_ERROR(let message, _): reason = message
+		}
+
+		failPayment(reason: reason)
+	}
+
 	private func failPayment(reason: String) {
 		print("Payment Error: \(reason)")
 
@@ -275,12 +437,17 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 
 			case .noOutcome:
 		    text = "No payment made"
+
+			case .inProgress:
+				text = "Payment in progress"
 		}
 
 		let alert = UIAlertController(title: "Payment Outcome", message: text, preferredStyle: .alert)
 		alert.addAction(UIAlertAction(title: "OK", style: .default))
 
 		present(alert, animated: true, completion: nil)
+
+		checkPaymentPossible()
 	}
 
 	private func configureFramesHost() {
@@ -298,6 +465,8 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 		catch {
 			fatalError("Can't load frames")
 		}
+
+		framesActionHandler = onCaptureCard
 	}
 
 	private func configureCardsList() {
@@ -313,7 +482,7 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	}
 
 	private func checkPaymentPossible() {
-    payNow.isEnabled = paymentOption.isValid()
+    payNow.isEnabled = paymentOption.isValid() && paymentOutcome.canMakePayment()
 	}
 
 	private func reloadPaymentInstruments() {
