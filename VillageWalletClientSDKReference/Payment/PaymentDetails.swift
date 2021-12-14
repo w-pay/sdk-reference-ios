@@ -34,6 +34,7 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 	private var paymentOption: PaymentOptions = .noOption
+	private var paymentOutcome: PaymentOutcomes = .noOutcome
 
 	/*
 	 * Because the Frames SDK only emits validation changes we need to record them.
@@ -141,6 +142,10 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 		changePaymentOption(option: .existingCard(card: card))
 	}
 
+	@IBAction func makePayment(_ sender: Any) {
+		displayPaymentOutcome()
+	}
+
 	internal func deleteCardFromCell(cell: ExistingCardCell) {
 		let index = existingCards.indexPath(for: cell)!.row
 		let card = appDelegate.paymentInstruments![index]
@@ -164,6 +169,26 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 		useExistingCard.isSelected = true
 
 		selectExistingCardPaymentOption()
+	}
+
+	private func displayPaymentOutcome() {
+		var text: String
+
+		switch paymentOutcome {
+			case .success:
+				text = "Payment successful"
+
+			case .failure:
+				text = "Payment failed"
+
+			case .noOutcome:
+		    text = "No payment made"
+		}
+
+		let alert = UIAlertController(title: "Payment Outcome", message: text, preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+		present(alert, animated: true, completion: nil)
 	}
 
 	private func configureFramesHost() {

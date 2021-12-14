@@ -30,6 +30,7 @@
 		BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */; };
 		BC8DC48ACC6DDA43106B7FA9 /* WPaySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCD3DC899605A381B8566 /* WPaySettings.swift */; };
 		BC8DC4B647861DB8CD50B4BD /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC0030EFADEC679B7712C /* Commands.swift */; };
+		BC8DC4F466769701E6EF202F /* PaymentOutcomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC007512995B40D04F168 /* PaymentOutcomes.swift */; };
 		BC8DCBACF63BBDCC9EA3E78B /* PaymentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCCA1DB61ABED11A316BF /* PaymentDetails.swift */; };
 		BC8DCE15AD8DE54F8E7A5EDC /* SimulatorPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCED486567B1439BBE0F6 /* SimulatorPaymentRequest.swift */; };
 		BC8DCE4F9467D692F2988424 /* SimulatorCustomerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCC2C6715FEAEDDF18906 /* SimulatorCustomerOptions.swift */; };
@@ -83,6 +84,7 @@
 		898F80E924889D2000402105 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		9CDA15D0E9AA137A8464BBDE /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8DC0030EFADEC679B7712C /* Commands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commands.swift; path = Payment/Commands.swift; sourceTree = "<group>"; };
+		BC8DC007512995B40D04F168 /* PaymentOutcomes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentOutcomes.swift; path = Model/PaymentOutcomes.swift; sourceTree = "<group>"; };
 		BC8DC18C30B92D40117AA327 /* PaymentOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentOptions.swift; path = Model/PaymentOptions.swift; sourceTree = "<group>"; };
 		BC8DC1A5E100A56972D07CD3 /* IdmTokenDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdmTokenDetails.swift; sourceTree = "<group>"; };
 		BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerLoginApiAuthenticator.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				BC8DCCA1DB61ABED11A316BF /* PaymentDetails.swift */,
 				BC8DC0030EFADEC679B7712C /* Commands.swift */,
 				BC8DC18C30B92D40117AA327 /* PaymentOptions.swift */,
+				BC8DC007512995B40D04F168 /* PaymentOutcomes.swift */,
 			);
 			path = VillageWalletClientSDKReference;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				BC8DCBACF63BBDCC9EA3E78B /* PaymentDetails.swift in Sources */,
 				BC8DC4B647861DB8CD50B4BD /* Commands.swift in Sources */,
 				BC8DCEA12D674E7681C3F9BC /* PaymentOptions.swift in Sources */,
+				BC8DC4F466769701E6EF202F /* PaymentOutcomes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

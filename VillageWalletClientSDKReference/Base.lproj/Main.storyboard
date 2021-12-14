@@ -788,6 +788,9 @@ Soup WW Creamy Pumpkin Soup</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MB-8v-bBp">
                                 <rect key="frame" x="0.0" y="812" width="414" height="30"/>
                                 <state key="normal" title="Pay Now"/>
+                                <connections>
+                                    <action selector="makePayment:" destination="c5P-f2-OXf" eventType="touchUpInside" id="n1J-MY-35k"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4v5-ov-1pJ"/>
@@ -818,6 +821,11 @@ Soup WW Creamy Pumpkin Soup</string>
             <point key="canvasLocation" x="2003" y="1375"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="JFN-HQ-mkC">
+            <size key="intrinsicContentSize" width="26" height="26"/>
+        </designable>
+    </designables>
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
