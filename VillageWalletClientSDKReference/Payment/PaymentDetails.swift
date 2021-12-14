@@ -143,7 +143,18 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	}
 
 	@IBAction func makePayment(_ sender: Any) {
-		displayPaymentOutcome()
+		switch (paymentOption) {
+			case .newCard:
+				completeCapturingCard()
+
+			case .existingCard(let card):
+				payWithCard(card: card)
+
+			default:
+				fatalError("Can't pay with nothing")
+		}
+
+		payNow.isEnabled = false
 	}
 
 	internal func deleteCardFromCell(cell: ExistingCardCell) {
@@ -169,6 +180,87 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 		useExistingCard.isSelected = true
 
 		selectExistingCardPaymentOption()
+	}
+
+	private func completeCapturingCard() {
+		// TODO: Implement me.
+	}
+
+	private func payWithCard(card: CreditCard?) {
+		guard let theCard = card else {
+			fatalError("Missing card")
+		}
+
+		appDelegate.customerSDK?.paymentRequests.makePayment(
+			paymentRequestId: appDelegate.paymentRequest!.paymentRequestId,
+			primaryInstrument: theCard.paymentInstrumentId,
+			secondaryInstruments: [],
+			clientReference: nil,
+			preferences: nil,
+			challengeResponses: appDelegate.challengeResponses,
+			fraudPayload: appDelegate.fraudPayload,
+			transactionType: nil,
+			allowPartialSuccess: nil,
+			completion: { result in
+				switch(result) {
+					case .failure(let error):
+						return self.failPayment(error: error)
+
+					case .success(let data):
+						// TODO: Check for 3DS response
+
+						self.checkTransactionSummaryStatus(data: data)
+					}
+			}
+		)
+	}
+
+	private func checkTransactionSummaryStatus(data: CustomerTransactionSummary) {
+		guard let status = data.status else {
+			failPayment(reason: "Missing transaction summary status")
+
+			return
+		}
+
+		switch (status) {
+			case .APPROVED:
+				displaySuccessfulPayment()
+
+			case .REJECTED:
+				failPayment(reason: "Payment rejected")
+
+			default:
+				failPayment(reason: "Payment not finished processing")
+		}
+	}
+
+	private func displaySuccessfulPayment() {
+		paymentOutcome = .success
+
+		displayPaymentOutcome()
+	}
+
+	private func failPayment(error: ApiError) {
+		print("Payment Error: \(error)")
+
+		var reason: String
+
+		switch(error) {
+			case .jsonEncoding(let message, _): reason = message
+			case .jsonDecoding(let message, _): reason = message
+			case .httpError: reason = "Check the logs for reason"
+			case .error(let error): reason = error.localizedDescription
+		}
+
+		failPayment(reason: reason)
+	}
+
+	private func failPayment(reason: String) {
+		print("Payment Error: \(reason)")
+
+		paymentOutcome = .failure(reason: reason)
+
+		displayPaymentOutcome()
 	}
 
 	private func displayPaymentOutcome() {

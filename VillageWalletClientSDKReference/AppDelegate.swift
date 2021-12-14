@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var customerWallet: Wallet?
 	var windowSize: AcsWindowSize?
 
-	private var fraudPayload: FraudPayload?
-	private var challengeResponses: [WPayFramesSDK.ChallengeResponse] = []
+	var fraudPayload: FraudPayload?
+	var challengeResponses: [VillageWalletSDK.ChallengeResponse] = []
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
