@@ -80,7 +80,7 @@ class WPaySettings: UIViewController {
 				grossAmount: Decimal(string: total.text!)!,
 				maxUses: Int(maxUses.text!),
 				require3DSPA: require3DSPA.isOn,
-				fraudPayload: SimulatorFraudPayload()
+				fraudPayload: requiresFraudPayload()
 			)
 		) {
 			let paymentDetails = self.storyboard!.instantiateViewController(identifier: "PaymentDetails")
@@ -138,6 +138,14 @@ class WPaySettings: UIViewController {
 		threeDSWindowSizes
 			.first(where: { window in window.displaySize == windowSizePicker?.text })!
 		  .size
+	}
+
+	private func requiresFraudPayload() -> FraudPayload? {
+		if (fraudChecking.isOn) {
+			return SimulatorFraudPayload()
+		}
+
+		return nil
 	}
 }
 
