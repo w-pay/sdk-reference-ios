@@ -204,7 +204,7 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 		appDelegate.customerSDK?.instruments.delete(
 			instrument: card.paymentInstrumentId,
 			completion: { _ in
-				self.reloadPaymentInstruments()
+				self.reloadPaymentInstruments(next: nil)
 			}
 		)
 	}
@@ -276,7 +276,7 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 			}
 
 			if (response.status?.responseText == "ACCEPTED") {
-				appDelegate.listPaymentInstruments {
+				reloadPaymentInstruments {
 					let card = self.appDelegate.paymentInstruments?.first(where: { card in
 						card.paymentInstrumentId == instrumentId
 					})
@@ -485,9 +485,13 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
     payNow.isEnabled = paymentOption.isValid() && paymentOutcome.canMakePayment()
 	}
 
-	private func reloadPaymentInstruments() {
+	private func reloadPaymentInstruments(next: (() -> Void)?) {
 		appDelegate.listPaymentInstruments(next: {
 			self.existingCards.reloadData()
+
+			if let fn = next {
+				fn()
+			}
 		})
 	}
 
