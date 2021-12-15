@@ -1,43 +1,32 @@
-# Woolies Village Wallet iOS SDK Reference App
+# WPay Wallet iOS SDK Reference App
 
-This app show cases the use of the Village Customer APIs.
+This app is designed to show how to use the WPay APIs and SDKs
+
+(Before WPay was released, the initial version was called "Village". Over time, "Village" will be
+removed and replaced)
 
 # Usage
 
-The reference application is designed to make a payment to a merchant with the details of the
-`Payment Request` to be loaded from a QR Code.
+The app shows the usage of the WPay
+- [iOS SDK](https://github.com/w-pay/sdk-wpay-ios)
+- [iOS Frames SDK](https://github.com/w-pay/sdk-wpay-ios-frames/)
 
-In order to retrieve the `Payment Request` details, the `Payment Instruments` and to actually make
-a payment, the applications demonstrates the use of Bearer tokens to access the API.
+The workflow the app demonstrates is the creation of a payment request by a given merchant, and
+allowing a customer to make a payment. When the customer makes the payment they have the option
+to use a preexisting card in their wallet, or capture a new credit card using the WPay Frames
+API/SDKs.
 
-### Using the app
+The settings screen allows for different settings to be applied such as which merchant to use,
+customer details and payment details.
 
-The app is designed to have the user use the Camera app scan the QR Code and have the
-codes contents passed to the Reference App. However this relies on
-[Universal Linking](https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html)
-to be available. As of yet, the `apple-app-site-association` configuration has yet to 
-be deployed. The current sample configuration in this repo is linked by Team ID to
-Kieran Simpson (kieran@redcrew.com.au).
+The second screen allows the management of payment instruments and the making of a payment.
 
-Until Universal Linking is available, users of the reference application will need to
-update the hardcoded host and QR Code ID details to run the app, and exercise the workflow.
+## Places of interest
 
-#### Using Postman to create a Payment Request
+The `PaymentDetails` screen is the most interesting for new developers. It contains the 
+orchestration logic for capturing cards (including 3DS challenges), making payments, etc.
 
-In order to use the app, a merchant has to create the `Payment Request` for a basket of goods.
-The Postman collection in this repo can be used to make API calls to the Village "Merchant" API
-to simulate a merchant. To use the collection, import both the collection and the environment details
-into Postman. The collection is parameterised so it can be used against different environments.
-
-In order to create a `Payment Request` the `Create Payment Request` request
-in the Postman collection can be used. To get the QR code (as an image)
-for the `Payment Request` the collection's `Get QR Code` request can be used
-(with the `qrId` from the `Create Payment Request` response).
-
-Once the Payment Request has been created, the QR code can be retrieved as an image
-(for use with a camera) or the QR code ID from the "Create Payment Request" response
-can be copied into the app and the app run (use the FIXME markers as a guide for where
-to update the code)
+The `AppDelegate` holds the logic for the initial SDK instantiation and payment request creation.
 
 ## Building
 
@@ -48,4 +37,4 @@ $ sudo gem install cocoapods
 $ pod install
 ```
 
-Open the workspace in XCode/[AppCode](https://www.jetbrains.com/objc/).
+Open the workspace in XCode/[AppCode](https://www.jetbrains.com/objc/) and run the app.

@@ -12,21 +12,21 @@
 		29F01A0A2CA5E8EE2370A731 /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CDA15D0E9AA137A8464BBDE /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceTests.framework */; };
 		89361B5124875E1A00FBED9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5024875E1A00FBED9B /* AppDelegate.swift */; };
 		89361B5324875E1A00FBED9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5224875E1A00FBED9B /* SceneDelegate.swift */; };
-		89361B5524875E1A00FBED9B /* PaymentConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */; };
 		89361B5824875E1A00FBED9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89361B5624875E1A00FBED9B /* Main.storyboard */; };
 		89361B5A24875E1B00FBED9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89361B5924875E1B00FBED9B /* Assets.xcassets */; };
 		89361B5D24875E1B00FBED9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89361B5B24875E1B00FBED9B /* LaunchScreen.storyboard */; };
 		89361B6824875E1B00FBED9B /* VillageWalletClientSDKReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B6724875E1B00FBED9B /* VillageWalletClientSDKReferenceTests.swift */; };
 		89361B7324875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B7224875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.swift */; };
-		89361B81248767DD00FBED9B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B80248767DD00FBED9B /* GradientView.swift */; };
-		89361B832487A11000FBED9B /* PaymentReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89361B822487A11000FBED9B /* PaymentReceiptViewController.swift */; };
-		893BD925248F3834006EA746 /* BasketItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */; };
-		894458202490864E003233FB /* SlideToPayBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944581F2490864E003233FB /* SlideToPayBackground.swift */; };
-		894458222490AFC0003233FB /* SlideToPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894458212490AFC0003233FB /* SlideToPay.swift */; };
-		898F80EA24889D2000402105 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80E924889D2000402105 /* BottomSheet.swift */; };
 		BC8DC00B8ED6CFC38914C9F3 /* IdmTokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC1A5E100A56972D07CD3 /* IdmTokenDetails.swift */; };
 		BC8DC1B7C5FCFCB5E7A9A091 /* VillageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCD9BCD73C1B1812E90FF /* VillageFactory.swift */; };
-		BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */; };
+		BC8DC24350AA914D5ADA2954 /* SimulatorMerchantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCF56D05E5F890D4E64C9 /* SimulatorMerchantOptions.swift */; };
+		BC8DC48ACC6DDA43106B7FA9 /* WPaySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCD3DC899605A381B8566 /* WPaySettings.swift */; };
+		BC8DC4B647861DB8CD50B4BD /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC0030EFADEC679B7712C /* Commands.swift */; };
+		BC8DC4F466769701E6EF202F /* PaymentOutcomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC007512995B40D04F168 /* PaymentOutcomes.swift */; };
+		BC8DCBACF63BBDCC9EA3E78B /* PaymentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCCA1DB61ABED11A316BF /* PaymentDetails.swift */; };
+		BC8DCE15AD8DE54F8E7A5EDC /* SimulatorPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCED486567B1439BBE0F6 /* SimulatorPaymentRequest.swift */; };
+		BC8DCE4F9467D692F2988424 /* SimulatorCustomerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DCC2C6715FEAEDDF18906 /* SimulatorCustomerOptions.swift */; };
+		BC8DCEA12D674E7681C3F9BC /* PaymentOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC18C30B92D40117AA327 /* PaymentOptions.swift */; };
 		BC8DCEE575178C86A0E9F0B3 /* CustomerLoginApiAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,6 @@
 		89361B4D24875E1A00FBED9B /* VillageWalletClientSDKReference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VillageWalletClientSDKReference.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89361B5024875E1A00FBED9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89361B5224875E1A00FBED9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmViewController.swift; sourceTree = "<group>"; };
 		89361B5724875E1A00FBED9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89361B5924875E1B00FBED9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89361B5C24875E1B00FBED9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,18 +66,18 @@
 		89361B6E24875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VillageWalletClientSDKReferenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89361B7224875E1B00FBED9B /* VillageWalletClientSDKReferenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillageWalletClientSDKReferenceUITests.swift; sourceTree = "<group>"; };
 		89361B7424875E1B00FBED9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89361B80248767DD00FBED9B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		89361B822487A11000FBED9B /* PaymentReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentReceiptViewController.swift; sourceTree = "<group>"; };
-		893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItemTableViewCell.swift; sourceTree = "<group>"; };
-		8944581F2490864E003233FB /* SlideToPayBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPayBackground.swift; sourceTree = "<group>"; };
-		894458212490AFC0003233FB /* SlideToPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToPay.swift; sourceTree = "<group>"; };
-		8953364B249B259600A50118 /* VillageWalletClientSDKReferenceRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VillageWalletClientSDKReferenceRelease.entitlements; sourceTree = "<group>"; };
-		898F80E924889D2000402105 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		9CDA15D0E9AA137A8464BBDE /* Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference_VillageWalletClientSDKReferenceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC8DC0030EFADEC679B7712C /* Commands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commands.swift; path = Payment/Commands.swift; sourceTree = "<group>"; };
+		BC8DC007512995B40D04F168 /* PaymentOutcomes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentOutcomes.swift; path = Model/PaymentOutcomes.swift; sourceTree = "<group>"; };
+		BC8DC18C30B92D40117AA327 /* PaymentOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentOptions.swift; path = Model/PaymentOptions.swift; sourceTree = "<group>"; };
 		BC8DC1A5E100A56972D07CD3 /* IdmTokenDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdmTokenDetails.swift; sourceTree = "<group>"; };
 		BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerLoginApiAuthenticator.swift; sourceTree = "<group>"; };
-		BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		BC8DCC2C6715FEAEDDF18906 /* SimulatorCustomerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimulatorCustomerOptions.swift; path = Model/SimulatorCustomerOptions.swift; sourceTree = "<group>"; };
+		BC8DCCA1DB61ABED11A316BF /* PaymentDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentDetails.swift; path = Payment/PaymentDetails.swift; sourceTree = "<group>"; };
+		BC8DCD3DC899605A381B8566 /* WPaySettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WPaySettings.swift; path = Settings/WPaySettings.swift; sourceTree = "<group>"; };
 		BC8DCD9BCD73C1B1812E90FF /* VillageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillageFactory.swift; sourceTree = "<group>"; };
+		BC8DCED486567B1439BBE0F6 /* SimulatorPaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimulatorPaymentRequest.swift; path = Model/SimulatorPaymentRequest.swift; sourceTree = "<group>"; };
+		BC8DCF56D05E5F890D4E64C9 /* SimulatorMerchantOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimulatorMerchantOptions.swift; path = Model/SimulatorMerchantOptions.swift; sourceTree = "<group>"; };
 		BE866BA74DC7D917D6E56C2E /* Pods_VillageWalletClientSDKReference.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VillageWalletClientSDKReference.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A3DAA88D24E469D4DC7243 /* Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests/Pods-VillageWalletClientSDKReference-VillageWalletClientSDKReferenceUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C3130BE38596A2EA5576C20F /* Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; path = "Target Support Files/Pods-VillageWalletClientSDKReferenceTests/Pods-VillageWalletClientSDKReferenceTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,24 +148,23 @@
 		89361B4F24875E1A00FBED9B /* VillageWalletClientSDKReference */ = {
 			isa = PBXGroup;
 			children = (
-				8953364B249B259600A50118 /* VillageWalletClientSDKReferenceRelease.entitlements */,
 				89361B5024875E1A00FBED9B /* AppDelegate.swift */,
 				89361B5924875E1B00FBED9B /* Assets.xcassets */,
-				893BD924248F3834006EA746 /* BasketItemTableViewCell.swift */,
-				898F80E924889D2000402105 /* BottomSheet.swift */,
-				89361B80248767DD00FBED9B /* GradientView.swift */,
 				89361B5E24875E1B00FBED9B /* Info.plist */,
 				89361B5B24875E1B00FBED9B /* LaunchScreen.storyboard */,
 				89361B5624875E1A00FBED9B /* Main.storyboard */,
-				89361B5424875E1A00FBED9B /* PaymentConfirmViewController.swift */,
-				89361B822487A11000FBED9B /* PaymentReceiptViewController.swift */,
 				89361B5224875E1A00FBED9B /* SceneDelegate.swift */,
-				894458212490AFC0003233FB /* SlideToPay.swift */,
-				8944581F2490864E003233FB /* SlideToPayBackground.swift */,
-				BC8DCBBFBDE257A2BC5DDF95 /* Currency.swift */,
 				BC8DCD9BCD73C1B1812E90FF /* VillageFactory.swift */,
 				BC8DC78034DE23512F6DA56C /* CustomerLoginApiAuthenticator.swift */,
 				BC8DC1A5E100A56972D07CD3 /* IdmTokenDetails.swift */,
+				BC8DCD3DC899605A381B8566 /* WPaySettings.swift */,
+				BC8DCF56D05E5F890D4E64C9 /* SimulatorMerchantOptions.swift */,
+				BC8DCC2C6715FEAEDDF18906 /* SimulatorCustomerOptions.swift */,
+				BC8DCED486567B1439BBE0F6 /* SimulatorPaymentRequest.swift */,
+				BC8DCCA1DB61ABED11A316BF /* PaymentDetails.swift */,
+				BC8DC0030EFADEC679B7712C /* Commands.swift */,
+				BC8DC18C30B92D40117AA327 /* PaymentOptions.swift */,
+				BC8DC007512995B40D04F168 /* PaymentOutcomes.swift */,
 			);
 			path = VillageWalletClientSDKReference;
 			sourceTree = "<group>";
@@ -461,19 +459,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				893BD925248F3834006EA746 /* BasketItemTableViewCell.swift in Sources */,
-				89361B5524875E1A00FBED9B /* PaymentConfirmViewController.swift in Sources */,
 				89361B5124875E1A00FBED9B /* AppDelegate.swift in Sources */,
-				89361B81248767DD00FBED9B /* GradientView.swift in Sources */,
-				894458222490AFC0003233FB /* SlideToPay.swift in Sources */,
 				89361B5324875E1A00FBED9B /* SceneDelegate.swift in Sources */,
-				894458202490864E003233FB /* SlideToPayBackground.swift in Sources */,
-				898F80EA24889D2000402105 /* BottomSheet.swift in Sources */,
-				89361B832487A11000FBED9B /* PaymentReceiptViewController.swift in Sources */,
-				BC8DC38C72F0C728DD40F2D8 /* Currency.swift in Sources */,
 				BC8DC1B7C5FCFCB5E7A9A091 /* VillageFactory.swift in Sources */,
 				BC8DCEE575178C86A0E9F0B3 /* CustomerLoginApiAuthenticator.swift in Sources */,
 				BC8DC00B8ED6CFC38914C9F3 /* IdmTokenDetails.swift in Sources */,
+				BC8DC48ACC6DDA43106B7FA9 /* WPaySettings.swift in Sources */,
+				BC8DC24350AA914D5ADA2954 /* SimulatorMerchantOptions.swift in Sources */,
+				BC8DCE4F9467D692F2988424 /* SimulatorCustomerOptions.swift in Sources */,
+				BC8DCE15AD8DE54F8E7A5EDC /* SimulatorPaymentRequest.swift in Sources */,
+				BC8DCBACF63BBDCC9EA3E78B /* PaymentDetails.swift in Sources */,
+				BC8DC4B647861DB8CD50B4BD /* Commands.swift in Sources */,
+				BC8DCEA12D674E7681C3F9BC /* PaymentOptions.swift in Sources */,
+				BC8DC4F466769701E6EF202F /* PaymentOutcomes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
