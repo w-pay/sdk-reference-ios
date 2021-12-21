@@ -15,9 +15,9 @@ class CardCaptureOptions {
 }
 
 class Commands {
-	static func cardCaptureCommand(options: CardCaptureOptions) throws -> JavascriptCommand {
+	static func cardCaptureCommand(options: CaptureCard.Payload) throws -> JavascriptCommand {
 		try BuildFramesCommand(commands:
-			CaptureCard(payload: cardCaptureOptions(options: options)).toCommand(name: CAPTURE_CARD_ACTION),
+			CaptureCard(payload: options).toCommand(name: CAPTURE_CARD_ACTION),
 			StartActionCommand(name: CAPTURE_CARD_ACTION),
 			CreateActionControlCommand(
 				actionName: CAPTURE_CARD_ACTION,

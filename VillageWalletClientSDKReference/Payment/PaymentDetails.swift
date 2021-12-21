@@ -43,13 +43,12 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	private var paymentOutcome: PaymentOutcomes = .noOutcome
 
 	private var framesActionHandler: FramesActionHandler?
+	private var cardCaptureOptions: CaptureCard.Payload?
 
 	/*
 	 * Because the Frames SDK only emits validation changes we need to record them.
 	 */
-	private var cardNumberValid: Bool = false
-	private var cardExpiryValid: Bool = false
-	private var cardCvvValid: Bool = false
+	private var framesFormValid: Bool = false
 
 	/*
 	 * If we try to validate a card more than once, we should stop and fail.
@@ -103,15 +102,10 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 
 	func onValidationChange(domId: String, isValid: Bool) {
 		debug(message: "onValidationChange(\(domId), isValid: \(isValid))")
+	}
 
-		switch (domId) {
-			case CARD_NO_DOM_ID: cardNumberValid = isValid
-			case CARD_EXPIRY_DOM_ID: cardExpiryValid = isValid
-			case CARD_CVV_DOM_ID: cardCvvValid = isValid
-
-			default:
-				break
-		}
+	func onFormValidationChange(isValid: Bool) {
+		framesFormValid = isValid
 
 		/*
 		 * If the user has already selected to use a new card to pay,
@@ -126,7 +120,7 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 				break
 		}
 
-		if (newCardValid()) {
+		if (framesFormValid) {
 			framesMessage.text = ""
 		}
 	}
@@ -138,13 +132,13 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	func onPageLoaded() {
 		debug(message: "onPageLoaded()")
 
+		cardCaptureOptions = Commands.cardCaptureOptions(options: CardCaptureOptions(
+			wallet: appDelegate.customerWallet,
+			require3DS: appDelegate.require3DSNPA
+		))
+
 		do {
-			try Commands.cardCaptureCommand(
-				options: CardCaptureOptions(
-					wallet: appDelegate.customerWallet,
-					require3DS: appDelegate.require3DSNPA
-				)
-			).post(view: framesHost)
+			try Commands.cardCaptureCommand(options: cardCaptureOptions!).post(view: framesHost)
 		}
 		catch {
 			fatalError("Can't post card capture command")
@@ -176,7 +170,7 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 	}
 
 	@IBAction func selectNewCardPaymentOption() {
-		changePaymentOption(option: .newCard(valid: newCardValid()))
+		changePaymentOption(option: .newCard(valid: framesFormValid))
 	}
 
 	@IBAction func selectExistingCardPaymentOption() {
@@ -305,6 +299,7 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 			GroupCommand(name: "completeCardCapture", commands:
 				try CompleteActionCommand(
 					name: CAPTURE_CARD_ACTION,
+					save: cardCaptureOptions!.save,
 					challengeResponses: challengeResponse
 				)
 			).post(view: framesHost, callback: nil)
@@ -493,10 +488,6 @@ class PaymentDetails: UIViewController, UITableViewDataSource, FramesViewCallbac
 				fn()
 			}
 		})
-	}
-
-	private func newCardValid() -> Bool {
-		cardNumberValid && cardExpiryValid && cardCvvValid
 	}
 }
 

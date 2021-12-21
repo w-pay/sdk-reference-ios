@@ -38,7 +38,7 @@ PODS:
     - ISO8601 (~> 0.6)
     - JSONModel (~> 1.2)
     - VillageWalletSDK (~> 4.4.5)
-  - WPayFramesSDK (0.3.0)
+  - WPayFramesSDK (0.4.1)
 
 DEPENDENCIES:
   - DLRadioButton (~> 1.4)
@@ -47,7 +47,7 @@ DEPENDENCIES:
   - SnackBar.swift
   - "VillageWalletSDK (from `git@github.com:w-pay/sdk-wpay-ios.git`, tag `v4.4.6`)"
   - "VillageWalletSDKOAIClient (from `git@github.com:w-pay/sdk-wpay-openapi-ios.git`, tag `v4.5.1`)"
-  - "WPayFramesSDK (from `git@github.com:w-pay/sdk-wpay-ios-frames.git`, tag `v0.3.0`)"
+  - "WPayFramesSDK (from `git@github.com:w-pay/sdk-wpay-ios-frames.git`, tag `v0.4.1`)"
 
 SPEC REPOS:
   trunk:
@@ -72,7 +72,7 @@ EXTERNAL SOURCES:
     :tag: v4.5.1
   WPayFramesSDK:
     :git: "git@github.com:w-pay/sdk-wpay-ios-frames.git"
-    :tag: v0.3.0
+    :tag: v0.4.1
 
 CHECKOUT OPTIONS:
   VillageWalletSDK:
@@ -83,7 +83,7 @@ CHECKOUT OPTIONS:
     :tag: v4.5.1
   WPayFramesSDK:
     :git: "git@github.com:w-pay/sdk-wpay-ios-frames.git"
-    :tag: v0.3.0
+    :tag: v0.4.1
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -99,8 +99,8 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   VillageWalletSDK: 79e76fdbf1b02e071f137988f764bc6c60188af6
   VillageWalletSDKOAIClient: 3ab44133c046ebe4c2e4285a0b4b7aa754c4014a
-  WPayFramesSDK: 111cabe69be5976cc20fa14bbb50f72c8c9d209f
+  WPayFramesSDK: 7788fc228330b4305588fc829664873aa2d85f7c
 
-PODFILE CHECKSUM: e0196ebc3a5e0e39291cb3604f2c8808a9236d86
+PODFILE CHECKSUM: 5013a814a81a83a11f25fa23d609096aee3d677a
 
 COCOAPODS: 1.10.2

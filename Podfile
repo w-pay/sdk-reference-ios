@@ -13,7 +13,7 @@ target "VillageWalletClientSDKReference" do
 
   pod "VillageWalletSDKOAIClient", :git => "git@github.com:w-pay/sdk-wpay-openapi-ios.git", :tag => "v4.5.1"
   pod "VillageWalletSDK", :git => "git@github.com:w-pay/sdk-wpay-ios.git", :tag => "v4.4.6"
-  pod "WPayFramesSDK", :git => "git@github.com:w-pay/sdk-wpay-ios-frames.git", :tag => "v0.3.0"
+  pod "WPayFramesSDK", :git => "git@github.com:w-pay/sdk-wpay-ios-frames.git", :tag => "v0.4.1"
 
   target "VillageWalletClientSDKReferenceTests" do
     # Pods for testing
